@@ -1,0 +1,11 @@
+StaticModelEntity : "{3A6623EADBD13358}Prefabs/Structures/Military/Camps/TentSmallUS_01/TentSmallUS_01_Base.et" {
+ ID "527A8AD695FFFB56"
+ components {
+  RigidBody "{527A8AD68ADF352C}" {
+   ResponseIndex "HugeDestructible"
+  }
+  RplComponent "{5986701D575DF39B}" {
+  }
+ }
+ coords 3.579 4.578 3.105
+}

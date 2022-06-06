@@ -1,0 +1,238 @@
+$grp CommentEntity {
+ comment_03 {
+  coords 11388.217 84.979 11199.463
+  angleY -90
+  m_Comment "Stage 03 - Lighthouse"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+ comment_02 {
+  coords 11375.913 51.304 11015.454
+  angleY -90
+  m_Comment "Stage 02 - Road"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+ comment_01 {
+  coords 11495.209 6.572 10891.32
+  angleY -90
+  m_Comment "Stage 01 - Village"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+}
+SCR_SpawnPoint spawnPoint_1 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 11386.046 69.406 11193.371
+ m_fSpawnRadius 3
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Lighthouse"
+ }
+}
+$grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/RoadBlock_01.et" {
+ {
+  coords 11387.864 33.468 11015.055
+  angleY -59.848
+ }
+ {
+  coords 11383.708 33.354 11009.06
+  angleY -59.848
+ }
+ {
+  coords 11386.583 33.254 11013.427
+  angleY -59.848
+ }
+}
+GenericEntity : "{7A32336CED936A26}Prefabs/Compositions/Misc/SubCompositions/CanvasCover_Cluttered_USSR_01.et" {
+ coords 11378.735 69.407 11186.321
+ angleY 0
+}
+NO_SCR_SpawnTrigger east_spawn_1_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 11497.232 1.851 10890.743
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ {
+  GenericEntity east_grp_3 : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+     m_bSpawnImmediately 1
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+       prefab {
+        "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BB8BE3B2E3B}" {
+       CountOfPlayers 4
+       prefab {
+        "{A2F75E45C66B1C0A}Prefabs/Groups/OPFOR/Group_USSR_MachineGunTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BB8BEFB016F}" {
+       CountOfPlayers 8
+       prefab {
+        "{657590C1EC9E27D3}Prefabs/Groups/OPFOR/Group_USSR_LightFireTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -116.929 67.556 301.312
+   {
+    SCR_DefendWaypoint east_grp_3_WP {
+     ID "59889B9006450E17"
+     CompletionRadius 75
+    }
+   }
+  }
+  GenericEntity east_grp_2 : "{211A178E09D4A982}Prefabs/NO_DSF/Groups/SpawnAiGroupGetInNearest.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B97CD4397F5}" {
+     m_bSpawnImmediately 1
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24AF64AF3CD}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BB8CF93EBDA}" {
+       CountOfPlayers 4
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BB8FA6BE7FB}" {
+       CountOfPlayers 8
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -118.779 33.454 129.775
+   {
+    SCR_BoardingWaypoint east_grp_2_WP {
+     ID "59889B900945A59C"
+     m_bCargoAllowed 0
+    }
+   }
+  }
+  GenericEntity east_grp_1 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+     m_bSpawnImmediately 1
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BBA7D1FE5F6}" {
+       CountOfPlayers 4
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{59893BBA6A04BF3A}" {
+       CountOfPlayers 8
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -1.529 0.001 0.617
+   {
+    SCR_AIWaypoint east_grp_1_wp1 {
+     ID "59889B900EBD4CB4"
+     coords -15.968 -0.008 13.127
+    }
+    SCR_AIWaypoint east_grp_1_wp2 {
+     ID "59889B900EBDF8B9"
+     coords 17.141 -0.005 -15.992
+    }
+    SCR_AIWaypoint east_grp_1_wp3 {
+     ID "59889B900EBDF8BA"
+     coords -10.591 0.002 -48.955
+    }
+    SCR_AIWaypoint east_grp_1_wp4 : "{22A875E30470BD4F}Prefabs/AI/Waypoints/AIWaypoint_Patrol.et" {
+     components {
+      Hierarchy "{59889B934939C66E}" {
+      }
+      RplComponent "{59889B9394275625}" {
+      }
+     }
+     coords 13.313 0.002 -15.755
+    }
+   }
+  }
+  $grp GenericEntity : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+   east_veh_1 {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et"
+        }
+       }
+      }
+      m_bSpawnImmediately 1
+     }
+    }
+    coords -11.835 0.133 20.023
+    angleY 168.226
+   }
+   east_veh_2 {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+       }
+      }
+      m_bSpawnImmediately 1
+     }
+    }
+    coords -113.999 32.338 125.97
+    angleY 127.13
+   }
+   east_veh_3 {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{4597626AF36C0858}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320.et"
+        }
+       }
+      }
+      m_bSpawnImmediately 1
+     }
+    }
+    coords -158.556 60.585 331.16
+    angleY 86.049
+   }
+  }
+ }
+}
+GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
+ components {
+  SCR_FireplaceComponent "{5876E7F288BF5C8E}" {
+   m_eInitialLightState LIT
+  }
+ }
+ coords 11391.887 69.406 11190.097
+}
+GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Systems/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
+ coords 11483.92 1.856 10915.643
+ angleY 80.626
+}

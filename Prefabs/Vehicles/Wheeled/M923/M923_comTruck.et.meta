@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{033C909B183F4149}Prefabs/Vehicles/Wheeled/M923/M923_comTruck.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

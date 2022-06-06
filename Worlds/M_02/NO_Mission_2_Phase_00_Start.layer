@@ -1,0 +1,237 @@
+CommentEntity WP {
+ components {
+  NwkMovementComponent "{5986959BFCA0093B}" {
+  }
+  RplComponent "{597B339E8AA33512}" {
+  }
+ }
+ coords 10884.835 10.749 8686.991
+ angleY -90
+ m_Comment "Waypoint"
+ m_Size 3
+ m_Color 1 1 1
+ m_FaceCamera 1
+ m_VisibleOverall 1
+}
+SCR_BaseTriggerEntity waypoint_trg {
+ coords 10969.604 19.594 8680.549
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 10
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_1\").GetOrigin();"\
+ "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+ "		"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"waypoint_trg\"));"\
+ "	"
+}
+GenericEntity : "{457331BE1519B200}Prefabs/Props/Furniture/BunkBed_01.et" {
+ coords 10884.747 10.166 8679.397
+}
+$grp GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
+ {
+  components {
+   SCR_BaseInteractiveLightComponent "{5876E7CF88610C12}" {
+    m_eInitialLightState LIT
+   }
+   ActionsManagerComponent "{5876E7CFF5785C2B}" {
+    Enabled 0
+   }
+  }
+  coords 10884.956 10.694 8687.528
+  {
+   LightEntity {
+    components {
+     RplComponent "{598895DEE024C47D}" {
+     }
+    }
+    coords 0.002 0.202 -0.002
+    Color 1 0.631 0.212 0
+    LV 0.5
+    ClipEV -10
+    Radius 15
+    Visualization Opaque
+    VolLightIntensity 0
+   }
+  }
+ }
+ {
+  components {
+   SCR_BaseInteractiveLightComponent "{5876E7CF88610C12}" {
+    m_eInitialLightState LIT
+   }
+   ActionsManagerComponent "{5876E7CFF5785C2B}" {
+    Enabled 0
+   }
+  }
+  coords 10882.466 9.998 8670.734
+  {
+   LightEntity {
+    components {
+     RplComponent "{598895DEE024C47D}" {
+     }
+    }
+    coords 0.002 0.202 -0.002
+    Color 1 0.631 0.212 0
+    LV 0.5
+    ClipEV -10
+    Radius 15
+    Visualization Opaque
+    VolLightIntensity 0
+   }
+  }
+ }
+ {
+  components {
+   SCR_BaseInteractiveLightComponent "{5876E7CF88610C12}" {
+    m_eInitialLightState LIT
+   }
+   ActionsManagerComponent "{5876E7CFF5785C2B}" {
+    Enabled 0
+   }
+  }
+  coords 10877.935 7.567 8704.256
+  {
+   LightEntity {
+    components {
+     RplComponent "{598895DEE024C47D}" {
+     }
+    }
+    coords 0.002 0.202 -0.002
+    Color 1 0.631 0.212 0
+    LV 0.5
+    ClipEV -10
+    Radius 15
+    Visualization Opaque
+    VolLightIntensity 0
+   }
+  }
+ }
+}
+NO_SCR_MissionTrigger infil_A_portTrg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+ coords 10809.279 1.476 8730.134
+ SphereRadius 5
+ DrawShape 0
+ UpdatePeriod 3
+ m_bIsActive 0
+ m_bEnableTeleport 1
+ m_vMovePosition 6574.101 0.386 3147.073
+ m_sNOSpawnTriggerNames {
+  "east_A_1_spawnTrg"
+ }
+ m_sFinishTaskNames {
+  "tsk_hub_2"
+ }
+ m_sUnlockTaskKeys {
+  "tsk_main_A_1_true"
+ }
+ m_sWaypointLocationName "wpTrg_A_1"
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
+   m_sSpawnpointName "spawnPoint_0"
+   m_sFactionKey "0"
+  }
+ }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomTime 1
+  m_bUseCustomWeather 1
+  m_fCustomTimeOfTheDay 22
+ }
+}
+SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 10841.143 8.261 8733.547
+ angleY -95.251
+ m_fSpawnRadius 5
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "BlackOps hideout"
+ }
+}
+NO_SCR_SpawnTrigger infil_A_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 10884.253 9.811 8686.968
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ m_bDelete 0
+ {
+  GenericEntity infil_A_radio : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+       prefab {
+        "{1E0F95B559A868F2}Prefabs/Items/Equipment/M_02/opActivatorOff.et"
+       }
+      }
+     }
+    }
+   }
+   coords 0.716 0.882 -0.051
+   angleY -52.5
+  }
+ }
+}
+GenericEntity : "{B3283803059E2750}Prefabs/Props/Crates/CrateWooden_01_plain.et" {
+ components {
+  Hierarchy "{56A6E94F3F29A926}" {
+   Enabled 1
+  }
+  SCR_SlotCompositionComponent "{5706EA5A70526875}" : "{F27DCA13BB9C3F3B}Prefabs/Editor/Components/SlotCompositionComponent.ct" {
+   m_bOrientChildrenToTerrain 0
+  }
+  RplComponent "{5706EA5A71BDF0F4}" {
+  }
+ }
+ coords 10885.001 9.888 8687.039
+}
+GenericEntity : "{BE99D77D1155B127}Prefabs/Systems/Arsenal/ArsenalBoxes/US/ArsenalBox_US.et" {
+ coords 10834.866 7.053 8729.511
+ angleY 2.526
+}
+GenericEntity opActivator : "{CCB14E0E5C278B73}Prefabs/MP/Campaign/Assets/CampaignHQRadioWest.et" {
+ components {
+  ActionsManagerComponent "{5456ACF8FA555949}" {
+   ActionContexts {
+    UserActionContext "{59888D491B663E83}" {
+     UIInfo UIInfo "{59888D4918AF117C}" {
+     }
+     ContextName "op_A_intel"
+     Position PointInfo "{59888D490065D615}" {
+     }
+    }
+   }
+   additionalActions {
+    NO_SCR_OpIntel_Action "{59888D4907F82B5E}" {
+     ParentContextList {
+      "op_A_intel"
+     }
+     UIInfo UIInfo "{59888D490A6C1178}" {
+      Name "Start Opeation A: INTEL"
+     }
+     Duration 3
+    }
+   }
+  }
+  RplComponent "{598895DE390A822B}" {
+  }
+ }
+ coords 10884.965 10.694 8686.921
+ angleY -53.223
+}
+GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
+ components {
+  SCR_FireplaceComponent "{5876E7F288BF5C8E}" {
+   m_eInitialLightState LIT
+  }
+ }
+ coords 10836.936 7.65 8734.445
+}

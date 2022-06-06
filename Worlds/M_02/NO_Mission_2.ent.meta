@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{6A0B259D36640DEF}Worlds/M_02/NO_Mission_2.ent"
+ Configurations {
+  ENTResourceClass PC {
+  }
+  ENTResourceClass XBOX_ONE : PC {
+  }
+  ENTResourceClass XBOX_SERIES : PC {
+  }
+  ENTResourceClass PS4 : PC {
+  }
+  ENTResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,66 @@
+Projectile : "{D40A105437369C1D}Prefabs/Weapons/Core/Ammo_GrenadeLauncher_Base.et" {
+ ID "50C6F965BA00F9FA"
+ components {
+  SoundComponent "{5978A7D8D4417703}" {
+   Filenames {
+    "{12A94705DF2BFD25}Sounds/Items/_SharedData/PickUp/Items_PickUp_Generic.acp"
+   }
+  }
+  CollisionTriggerComponent "{5978A7D8D441771B}" {
+   PROJECTILE_EFFECTS {
+    ExplosionEffect "{5978A7D8D441771F}" {
+     EffectPrefab "{620E8AF45A5143D7}Prefabs/Weapons/Warheads/Warhead_Grenade_HE_M406.et"
+     ParticleEffect "{E1E084593B8A05D2}Particles/Weapon/Smoke_grenade_M18_Yellow.ptc"
+     SoundEvent "SOUND_EXPLOSION"
+    }
+   }
+   SafetyDistance 15
+  }
+  InventoryItemComponent "{52627A12350994B6}" {
+   Attributes SCR_ItemAttributeCollection "{52627A1234AD20A4}" {
+    ItemDisplayName UIInfo "{5978A7D8D4417715}" {
+     Name "M716 Smoke"
+     Description "M716 Smokeshell (Yellow) for M203 Grenadelauncher"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{5978A7D8D4417717}" {
+     Weight 0.23
+     SizeSetupStrategy Volume
+     ItemVolume 100
+    }
+    m_Size SLOT_1x1
+   }
+  }
+  MagazineComponent "{5978A7D8D4417728}" {
+   MagazineWell MagazineWellUS_UGL "{5978A7D8D441772B}" {
+   }
+   UIInfo MagazineUIInfo "{5978A7D8D441772A}" {
+    m_sAmmoCaliber "#AR-AmmunitionID_40x46mm"
+    m_sAmmoType "#AR-AmmoType_M406"
+    m_bShowAmmoTypeText 1
+    m_eAmmoTypeFlags HE
+    m_MagIndicator SCR_MagazineIndicatorConfiguration "{5874FAA4FA86F538}" : "{BE317699690AD7C3}Configs/WeaponInfo/MagazineIndicators/ugl_m406.conf" {
+    }
+   }
+   MaxAmmo 1
+  }
+  MeshObject "{851AA4A2AE0A56BF}" {
+   Object "{0B14D71F69360619}Assets/Weapons/Ammo/Grenades/M433/M433.xob"
+  }
+  Hierarchy "{5978A7D8D4417721}" {
+  }
+  RigidBody "{5978A7D8D4417720}" {
+   LayerPreset "Projectile"
+   ModelGeometry 1
+  }
+  ShellMoveComponent "{20FB66C5FA209A29}" {
+   TimeToLive 0.2
+   ProjectileEffects {
+    BaseDamageEffect "{5184D7800EFDF1D7}" {
+     DamageValue 10
+    }
+   }
+  }
+ }
+ ProjectileModel "{D79EBB1BB388141E}Assets/Weapons/Ammo/Grenades/M433/M433_projectile.xob"
+ CartridgeModel "{0B14D71F69360619}Assets/Weapons/Ammo/Grenades/M433/M433.xob"
+}

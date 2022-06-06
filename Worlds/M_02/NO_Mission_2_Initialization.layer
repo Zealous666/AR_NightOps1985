@@ -1,0 +1,221 @@
+GenericWorldFogEntity Fog_Haze2 {
+ coords 22.274 0 -29.957
+ FakeDistFog 1
+ HeightDensity 0.94
+ DistanceDensity 0.362
+ HeightOffset 0
+ Color 0.5 0.5 0.5 0
+ ColorBack 0.4 0.4 0.4 0
+}
+SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+ components {
+  NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
+   m_fCustomTimeOfTheDay 18.35
+  }
+  SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
+   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" {
+    m_aGameOverScreens {
+     SCR_FactionVictoryGameOverScreenInfo "{568EB6DFEF507060}" {
+      m_OptionalParams SCR_BaseGameOverScreenInfoOptional "{568EB6DFF87D9C84}" {
+       m_sTitle "Night Operations"
+      }
+     }
+    }
+   }
+  }
+  SCR_RespawnBriefingComponent "{597B2CEE9F5D61F8}" {
+   m_aGameModeHints {
+    SCR_UIInfo "{597D4ACAA84A8F75}" {
+     Name "Operation: INTEL"
+     Description "Use the radio in the BlackOps hideout and travel to the AO. Then aquire two intel pieces in the town of REGINA and MONTFORT CASTLE before exfiltrating successfully. You can also establish a temporary bivouac for another spawnpoint."
+    }
+    SCR_UIInfo "{597D4ACB34DE8633}" {
+     Name "Operation: SABOTAGE"
+     Description "Use the radio in the BlackOps hideout and travel to the AO. Then establish a temporary bivouac and infiltrate a military base near LEVIE to destroy two fuel trucks before exfiltrating the area."
+    }
+    SCR_UIInfo "{597D4ACBC52503DB}" {
+     Name "Operation: HITMAN"
+     Description "Use the radio in the BlackOps hideout and travel to the AO. Then find and neutralize a high valuable target. If he flees, establish a temporary bivouac as a fallback position and chase him down."
+    }
+   }
+   m_aWinConditions {
+    SCR_BriefingVictoryCondition "{597B2CEE8C898900}" {
+     victoryCondition CUSTOM
+     name "tsk_0"
+     description "Use the radio to start one of the following operations:"
+    }
+    SCR_BriefingVictoryCondition "{597D4921D77E3D3D}" {
+     victoryCondition EVACUATE
+     name "tsk_1"
+     description "INTEL: Aquire two intel pieces in REGINA and MONTFORT CASTLE"
+    }
+    SCR_BriefingVictoryCondition "{597D4921DEAC8B51}" {
+     victoryCondition REFUEL
+     name "tsk_2"
+     description "SABOTAGE: Destroy two fuel trucks in the soviet base near LEVIE"
+    }
+    SCR_BriefingVictoryCondition "{598B53B10C53A7C9}" {
+     victoryCondition SEIZE
+     name "tsk_3"
+     description "HITMAN: Chase and neutralize a HVT - be aware, he can flee."
+    }
+   }
+  }
+  SCR_RespawnMenuHandlerComponent "{597B2EF80CE41F6C}" {
+   m_sFactionMenuMessage "US BlackOps Team"
+  }
+ }
+ coords 22.52 0 -30.36
+ {
+  SCR_AIWorld {
+   ID "598B45657FF365AF"
+   components {
+    NavmeshWorldComponent "{5584F30E67F617AD}" {
+     NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+      NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+     }
+    }
+   }
+  }
+  SCR_LoadoutManager {
+   ID "598B45657FF3F701"
+   m_aPlayerLoadouts {
+    SCR_FactionPlayerLoadout "{596EB2A326D1EE2D}" {
+     m_sLoadoutName "BlackOps (Demo)"
+     m_sLoadoutResource "{693C1F3C315F96AD}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Demo.et"
+    }
+    SCR_FactionPlayerLoadout "{598B53B1AF653690}" {
+     m_sLoadoutName "BlackOps (Operator)"
+     m_sLoadoutResource "{DDC0421DF41207DF}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Operator.et"
+     m_sLoadoutImage "{2B0877799B9B6C66}UI/Textures/EditorPreviews/Characters/BLUFOR/US_Army/Character_US_Rifleman.edds"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{598B53B1AF8F0579}" {
+     m_sLoadoutName "BlackOps (Recon)"
+     m_sLoadoutResource "{E0F46725817E8EE8}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Recon.et"
+     m_sLoadoutImage "{2B0877799B9B6C66}UI/Textures/EditorPreviews/Characters/BLUFOR/US_Army/Character_US_Rifleman.edds"
+     m_sAffiliatedFaction "US"
+    }
+   }
+  }
+ }
+}
+NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Tasks/CoopTaskManager.et" {
+ components {
+  SCR_TextsTaskManagerComponent "{5974A9373E8681C5}" : "{6F59CB11B5383430}Prefabs/MP/Managers/Tasks/TaskManagerComponent.ct" {
+  }
+  SCR_UITaskManagerComponent "{5974A9373B80F799}" {
+  }
+  RplComponent "{5974A937238A9AB9}" {
+  }
+ }
+ coords 11556.793 -29.223 10662.389
+ m_aInitialTaskNames {
+  "tsk_hub_1"
+ }
+ AdditionalObjectives {
+  SolidObjectives "{5986C40F1C0CBB77}" {
+   m_UnlockKey "tsk_hub_2_true"
+   m_TaskNames {
+    "tsk_hub_2"
+   }
+  }
+  SolidObjectives "{59755188C4ECA04C}" {
+   m_UnlockKey "tsk_main_A_1_true"
+   m_TaskNames {
+    "tsk_main_A_1"
+   }
+   m_UnlockSpawnpoint "spawnPoint_A_0"
+  }
+  SolidObjectives "{597B198A09CB0336}" {
+   m_UnlockKey "tsk_main_A_2_true"
+   m_TaskNames {
+    "tsk_main_A_2" "tsk_bonus_A"
+   }
+   m_UnlockSpawnpoint "spawnPoint_A_1"
+  }
+  SolidObjectives "{5982BD70E04DE2F1}" {
+   m_UnlockKey "tsk_main_A_3_true"
+   m_TaskNames {
+    "tsk_main_A_3"
+   }
+   m_UnlockSpawnpoint "spawnPoint_A_2"
+  }
+ }
+ {
+  $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
+   tsk_bonus_A {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -2786.646 340.424 -8953.279
+    m_sName "Establish temporary bivouac"
+    m_sDescription "Establish a temporary bivouac as a respawn position before infiltrating the castle"
+    m_sMapIconName "Task_Move"
+    m_sTaskListIconName "Task_Move"
+    m_bNotifyAssignment 1
+   }
+   tsk_hub_1 {
+    components {
+     RplComponent "{597B339E9598B23C}" {
+     }
+    }
+    coords -671.869 40.185 -1975.535
+    m_sName "Interact with radio in BlackOps hideout"
+    m_sDescription "Interact with the radio in the BlackOps hideout and decide which night operation to start."
+    m_sMapIconName "Task_Custom"
+    m_sTaskListIconName "Task_Custom"
+    m_bNotifyAssignment 1
+   }
+   tsk_hub_2 {
+    components {
+     RplComponent "{597B339E9598B23C}" {
+     }
+    }
+    coords -749.303 30.827 -1931.305
+    m_sName "Rally all players at peer"
+    m_sDescription "Rally the whole team at the peer to start the operation."
+    m_sMapIconName "Task_Move"
+    m_sTaskListIconName "Task_Move"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_A_1 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -4358.029 168.219 -8370.857
+    m_sName "Collect Intel in Regina"
+    m_sDescription "Collect the first intel piece in the Town of REGINA."
+    m_sMapIconName "Task_Custom"
+    m_sTaskListIconName "Task_Custom"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_A_2 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -2242.134 254.406 -9500.981
+    m_sName "Collect Intel in the Castle"
+    m_sDescription "Collect another intel piece in the MONTFORT Castle."
+    m_sMapIconName "Task_Custom"
+    m_sTaskListIconName "Task_Custom"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_A_3 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -2298.804 30.46 -10250.689
+    m_sName "Exfil AO"
+    m_sDescription "Reach exfiltration point to leave the area of operation."
+    m_sMapIconName "Task_Move"
+    m_sTaskListIconName "Task_Move"
+    m_bNotifyAssignment 1
+   }
+  }
+ }
+}

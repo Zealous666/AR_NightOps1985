@@ -1,0 +1,127 @@
+NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+ coords 9255.492 0.742 411.276
+ SphereRadius 10
+ DrawShape 0
+ UpdatePeriod 1
+ m_bIsActive 0
+ m_vMovePosition 6574.101 0.386 3147.073
+ m_sFinishTaskNames {
+  "tsk_main_A_3"
+ }
+ m_sUnlockTaskKeys {
+  ""
+ }
+ m_bEnableGameOver 1
+}
+NO_SCR_SpawnTrigger east_A_3_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 9311.094 28.938 624.918
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ m_bDelete 0
+ {
+  $grp GenericEntity : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+   east_grp_A_10 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F885B072}" {
+        CountOfPlayers 4
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F953270E}" {
+        CountOfPlayers 8
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+      }
+     }
+    }
+    coords -19.693 1.212 13.351
+    {
+     AIWaypointCycle east_grp_A_10_WPC {
+      ID "59889B900EBD4CB5"
+      coords -3.415 0.213 0
+     }
+     SCR_AIWaypoint east_grp_A_10_WP1 {
+      ID "59889B900EBD4CB4"
+      coords -15.655 1.534 7.418
+     }
+     SCR_AIWaypoint east_grp_A_10_WP2 {
+      ID "59889B900EBDF8B9"
+      coords 24.661 -1.527 -12.597
+     }
+     SCR_AIWaypoint east_grp_A_10_WP3 {
+      ID "59889B900EBDF8BA"
+      coords 45.896 -3.603 -62.096
+     }
+    }
+   }
+   east_grp_A_9 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F885B072}" {
+        CountOfPlayers 4
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F953270E}" {
+        CountOfPlayers 8
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+      }
+     }
+    }
+    coords 22.883 -2.372 -48.134
+    {
+     AIWaypointCycle east_grp_A_9_WPC {
+      ID "59889B900EBD4CB5"
+     }
+     SCR_AIWaypoint east_grp_A_9_WP1 {
+      ID "59889B900EBD4CB4"
+      coords 0.52 -0.025 -0.781
+     }
+     SCR_AIWaypoint east_grp_A_9_WP2 {
+      ID "59889B900EBDF8B9"
+      coords -19.135 2.129 49.575
+     }
+     SCR_AIWaypoint east_grp_A_9_WP3 {
+      ID "59889B900EBDF8BA"
+      coords -58.611 5.125 67.821
+     }
+    }
+   }
+  }
+  GenericEntity east_obj_A_2 : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+       prefab {
+        "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et"
+       }
+      }
+     }
+    }
+   }
+   coords 7.045 -0.349 2.17
+  }
+ }
+}

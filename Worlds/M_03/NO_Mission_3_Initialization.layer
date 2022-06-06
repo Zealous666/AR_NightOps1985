@@ -1,0 +1,32 @@
+GenericWorldFogEntity Fog_Haze2 {
+ coords 22.274 0 -29.957
+ FakeDistFog 1
+ HeightDensity 0.94
+ DistanceDensity 0.362
+ HeightOffset 0
+ Color 0.5 0.5 0.5 0
+ ColorBack 0.4 0.4 0.4 0
+}
+SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+ components {
+  NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
+   m_iCustomMonth 10
+   m_iCustomDay 1
+   m_fCustomTimeOfTheDay 13
+   m_sCustomWeather "Rainy"
+  }
+ }
+ coords 23.227 0 -58.414
+ {
+  SCR_AIWorld {
+   ID "598B45657FF365AF"
+   components {
+    NavmeshWorldComponent "{5584F30E67F617AD}" {
+     NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+      NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+     }
+    }
+   }
+  }
+ }
+}

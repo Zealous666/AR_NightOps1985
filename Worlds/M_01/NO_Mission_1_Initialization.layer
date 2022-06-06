@@ -1,0 +1,364 @@
+GenericWorldFogEntity Fog_Haze2 {
+ coords 22.274 0 -29.957
+ FakeDistFog 1
+ HeightDensity 0.94
+ DistanceDensity 0.362
+ HeightOffset 0
+ Color 0.5 0.5 0.5 0
+ ColorBack 0.4 0.4 0.4 0
+}
+SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+ components {
+  SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
+   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" {
+    m_aGameOverScreens {
+     SCR_FactionVictoryGameOverScreenInfo "{568EB6DFEF507060}" {
+      m_OptionalParams SCR_BaseGameOverScreenInfoOptional "{568EB6DFF87D9C84}" {
+       m_sTitle "Flashpoint 1985"
+      }
+     }
+    }
+   }
+  }
+  SCR_RespawnBriefingComponent "{597B2CEE9F5D61F8}" {
+   m_aGameModeHints {
+    SCR_UIInfo "{597D4ACAA84A8F75}" {
+     Name "Secure Lighthouse"
+     Description "Clear and secure the Lighthouse above the insertion area to unlock another spawn point."
+    }
+    SCR_UIInfo "{597D4ACB34DE8633}" {
+     Name "Secure Radio Uplink"
+     Description "Clear and secure the soviet radio uplink next to an farmhouse to unlock another spawn point."
+    }
+    SCR_UIInfo "{597D4ACBC52503DB}" {
+     Name "Capture Soviet Com Truck"
+     Description "Secure and capture a soviet command truck to finish the mission. The truck must not be destroyed or the mission will fail."
+    }
+   }
+   m_aWinConditions {
+    SCR_BriefingVictoryCondition "{597B2CEE8C898900}" {
+     description "Secure Lighthouse"
+    }
+    SCR_BriefingVictoryCondition "{597D4921D77E3D3D}" {
+     victoryCondition SEIZE
+     description "Secure Radio Uplink"
+    }
+    SCR_BriefingVictoryCondition "{597D4921DEAC8B51}" {
+     description "Capture Command Truck"
+    }
+   }
+  }
+  SCR_RespawnMenuHandlerComponent "{597B2EF80CE41F6C}" {
+   m_sFactionMenuMessage "US BlackOps Team"
+  }
+ }
+ coords 11576.713 0 10649.332
+ {
+  SCR_AIWorld {
+   ID "598B45657FF365AF"
+   components {
+    NavmeshWorldComponent "{5584F30E67F617AD}" {
+     NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+      NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+     }
+    }
+   }
+  }
+  SCR_LoadoutManager {
+   ID "598B45657FF3F701"
+   m_aPlayerLoadouts {
+    SCR_FactionPlayerLoadout "{596EB2A326D1EE2D}" {
+     m_sLoadoutName "BlackOps (Demo)"
+     m_sLoadoutResource "{693C1F3C315F96AD}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Demo.et"
+    }
+    SCR_FactionPlayerLoadout "{598B53B362A83A27}" {
+     m_sLoadoutName "BlackOps (Support)"
+     m_sLoadoutResource "{05682BDC8D9B1983}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Support.et"
+     m_sLoadoutImage "{2B0877799B9B6C66}UI/Textures/EditorPreviews/Characters/BLUFOR/US_Army/Character_US_Rifleman.edds"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{598B53B364E910B5}" {
+     m_sLoadoutName "BlackOps (Recon)"
+     m_sLoadoutResource "{E0F46725817E8EE8}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_Recon.et"
+     m_sLoadoutImage "{2B0877799B9B6C66}UI/Textures/EditorPreviews/Characters/BLUFOR/US_Army/Character_US_Rifleman.edds"
+     m_sAffiliatedFaction "US"
+    }
+   }
+  }
+ }
+}
+NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Tasks/CoopTaskManager.et" {
+ components {
+  SCR_TextsTaskManagerComponent "{5974A9373E8681C5}" : "{6F59CB11B5383430}Prefabs/MP/Managers/Tasks/TaskManagerComponent.ct" {
+  }
+  SCR_UITaskManagerComponent "{5974A9373B80F799}" {
+  }
+  RplComponent "{5974A937238A9AB9}" {
+  }
+ }
+ coords 11556.793 -29.223 10662.389
+ m_aInitialTaskNames {
+  "tsk_main_1"
+ }
+ AdditionalObjectives {
+  SolidObjectives "{59755188C4ECA04C}" {
+   m_UnlockKey "tsk_main_1_true"
+   m_TaskNames {
+    "tsk_main_2" "tsk_bonus"
+   }
+   m_UnlockSpawnpoint "spawnPoint_1"
+  }
+  SolidObjectives "{597B198A09CB0336}" {
+   m_UnlockKey "tsk_main_2_true"
+   m_TaskNames {
+    "tsk_main_3"
+   }
+   m_UnlockSpawnpoint "spawnPoint_2"
+  }
+ }
+ {
+  $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
+   tsk_main_1 {
+    components {
+     RplComponent "{597B339E9598B23C}" {
+     }
+    }
+    coords -173.087 98.63 530.647
+    m_sName "Secure Lighthouse"
+    m_sDescription "SECONDARY: Secure the Lighthouse  to unlock another spawn position"
+    m_sMapIconName "Task_Seize"
+    m_sTaskListIconName "Task_Seize"
+    m_bNotifyAssignment 1
+    {
+     SCR_FactionControlTriggerEntity tsk_main_1_trg {
+      components {
+       RplComponent "{597B339E86723483}" {
+       }
+      }
+      coords 0 0 0
+      userScript "		IEntity Owner;"\
+      "		override void OnInit(IEntity owner)"\
+      "		{"\
+      "        Owner = owner;"\
+      "        super.OnInit(owner);"\
+      "		}"
+      TriggerShapeType Sphere
+      SphereRadius 50
+      TriggerActivationType "First change"
+      PeriodicQueries 1
+      ClassFilter "ChimeraCharacter"
+      OnActivate ""\
+      ""\
+      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+      "		hintComponent.ShowCustomHint(\"Spawnpoint at LIGHTHOUSE available\", \"SPAWNPOINT UNLOCKED\", 10);"\
+      "		"\
+      "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_1\"));"\
+      "		task.Finish();"\
+      "		GetTaskManager().FinishTask(task);"\
+      ""\
+      "		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());"\
+      "		coopTM.UnlockObjective(\"tsk_main_1_true\");"\
+      "		"\
+      "		private RplComponent m_pRplComponent;"\
+      "			if(!m_pRplComponent)"\
+      " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
+      "			if(m_pRplComponent.IsMaster())"\
+      " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_2_trg\")).Spawn();"\
+      "	"\
+      "		"\
+      "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_2\").GetOrigin();"\
+      "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+      "		"\
+      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+      "		"\
+      "		"\
+      "	}"\
+      ""\
+      "	protected void DelayedDeSpawn()"\
+      "	{"\
+      "    		SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW MAIN TASK: Secure Radio Uplink\", duration: 5);"\
+      "			SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW BONUS TASK: Claim empty APC\", duration: 5);"\
+      "		"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_main_1_trg\"));"\
+      "	"
+      m_sOwnerFactionKey "US"
+      m_fFriendlyRatioLimit 1
+     }
+    }
+   }
+   tsk_main_2 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -400.589 61.215 931.991
+    m_sName "Secure Radio Uplink"
+    m_sDescription "SECONDARY: Secure the Radio Uplink to unlock another spawn position"
+    m_sMapIconName "Task_Seize"
+    m_sTaskListIconName "Task_Seize"
+    m_bNotifyAssignment 1
+    {
+     SCR_FactionControlTriggerEntity tsk_main_2_trg {
+      components {
+       RplComponent "{597517700187FC76}" {
+       }
+      }
+      coords 3.275 0 3.898
+      userScript "		IEntity Owner;"\
+      "		override void OnInit(IEntity owner)"\
+      "		{"\
+      "        Owner = owner;"\
+      "        super.OnInit(owner);"\
+      "		}"
+      TriggerShapeType Sphere
+      SphereRadius 50
+      TriggerActivationType "First change"
+      PeriodicQueries 1
+      ClassFilter "ChimeraCharacter"
+      OnActivate ""\
+      ""\
+      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+      "		hintComponent.ShowCustomHint(\"Spawnpoint at RADIO UPLINK available\", \"SPAWNPOINT UNLOCKED\", 10);"\
+      "	"\
+      "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_2\"));"\
+      "		task.Finish();"\
+      "		GetTaskManager().FinishTask(task);"\
+      ""\
+      "		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());"\
+      "		coopTM.UnlockObjective(\"tsk_main_2_true\");"\
+      "		"\
+      "		"\
+      "		private RplComponent m_pRplComponent;"\
+      "			if(!m_pRplComponent)"\
+      " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
+      "			if(m_pRplComponent.IsMaster())"\
+      " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_comTruck_trg\")).Spawn();"\
+      "		"\
+      "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_3\").GetOrigin();"\
+      "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+      "	"\
+      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+      "		"\
+      "		"\
+      "	}"\
+      ""\
+      "	protected void DelayedDeSpawn()"\
+      "	{"\
+      "    		SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW MAIN TASK: Capture Com Truck\", duration: 5);"\
+      "		"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_main_2_trg\"));"\
+      "	"
+      m_sOwnerFactionKey "US"
+      m_fFriendlyRatioLimit 1
+     }
+    }
+   }
+   tsk_main_3 {
+    components {
+     RplComponent "{5975177038D51BCA}" {
+     }
+    }
+    coords -649.353 53.761 1075.017
+    m_sName "Capture Com Truck"
+    m_sDescription "Capture the Soviet Com Truck to win the mission"
+    m_bNotifyAssignment 1
+   }
+  }
+  SCR_TriggerTask tsk_bonus : "{7259F0B101761BD5}Prefabs/Tasks/MoveTask.et" {
+   components {
+    RplComponent "{597517706FF88EB6}" {
+    }
+   }
+   coords -184.271 46.577 1169.337
+   m_sName "Bonus: Claim APC (Mobile Spawnpoint)"
+   m_sDescription "SECONDARY: Claim the empty APC to deploy a mobile spawnpoint."
+   m_eAssignMessage NONE
+   m_eUnassignMessage NONE
+   {
+    SCR_BaseFactionTriggerEntity tsk_bonus_trg {
+     ID "55D072570E7E8ABF"
+     components {
+      RplComponent "{597517701A5762C6}" {
+      }
+     }
+     coords -2.036 0.021 -2.813
+     angleY -29.13
+     TriggerShapeType "Oriented Bounding Box"
+     SphereRadius 2
+     BoxMins 0 0 0
+     BoxMaxs 7 2 2.5
+     ShapeColor 0.502 0 0 0.392
+     TriggerActivationType "First change"
+     UpdatePeriod 3
+     OnActivate ""\
+     ""\
+     "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+     "		hintComponent.ShowCustomHint(\"This is a unique APC which attaches a mobile spawnpoint to it as long as the vehicle stays alive.\", \"Moving Spawnpoint\", 30);"\
+     "		"\
+     "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+     "		"\
+     "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_bonus\"));"\
+     "		task.Finish();"\
+     "		GetTaskManager().FinishTask(task);"\
+     "		"\
+     "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+     "		if (rplComponent && !rplComponent.IsProxy())"\
+     "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
+     " "\
+     "    }"\
+     "    "\
+     "    bool QueryFilter(IEntity ent)"\
+     "    {"\
+     "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+     "        "\
+     "        if (!idComponent)"\
+     "            return false;"\
+     "        "\
+     "        return idComponent.GetIdentifier() == \"apc\";"\
+     "    }"\
+     "    "\
+     "    bool QueryHit(IEntity ent)"\
+     "    {"\
+     "        SCR_SpawnPoint spawnPoint = SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\"));"\
+     "        "\
+     "        // If we can find the spawnpoint and target vehicle (ent)"\
+     "        if (spawnPoint)"\
+     "        {"\
+     "            // Unlock it"\
+     "            spawnPoint.SetFactionKey(\"US\");"\
+     "            "\
+     "            // Keep moving it"\
+     "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+     "			if (rplComponent && !rplComponent.IsProxy())"\
+     "            	GetGame().GetCallqueue().CallLater(UpdateAPCSpawnPosition, 1000, true, spawnPoint, ent);"\
+     "        }"\
+     "        "\
+     "        // Ends further queries as we will use the first match found"\
+     "        return false;"\
+     "    }"\
+     "    "\
+     "    void UpdateAPCSpawnPosition(SCR_SpawnPoint spawnPoint, IEntity target)"\
+     "    {"\
+     "        SCR_DamageManagerComponent damageManager = SCR_DamageManagerComponent.Cast(target.FindComponent(SCR_DamageManagerComponent));"\
+     "        "\
+     "        if (!damageManager)"\
+     "            return;"\
+     "        "\
+     "        if (damageManager.IsDestroyed())"\
+     "        {"\
+     "            // VEHICLE DEAD SECTION"\
+     "            GetGame().GetCallqueue().Remove(UpdateAPCSpawnPosition);"\
+     "            spawnPoint.SetFactionKey(\"0\");"\
+     "        }"\
+     "        else"\
+     "        {"\
+     "            // VEHICLE ALIVE SECTION"\
+     "            spawnPoint.SetOrigin(target.GetOrigin());"\
+     "        }"\
+     "    "
+     m_sOwnerFactionKey "US"
+    }
+   }
+  }
+ }
+}

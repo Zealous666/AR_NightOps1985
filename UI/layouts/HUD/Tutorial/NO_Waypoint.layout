@@ -1,0 +1,24 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ Color 0 0.006 1 1
+ {
+  ImageWidgetClass "{5974B767788C7CDD}" {
+   Name "Icon"
+   Slot FrameWidgetSlot "{55DE825BE3E0E026}" {
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 64
+    OffsetRight -64
+    SizeY 64
+    OffsetBottom -64
+    Alignment 0.5 0.5
+   }
+   Color 0.886 0.659 0.31 1
+   Texture "{F7E8D4834A3AFF2F}UI/Imagesets/Conflict/conflict-icons-bw.imageset"
+   Image "USSR_Relay_Select"
+   Size 64 64
+  }
+ }
+}

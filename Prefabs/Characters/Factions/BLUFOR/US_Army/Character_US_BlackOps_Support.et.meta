@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{05682BDC8D9B1983}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_BlackOps_B.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

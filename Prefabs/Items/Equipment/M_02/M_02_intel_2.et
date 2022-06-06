@@ -1,0 +1,49 @@
+GenericEntity : "{7B6990100263E2B3}Prefabs/Items/Core/Map_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "#AR-Item_MapDefault_Name"
+     Description "#AR-Item_MapDefault_Description"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 0.1
+     SizeSetupStrategy Volume
+     ItemVolume 200
+    }
+   }
+  }
+  MeshObject "{598497376783DF53}" {
+   Object "{E0CFE517CA1C358B}Assets/Items/Equipment/Maps/Map_Paper_01/Map_Paper_01_full.xob"
+  }
+  RigidBody "{598497376783DF66}" {
+   LinearDamping 0.5
+   AngularDamping 0.5
+   ModelGeometry 1
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   ActionContexts {
+    UserActionContext "{508AC2ABEC97066C}" {
+     ContextName "pickup"
+    }
+   }
+   additionalActions {
+    SCR_PickUpItemAction "{51EC842E3A187379}" {
+     ParentContextList {
+     }
+    }
+    NO_SCR_Intel_2_Action "{598497376783DF71}" {
+     ParentContextList {
+      "pickup"
+     }
+     UIInfo UIInfo "{598497376783DF73}" {
+      Name "Pickup Intel"
+     }
+     Duration 1
+    }
+   }
+  }
+ }
+ coords 0.253 1.796 1.865
+}

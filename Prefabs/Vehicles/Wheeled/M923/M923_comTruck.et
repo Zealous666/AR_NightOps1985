@@ -1,0 +1,59 @@
+Vehicle : "{38186F12F27A61C6}Prefabs/Vehicles/Wheeled/M923A1/M923A1_command_MERDC.et" {
+ ID "5206D4E79715C115"
+ components {
+  NO_SCR_DeployVehicleComponent "{5972ECB3A30A82A0}" {
+   factionKey "US"
+   m_rnPrefab "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et"
+   m_vSpawnPosition 1 10 1
+  }
+  NO_SCR_IdentifierComponent "{598B6068C2FDA720}" {
+   m_sIdentifier "comTruck"
+  }
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 21809.699
+  }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   ActionContexts {
+    UserActionContext "{5972ECB62BA9F8BD}" {
+     UIInfo UIInfo "{5972ECB6D3C8DCFD}" {
+      Name "Deploy"
+     }
+     ContextName "deployAction"
+     Position PointInfo "{5972ECB6CB864047}" {
+     }
+     Radius 3
+    }
+   }
+   additionalActions {
+    NO_SCR_Deploy_Action "{5972ECB6F33B658E}" {
+     ParentContextList {
+      "deployAction"
+     }
+     UIInfo UIInfo "{5972ECB313D2C45F}" {
+     }
+     Duration 1
+    }
+   }
+   AllowCrossHierarchy 1
+  }
+ }
+ coords 5094.963 14.755 4001.7
+ angleY 173.349
+ m_eVehicleType TRUCK
+ {
+  $grp NO_SCR_VehicleRespawner : "{9068A816F5706480}Prefabs/Vehicles/NO_VehicleRespawner.et" {
+   spawn_west_veh_hummer_2 {
+    ID "597E69466D3F309C"
+    coords 0.376 -0.25 -12.223
+    angleY 0.605
+    m_rnSpawnPrefab "{6B24D5AFD884D64C}Prefabs/Vehicles/Wheeled/M998/M998_MERDC.et"
+   }
+   spawn_west_veh_hummer_1 {
+    ID "597E69466D3F309D"
+    coords -0.155 -0.494 14.621
+    angleY 5.196
+    m_rnSpawnPrefab "{DD774A8FD0989A78}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB_MERDC.et"
+   }
+  }
+ }
+}

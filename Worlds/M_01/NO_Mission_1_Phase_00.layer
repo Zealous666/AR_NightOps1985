@@ -1,0 +1,66 @@
+$grp CommentEntity {
+ comment_00 {
+  coords 11585.176 19.354 10882.976
+  angleY -90
+  m_Comment "Stage 00 - Insertion"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+ WP {
+  components {
+   NwkMovementComponent "{5986A49B4F43C958}" {
+   }
+   RplComponent "{597B339E8AA33512}" {
+   }
+  }
+  coords 11487.345 1.847 10899.351
+  angleY -90
+  m_Comment "Waypoint"
+  m_Size 3
+  m_Color 1 1 1
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+}
+SCR_BaseTriggerEntity waypoint_trg {
+ coords 11486.003 1.683 10902
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 10
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_1\").GetOrigin();"\
+ "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+ "		"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"waypoint_trg\"));"\
+ "	"
+}
+GenericEntity insertionBoat : "{4923E218F59644B9}Prefabs/Props/Wrecks/BoatWreck_01.et" {
+ components {
+ }
+ coords 11590.322 -0.48 10889.734
+ angleY -11.04
+ scale 1.767
+}
+SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 11586.85 3.033 10880.752
+ m_fSpawnRadius 3
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Insertion"
+ }
+}
+GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Systems/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
+ coords 11381.307 69.407 11194.859
+ angleY -8.164
+}

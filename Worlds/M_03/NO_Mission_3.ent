@@ -1,0 +1,9 @@
+SubScene {
+ Parent "worlds/Eden/Eden.ent"
+}
+Layer Initialization {
+ Index 0
+}
+Layer Phase_00_Start {
+ Index 1
+}

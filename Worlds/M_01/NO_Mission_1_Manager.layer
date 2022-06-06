@@ -1,0 +1,126 @@
+SCR_AIWorld AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ components {
+  NavmeshWorldComponent "{5584F30E67F617AD}" {
+   NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
+   }
+  }
+ }
+ coords 0 0 0
+}
+GenericWorldFogEntity Fog_Haze2 {
+ coords 22.274 0 -29.957
+ FakeDistFog 1
+ HeightDensity 0.94
+ DistanceDensity 0.362
+ HeightOffset 0
+ Color 0.5 0.5 0.5 0
+ ColorBack 0.4 0.4 0.4 0
+}
+PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 6443.401 2.665 2964.309
+}
+TagManager TagManager : "{2FA9E172CAB1857A}Prefabs/MP/Managers/TagManager.et" {
+ coords 11426.798 1.893 10687.55
+}
+SCR_BaseGameMode GameMode_Coop : "{986C258C450B9319}Prefabs/MP/Modes/Coop/GameMode_Coop.et" {
+ components {
+  SCR_ForceTimeAndWeatherComponent "{597D07D7D3ADFE22}" {
+  }
+  SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
+   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" {
+    m_aGameOverScreens {
+     SCR_FactionVictoryGameOverScreenInfo "{568EB6DFEF507060}" {
+      m_OptionalParams SCR_BaseGameOverScreenInfoOptional "{568EB6DFF87D9C84}" {
+       m_sTitle "Flashpoint 1985"
+       m_sSubtitle "Mission Completed"
+      }
+     }
+    }
+   }
+  }
+  SCR_RespawnBriefingComponent "{597B2CEE9F5D61F8}" {
+   m_aGameModeHints {
+    SCR_UIInfo "{597D4ACAA84A8F75}" {
+     Name "Secure Lighthouse"
+     Description "Before reclaiming EVERON, you have to take the ISLE D'ERQUY. Your first task will be to secure the Lighthouse. That grants you another spawnpoint."
+     Icon "{3C50D67D082BA322}UI/Textures/DeployMenu/Briefing/conflict_HintBanner_2_UI.edds"
+    }
+    SCR_UIInfo "{597D4ACB34DE8633}" {
+     Name "Secure Radio Uplink"
+     Description "Your second task is to secure a Radio Uplink, which will unlock another spawnpoint. But its recommended to look for bonus tasks which will grant an combat advantage."
+     Icon "{39A515BAE3795994}UI/Textures/DeployMenu/Briefing/conflict_HintBanner_3_UI.edds"
+    }
+    SCR_UIInfo "{597D4ACBC52503DB}" {
+     Name "Capture Command Truck"
+     Description "Your final task is to capture the Soviet Command Truck. Once accomplished, the invasion of EVERON's main island can begin. The Com Truck must not be destroyed."
+     Icon "{324E923535DCACF8}UI/Textures/DeployMenu/Briefing/conflict_HintBanner_1_UI.edds"
+    }
+   }
+   m_aWinConditions {
+    SCR_BriefingVictoryCondition "{597B2CEE8C898900}" {
+     victoryCondition SEIZE
+     name "tsk_main_1"
+     description "Secure Lighthouse"
+    }
+    SCR_BriefingVictoryCondition "{597D4921D77E3D3D}" {
+     victoryCondition SEIZE
+     name "tsk_main_2"
+     description "Secure Radio Uplink"
+    }
+    SCR_BriefingVictoryCondition "{597D4921DEAC8B51}" {
+     victoryCondition CUSTOM
+     name "tsk_main_3"
+     description "Capture Command Truck"
+    }
+   }
+  }
+  SCR_RespawnMenuHandlerComponent "{597B2EF80CE41F6C}" {
+   m_bAllowQuickDeploy 0
+  }
+ }
+ coords 11260.038 0 10572.646
+}
+RadioManagerEntity RadioManager : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 11353.255 0 10664.146
+}
+SCR_FactionManager CoopFactionManager : "{E4075339B4E24E10}Prefabs/MP/Managers/Factions/CoopFactionManager.et" {
+ coords -167.435 0 -184.442
+}
+ScriptedChatEntity ChatEntity : "{F69BC912AC8236F9}Prefabs/MP/ScriptedChatEntity.et" {
+ coords -168.601 -8.693 -158.253
+}
+SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Tasks/CoopTaskManager.et" {
+ components {
+  SCR_TextsTaskManagerComponent "{5974A9373E8681C5}" : "{6F59CB11B5383430}Prefabs/MP/Managers/Tasks/TaskManagerComponent.ct" {
+  }
+  SCR_UITaskManagerComponent "{5974A9373B80F799}" {
+  }
+  RplComponent "{5974A937238A9AB9}" {
+  }
+ }
+ coords 11556.793 -29.223 10662.389
+ m_aInitialTaskNames {
+  "tsk_main_1"
+ }
+ AdditionalObjectives {
+  SolidObjectives "{59755188C4ECA04C}" {
+   m_UnlockKey "tsk_main_1_true"
+   m_TaskNames {
+    "tsk_main_2" "tsk_bonus"
+   }
+  }
+  SolidObjectives "{597B198A09CB0336}" {
+   m_UnlockKey "tsk_main_2_true"
+   m_TaskNames {
+    "tsk_main_3"
+   }
+  }
+ }
+}
+SCR_MPDestructionManager DestructionManager : "{9BB369F2803C6F71}Prefabs/MP/MPDestructionManager.et" {
+ coords 11238.855 -1 10557.664
+}
+SCR_LoadoutManager LoadoutManager : "{D0DE5EFEE00509C9}Prefabs/MP/Managers/Loadouts/LoadoutManager_Coop.et" {
+ coords -164.223 0 -187.36
+}

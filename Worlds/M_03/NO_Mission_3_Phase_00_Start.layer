@@ -1,0 +1,15 @@
+Vehicle M923_comTruck1 : "{033C909B183F4149}Prefabs/Vehicles/Wheeled/M923/M923_comTruck.et" {
+ components {
+  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
+   m_fVehicleDestroyDamage 21809.699
+  }
+ }
+ coords 5098.103 14.251 3998.936
+ angleY 175.22
+}
+SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 5118.662 14.376 4013.996
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Morton"
+ }
+}

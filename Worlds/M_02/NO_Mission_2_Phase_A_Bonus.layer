@@ -1,0 +1,232 @@
+GenericEntity bonus_a_activator {
+ components {
+  MeshObject "{5984973D411547BE}" {
+   Object "{77CE5739C2D1ED11}Assets/Props/Civilian/Fireplace_01/Fireplace_01.xob"
+  }
+  ActionsManagerComponent "{5984973D7D8BEC90}" {
+   ActionContexts {
+    UserActionContext "{5984973D6288B6DE}" {
+     UIInfo UIInfo "{5984973D61FCB6B6}" {
+     }
+     ContextName "bivouac"
+     Position PointInfo "{5984973D6E4FA25F}" {
+     }
+    }
+   }
+   additionalActions {
+    NO_SCR_Bivouac_A_Action "{5984973D16B94359}" {
+     ParentContextList {
+      "bivouac"
+     }
+     UIInfo UIInfo "{5984AC77082C30BC}" {
+      Name "Establish Bivouac"
+     }
+     Duration 5
+    }
+   }
+  }
+  RplComponent "{5984973D79291582}" {
+  }
+ }
+ coords 8769.999 311.263 1709.471
+ angleY -110.841
+}
+SCR_BaseTriggerEntity wpTrg_A_bonus {
+ coords 8768.661 311.11 1706.841
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 150
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		"\
+ "		//Move waypoint"\
+ "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_bonus_A\").GetOrigin();"\
+ "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+ "		"\
+ "		//Bivouac Hint"\
+ "        SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "        hintComponent.ShowCustomHint(\"There is a bivouac spot nearby. Find the abandoned fireplace and establish a temporary bivouac.\", \"TEMPORARY BIVOUAC\", 10);"\
+ "		"\
+ "		//Delete thisTrigger"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_bonus\"));"\
+ "	"
+}
+$grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ east_A_bonus_spawnTrg {
+  coords 8411.14 226.374 2033.836
+  TriggerShapeType None
+  TriggerActivationType None
+  PeriodicQueries 0
+  m_bDelete 0
+  {
+   GenericEntity east_grp_A_bonus : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F885B072}" {
+        CountOfPlayers 4
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C4F953270E}" {
+        CountOfPlayers 8
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+      }
+     }
+    }
+    coords -11.386 -1.728 1.553
+    {
+     AIWaypointCycle east_grp_A_bonus_WPC {
+      ID "59889B900EBD4CB5"
+     }
+     SCR_AIWaypoint east_grp_A_bonus_WP1 {
+      ID "59889B900EBD4CB4"
+      coords -41.955 -8.277 48.415
+     }
+     SCR_AIWaypoint east_grp_A_bonus_WP2 {
+      ID "59889B900EBDF8B9"
+      coords 15.265 0.439 -21.54
+     }
+     SCR_AIWaypoint east_grp_A_bonus_WP3 {
+      ID "59889B900EBDF8BA"
+      coords 73.806 6.365 -137.296
+     }
+    }
+   }
+  }
+ }
+ bonus_A_spawnTrg {
+  coords 8767.08 313.327 1710.151
+  TriggerShapeType None
+  TriggerActivationType None
+  PeriodicQueries 0
+  m_bDelete 0
+  {
+   $grp GenericEntity : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+    bonus_A_tent_1 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{34CE55CBB5C384C9}Prefabs/Structures/Military/Camps/TentSmallUS_01/TentSmallUS_01_rpl.et"
+         }
+        }
+       }
+      }
+     }
+     coords -3.682 -2.224 -4.363
+     angleY 49.633
+    }
+    bonus_A_tent_2 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{34CE55CBB5C384C9}Prefabs/Structures/Military/Camps/TentSmallUS_01/TentSmallUS_01_rpl.et"
+         }
+        }
+       }
+      }
+     }
+     coords -6.95 -1.937 -1.363
+     angleY 75.494
+    }
+    bonus_A_tent_3 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{34CE55CBB5C384C9}Prefabs/Structures/Military/Camps/TentSmallUS_01/TentSmallUS_01_rpl.et"
+         }
+        }
+       }
+      }
+     }
+     coords -8.272 -1.562 7.619
+     angleY 114.348
+    }
+    bonus_A_tent_4 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{34CE55CBB5C384C9}Prefabs/Structures/Military/Camps/TentSmallUS_01/TentSmallUS_01_rpl.et"
+         }
+        }
+       }
+      }
+     }
+     coords -6.379 -1.721 11.508
+     angleY 130.725
+    }
+    bonus_A_campfire {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{328BE73FB04612AC}PrefabLibrary/Props/Civilian/Fireplace_01.et"
+         }
+        }
+       }
+      }
+     }
+     coords 2.928 -2.075 -0.681
+     angleY -110.177
+    }
+    bonus_A_crate {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{5FFD91CF507BFFFB}Prefabs/Systems/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Ammunition_US.et"
+         }
+        }
+       }
+      }
+     }
+     coords -8.32 -1.659 4.347
+     angleY 95.728
+    }
+    bonus_A_lamp {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et"
+         }
+        }
+       }
+      }
+     }
+     coords -8.328 -1.347 4.518
+     angleY 95.728
+    }
+   }
+  }
+ }
+}

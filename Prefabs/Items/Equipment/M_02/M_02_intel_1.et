@@ -1,0 +1,70 @@
+GenericEntity : "{7B6990100263E2B3}Prefabs/Items/Core/Map_Base.et" {
+ ID "508AB2013EEE1E00"
+ components {
+  InventoryItemComponent "{5222EB4D0C73006B}" {
+   Attributes SCR_ItemAttributeCollection "{5222EB4D0A2B466B}" {
+    ItemDisplayName UIInfo "{5222EB4D07D865FA}" {
+     Name "#AR-Item_MapDefault_Name"
+     Description "#AR-Item_MapDefault_Description"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes PhysicalAttributes {
+     Weight 0.1
+     SizeSetupStrategy Volume
+     ItemVolume 200
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{5982BD7F72CFCD3A}" {
+     AnimationAttachments {
+      AnimationAttachmentInfo "{5982BD7F72CFCD35}" {
+       AnimGraph "{83675D0B0AB1B2C3}Assets/Items/Equipment/workspaces/paper_map.agr"
+       AnimInstance "{56794534F6B8C3D7}Assets/Items/Equipment/workspaces/player_map.asi"
+       BindingName "Gadget"
+      }
+     }
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{5982BD7F72CFCEC8}" {
+      CameraPreset Top
+      CameraOrbitAngles 0 0 0
+      CameraDistanceToItem 1.4
+      CameraOffset 0 0 0
+      FOV 10
+     }
+     CharacterModifierAttributes "{5982BD7F72CFCECD}" {
+      ADSSpeedLimit 1
+     }
+    }
+    m_SlotType SLOT_GADGETS_STORAGE
+   }
+  }
+  MeshObject "{5982BD7F72CFCEC1}" {
+   Object "{E443663E5241622A}Assets/Items/Equipment/Maps/Map_Paper_01/Map_Paper_01_folded.xob"
+  }
+  RigidBody "{5982BD7F72CFCEC3}" {
+   LinearDamping 0.5
+   AngularDamping 0.5
+   ModelGeometry 1
+  }
+  SCR_MapGadgetComponent "{5982BD7F72CFCEDF}" {
+   m_eAnimVariable MAP
+  }
+  ActionsManagerComponent "{508AB5952B584B2E}" {
+   ActionContexts {
+    UserActionContext "{508AC2ABEC97066C}" {
+     ContextName "pickup"
+    }
+   }
+   additionalActions {
+    NO_SCR_Intel_1_Action "{51EC842E3A187379}" {
+     ParentContextList {
+      "pickup"
+     }
+     UIInfo UIInfo "{51EC842E413D3E1D}" {
+      Name "Pickup Intel"
+     }
+     Duration 1
+    }
+   }
+  }
+ }
+ coords 1251.57 51.001 1427.637
+}

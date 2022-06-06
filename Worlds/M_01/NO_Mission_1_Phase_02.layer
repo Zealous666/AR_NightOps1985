@@ -1,0 +1,222 @@
+$grp CommentEntity {
+ comment_05 {
+  coords 11140.602 46.698 11589.938
+  angleY -90
+  Flags 2
+  m_Comment "Stage 05 - Radiopost"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+ comment_04 {
+  coords 11383.477 20.785 11841.511
+  angleY -90
+  Flags 2
+  m_Comment "Stage 04 - Farm"
+  m_Size 2
+  m_Color 0.597 1 0.178
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+}
+$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ spawnPoint_2 {
+  coords 11149.542 33.629 11599.023
+  m_fSpawnRadius 3
+  m_sFaction "0"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Radiopost"
+  }
+ }
+ spawnPoint_apc {
+  components {
+   NwkMovementComponent "{5986885C1E20A9F3}" {
+   }
+   RplComponent "{552E67F19D2F2A2F}" {
+    "Self Insert" 1
+    Streamable Enabled
+   }
+  }
+  coords 11374.34 17.436 11828.408
+  m_fSpawnRadius 3
+  m_sFaction "0"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "APC"
+  }
+ }
+}
+GenericEntity : "{68ED84218EA1BDC2}Prefabs/Compositions/Slotted/SlotFlatSmall/Antenna_S_USSR_01.et" {
+ coords 11160.849 33.522 11590.993
+ angleY -100.478
+}
+NO_SCR_SpawnTrigger east_spawn_2_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 11383.22 17.292 11835.633
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ {
+  $grp GenericEntity : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+   east_grp_4 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+        prefab {
+         "{1C0502B5729E7231}Prefabs/Groups/OPFOR/Group_USSR_Team_Suppress.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BB8BE3B2E3B}" {
+        CountOfPlayers 4
+        prefab {
+         "{A2F75E45C66B1C0A}Prefabs/Groups/OPFOR/Group_USSR_MachineGunTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BB8BEFB016F}" {
+        CountOfPlayers 8
+        prefab {
+         "{657590C1EC9E27D3}Prefabs/Groups/OPFOR/Group_USSR_LightFireTeam.et"
+        }
+       }
+      }
+     }
+    }
+    coords 1.199 -0.008 4.807
+    {
+     SCR_DefendWaypoint east_grp_4_WP {
+      ID "59889B9006450E17"
+      CompletionRadius 75
+      m_DefendPresets {
+       SCR_DefendWaypointPreset "{58D6884489389713}" {
+        m_bUseTurrets 0
+        m_bUseObservationPosts 0
+        m_bUseGatePosts 0
+       }
+       SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+        m_bUseTurrets 0
+        m_bUseCoverPosts 0
+       }
+      }
+     }
+    }
+   }
+   east_grp_7 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+        prefab {
+         "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BB8BE3B2E3B}" {
+        CountOfPlayers 4
+        prefab {
+         "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BB8BEFB016F}" {
+        CountOfPlayers 8
+        prefab {
+         "{A2F75E45C66B1C0A}Prefabs/Groups/OPFOR/Group_USSR_MachineGunTeam.et"
+        }
+       }
+      }
+     }
+    }
+    coords -242.534 16.773 -237.744
+    {
+     SCR_DefendWaypoint east_grp_7_WP {
+      ID "59889B9006450E17"
+      CompletionRadius 75
+     }
+    }
+   }
+  }
+  $grp GenericEntity : "{760612B75AA5BCFA}Prefabs/NO_DSF/Groups/SpawnAiGroupMove.et" {
+   east_grp_5 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BBE5F1838FC}" {
+        CountOfPlayers 6
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+      }
+     }
+    }
+    coords -347.883 6.656 -369.784
+    {
+     SCR_AIWaypoint east_grp_5_WP1 {
+      ID "59889B900CE8FA54"
+      coords 140.807 15.832 -236.723
+     }
+     SCR_AIWaypoint east_grp_5_WP2 {
+      ID "59889B900CE8FA55"
+      coords 444.635 -23.128 -281.587
+     }
+    }
+   }
+   east_grp_6 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{59893BBE5F1838FC}" {
+        CountOfPlayers 6
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+      }
+     }
+    }
+    coords -232.318 15.604 -285.551
+    {
+     SCR_AIWaypoint east_grp_6_WP1 {
+      ID "59889B900CE8FA54"
+      coords 217.102 1.95 -127.764
+     }
+     SCR_AIWaypoint east_grp_6_WP2 {
+      ID "59889B900CE8FA55"
+      coords 206.009 17.968 -329.827
+     }
+    }
+   }
+  }
+  GenericEntity east_veh_4 : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+       prefab {
+        "{5DFA7539E7E9B42C}Prefabs/Vehicles/Wheeled/BTR70/btr70_apc.et"
+       }
+      }
+     }
+    }
+   }
+   coords -10.215 0.037 -3.783
+   angleY 62.361
+  }
+ }
+}
+GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
+ components {
+  SCR_FireplaceComponent "{5876E7F288BF5C8E}" {
+   m_eInitialLightState LIT
+  }
+ }
+ coords 11390.048 17.312 11840.387
+}

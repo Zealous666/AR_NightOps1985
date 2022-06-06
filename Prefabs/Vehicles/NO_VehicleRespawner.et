@@ -1,0 +1,10 @@
+NO_SCR_VehicleRespawner {
+ ID "597559AB46557F77"
+ components {
+  Hierarchy "{597559AABC8FBCD3}" {
+  }
+  RplComponent "{597559AAA3E13178}" {
+  }
+ }
+ coords 5082.713 14.719 3968.949
+}
