@@ -147,6 +147,12 @@ NO_SCR_MissionTrigger infil_A_portTrg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/M
   m_bUseCustomWeather 1
   m_fCustomTimeOfTheDay 22
  }
+ {
+  SCR_Position : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords -4238.696 -0.29 -5584.297
+   angleY 90.077
+  }
+ }
 }
 SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
  coords 10841.143 8.261 8733.547
@@ -156,23 +162,25 @@ SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_
   Name "BlackOps hideout"
  }
 }
-NO_SCR_SpawnTrigger infil_A_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+NO_SCR_SpawnTrigger opRadioSpawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
  coords 10884.253 9.811 8686.968
+ Flags 2097155
  TriggerShapeType None
  TriggerActivationType None
  PeriodicQueries 0
  m_bDelete 0
  {
-  GenericEntity infil_A_radio : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+  GenericEntity opRadioSpawn : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
    components {
     NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
      m_rnDefaultPrefabs {
       CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
        prefab {
-        "{1E0F95B559A868F2}Prefabs/Items/Equipment/M_02/opActivatorOff.et"
+        "{EFE44CF330DD6BA4}Prefabs/Items/Equipment/M_02/opRadio.et"
        }
       }
      }
+     m_bSpawnImmediately 1
     }
    }
    coords 0.716 0.882 -0.051
@@ -197,35 +205,19 @@ GenericEntity : "{BE99D77D1155B127}Prefabs/Systems/Arsenal/ArsenalBoxes/US/Arsen
  coords 10834.866 7.053 8729.511
  angleY 2.526
 }
-GenericEntity opActivator : "{CCB14E0E5C278B73}Prefabs/MP/Campaign/Assets/CampaignHQRadioWest.et" {
+GenericEntity opRadioInactive : "{CCB14E0E5C278B73}Prefabs/MP/Campaign/Assets/CampaignHQRadioWest.et" {
  components {
   ActionsManagerComponent "{5456ACF8FA555949}" {
-   ActionContexts {
-    UserActionContext "{59888D491B663E83}" {
-     UIInfo UIInfo "{59888D4918AF117C}" {
-     }
-     ContextName "op_A_intel"
-     Position PointInfo "{59888D490065D615}" {
-     }
-    }
-   }
-   additionalActions {
-    NO_SCR_OpIntel_Action "{59888D4907F82B5E}" {
-     ParentContextList {
-      "op_A_intel"
-     }
-     UIInfo UIInfo "{59888D490A6C1178}" {
-      Name "Start Opeation A: INTEL"
-     }
-     Duration 3
-    }
-   }
+   Enabled 0
   }
   RplComponent "{598895DE390A822B}" {
   }
  }
  coords 10884.965 10.694 8686.921
  angleY -53.223
+ EOnInit ""\
+ "                this.Show(false);"\
+ "	"
 }
 GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
  components {

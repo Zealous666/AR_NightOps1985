@@ -1,0 +1,31 @@
+GenericEntity : "{CCB14E0E5C278B73}Prefabs/MP/Campaign/Assets/CampaignHQRadioWest.et" {
+ ID "5456ACF83EF5E3AD"
+ components {
+  ActionsManagerComponent "{5456ACF8FA555949}" {
+   ActionContexts {
+    UserActionContext "{59888D491B663E83}" {
+     UIInfo UIInfo "{59888D4918AF117C}" {
+     }
+     ContextName "op_A_intel"
+     Position PointInfo "{59888D490065D615}" {
+     }
+    }
+   }
+   additionalActions {
+    NO_SCR_OpIntel_Action "{59888D4907F82B5E}" {
+     ParentContextList {
+      "op_A_intel"
+     }
+     UIInfo UIInfo "{59888D490A6C1178}" {
+      Name "Start Opeation A: INTEL"
+     }
+     Duration 3
+    }
+   }
+  }
+  RplComponent "{598895DE390A822B}" {
+  }
+ }
+ coords 10884.965 10.694 8686.921
+ angleY -53.223
+}

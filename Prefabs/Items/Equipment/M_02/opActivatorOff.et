@@ -1,8 +1,0 @@
-GenericEntity : "{CCB14E0E5C278B73}Prefabs/MP/Campaign/Assets/CampaignHQRadioWest.et" {
- ID "5456ACF83EF5E3AD"
- components {
-  RplComponent "{598B53B77862472B}" {
-  }
- }
- coords 10850.447 8.912 8658.288
-}

@@ -1,6 +1,6 @@
-//Custom script by Zeal to start the intel operation in Mission 2
+//Custom script by Zeal to start the sabotage operation in Mission 2
 
-class NO_SCR_OpIntel_Action : ScriptedUserAction
+class NO_SCR_OpSabotage_Action : ScriptedUserAction
 {
 	
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
@@ -15,10 +15,11 @@ class NO_SCR_OpIntel_Action : ScriptedUserAction
 		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_hub_2").GetOrigin();
         GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
 		
+		//Spawns new assets & units (Replaces radio)
+        //NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("infil_A_spawnTrg")).Spawn();
 		
-		//De-Spawns the operation radio and shows the inactive radio placeholder
-		//NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("opRadioSpawnTrg")).Despawn();
-		//GenericEntity.Cast(GetGame().GetWorld().FindEntityByName("opRadioInactive")).Show(true);
+		GameEntity.Cast(GetGame().GetWorld().FindEntityByName("opActivatorOff")).Show(true);
+     
 		
 		//Unlock next task
 		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
@@ -28,7 +29,9 @@ class NO_SCR_OpIntel_Action : ScriptedUserAction
 		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("infil_A_portTrg"));
 			if(trigger)
 			trigger.SetActive(true);
-
+		
+		//Removes radio entity
+		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);
 		
 	}
 
