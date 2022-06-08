@@ -16,16 +16,16 @@ class NO_SCR_Intel_2_Action : ScriptedUserAction
 		coopTM.UnlockObjective("tsk_main_A_3_true");
 		
 		//Spawns new assets & units
-        NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_3_spawnTrg")).Spawn();
+        NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_X_spawnTrg")).Spawn();
 		
 		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_3").GetOrigin();
+		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_X").GetOrigin();
         GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
 		
 		//Removes intel piece
 		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);
 		
-		//Enables teleport trigger
+		//Enables exfil trigger
 		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("exfil_A_trg"));
 			if(trigger)
 			trigger.SetActive(true);

@@ -1,37 +1,31 @@
 //Custom script by Zeal to start the sabotage operation in Mission 2
 
-class NO_SCR_OpSabotage_Action : ScriptedUserAction
+class NO_SCR_OpSabotage_Action : NO_SCR_MissionSelectionAction
 {
 	
-	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 		{
 		
+		super.PerformAction(pOwnerEntity, pUserEntity);
+		
 		//Finish initital task
-		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_hub_1"));
+		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_BlackOps_hub"));
 		task.Finish();
 		GetTaskManager().FinishTask(task);
 		
 		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_hub_2").GetOrigin();
+		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_C_0").GetOrigin();
         GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
-		
-		//Spawns new assets & units (Replaces radio)
-        //NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("infil_A_spawnTrg")).Spawn();
-		
-		GameEntity.Cast(GetGame().GetWorld().FindEntityByName("opActivatorOff")).Show(true);
-     
 		
 		//Unlock next task
 		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
-		coopTM.UnlockObjective("tsk_hub_2_true");
+		coopTM.UnlockObjective("tsk_main_C_0_true");
 		
 		//Enables teleport trigger
-		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("infil_A_portTrg"));
+		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("infil_C_trg"));
 			if(trigger)
 			trigger.SetActive(true);
-		
-		//Removes radio entity
-		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);
+
 		
 	}
 

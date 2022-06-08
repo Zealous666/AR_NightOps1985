@@ -115,6 +115,12 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
    }
    m_UnlockSpawnpoint "spawnPoint_2"
   }
+  SolidObjectives "{598F2E3A0CC313BF}" {
+   m_UnlockKey "tsk_main_3_true"
+   m_TaskNames {
+    "tsk_main_x"
+   }
+  }
  }
  {
   $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
@@ -262,6 +268,30 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     m_sName "Capture Com Truck"
     m_sDescription "Capture the Soviet Com Truck to win the mission"
     m_bNotifyAssignment 1
+   }
+   tsk_main_x {
+    components {
+     RplComponent "{5975177038D51BCA}" {
+     }
+    }
+    coords -979.511 30.748 1181.473
+    m_sName "Exfil AO"
+    m_sDescription "Bring everyone to the port and exfiltrate the area of operation"
+    m_sMapIconName "Icon_Task_Evacuate"
+    m_sTaskListIconName "Icon_Task_Evacuate"
+    m_bNotifyAssignment 1
+    {
+     NO_SCR_MissionTrigger tsk_main_x_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+      coords -0.139 -0.714 -0.717
+      DrawShape 0
+      UpdatePeriod 1
+      m_bIsActive 0
+      m_sFinishTaskNames {
+       "tsk_main_x"
+      }
+      m_bEnableGameOver 1
+     }
+    }
    }
   }
   SCR_TriggerTask tsk_bonus : "{7259F0B101761BD5}Prefabs/Tasks/MoveTask.et" {

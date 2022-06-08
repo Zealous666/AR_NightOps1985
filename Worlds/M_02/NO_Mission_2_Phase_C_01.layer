@@ -1,0 +1,119 @@
+SCR_SpawnPoint spawnPoint_C_1 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 9329.752 3.659 5075.367
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Regina"
+ }
+}
+NO_SCR_SpawnTrigger east_C_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 9337.673 4.601 5062.676
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ m_bDelete 0
+ {
+  GenericEntity east_grp_C_01 : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -5.406 -0.336 0.238
+   {
+    SCR_DefendWaypoint east_grp_A_1_WP2 {
+     ID "59889B9006450E17"
+     CompletionRadius 100
+     m_DefendPresets {
+      SCR_DefendWaypointPreset "{58D6884489389713}" {
+       m_bUseTurrets 0
+       m_bUseObservationPosts 0
+       m_bUseGatePosts 0
+      }
+      SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+       m_bUseTurrets 0
+       m_bUseCoverPosts 0
+      }
+     }
+    }
+   }
+  }
+  GenericEntity east_grp_C_02 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{598957C4F885B072}" {
+       CountOfPlayers 4
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{598957C4F953270E}" {
+       CountOfPlayers 8
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -52.817 3.873 3.319
+   {
+    AIWaypointCycle east_grp_A_4_WPC2 {
+     ID "59889B900EBD4CB5"
+    }
+    SCR_AIWaypoint east_grp_A_4_WP4 {
+     ID "59889B900EBD4CB4"
+     coords 67.559 -4.107 8.974
+    }
+    SCR_AIWaypoint east_grp_A_4_WP5 {
+     ID "59889B900EBDF8B9"
+     coords -17.66 10.245 -91.958
+    }
+    SCR_AIWaypoint east_grp_A_4_WP6 {
+     ID "59889B900EBDF8BA"
+     coords -15.773 3.011 3.126
+    }
+   }
+  }
+  GenericEntity east_veh_C_01 : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+       prefab {
+        "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et"
+       }
+      }
+     }
+    }
+   }
+   coords -5.255 -0.835 10.54
+   angleY 37.945
+  }
+  GenericEntity east_obj_C_01 : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+       prefab {
+        "{114DE81321786CD9}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_USSR_01_PKM.et"
+       }
+      }
+     }
+    }
+   }
+   coords 14.792 -1.141 28.614
+  }
+ }
+}

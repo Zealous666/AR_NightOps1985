@@ -1,56 +1,28 @@
-$grp SCR_BaseTriggerEntity {
- wpTrg_A_1 {
-  coords 7141.971 151.2 2707.88
-  userScript "    // Set up the filter"\
-  "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
-  "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
-  "        if (!cc) return false; // If the entity is not a person, filter it out"\
-  "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
-  "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
-  "        return true; // Otherwise, include it!"\
-  "    }"
-  TriggerShapeType Sphere
-  SphereRadius 25
-  TriggerActivationType "First change"
-  PeriodicQueries 1
-  ClassFilter "ChimeraCharacter"
-  OnActivate ""\
-  "		"\
-  "		//Move waypoint"\
-  "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_A_1\").GetOrigin();"\
-  "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
-  "		"\
-  "		//Delete thisTrigger"\
-  "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_2\"));"\
-  "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_1\"));"\
-  "	"
- }
- wpTrg_A_2 {
-  coords 7199.646 140.965 2356.261
-  userScript "    // Set up the filter"\
-  "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
-  "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
-  "        if (!cc) return false; // If the entity is not a person, filter it out"\
-  "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
-  "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
-  "        return true; // Otherwise, include it!"\
-  "    }"
-  TriggerShapeType Sphere
-  SphereRadius 150
-  TriggerActivationType "First change"
-  PeriodicQueries 1
-  ClassFilter "ChimeraCharacter"
-  OnActivate ""\
-  "		"\
-  "		//Move waypoint"\
-  "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_A_1\").GetOrigin();"\
-  "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
-  "		"\
-  "		//Delete thisTrigger"\
-  "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_1\"));"\
-  "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_2\"));"\
-  "	"
- }
+SCR_BaseTriggerEntity wpTrg_A_2 {
+ coords 7199.646 140.965 2356.261
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 150
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		"\
+ "		//Move waypoint"\
+ "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_A_1\").GetOrigin();"\
+ "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+ "		"\
+ "		//Delete thisTrigger"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_1\"));"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_2\"));"\
+ "	"
 }
 GameEntity : "{2CB0AA2A87842C18}Prefabs/Props/Civilian/LampKerosene_01/LampKerosene_01_military_USSR.et" {
  components {
@@ -63,20 +35,11 @@ GameEntity : "{2CB0AA2A87842C18}Prefabs/Props/Civilian/LampKerosene_01/LampKeros
  }
  coords 7199.635 138.98 2291.483
 }
-$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
- spawnPoint_A_0 {
-  coords 6574.101 0.386 3147.073
-  m_sFaction "0"
-  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-   Name "Insertion"
-  }
- }
- spawnPoint_A_1 {
-  coords 7199.175 138.541 2293.343
-  m_sFaction "0"
-  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-   Name "Regina"
-  }
+SCR_SpawnPoint spawnPoint_A_1 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 7199.175 138.541 2293.343
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Regina"
  }
 }
 GenericEntity : "{67C2A2742A183D89}Prefabs/Props/Furniture/PhoneTable_01_red.et" {
@@ -273,6 +236,21 @@ NO_SCR_SpawnTrigger east_A_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
     angleY -166.87
    }
   }
+  GenericEntity east_intel_A_1 : "{E978859D5910DAB4}Prefabs/NO_DSF/Trigger/SpawnAnything.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{598730FA1CED2F4D}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{598F3B90DE8EB7C7}" {
+       prefab {
+        "{C65425EF308D4F75}Prefabs/Items/Equipment/M_02/M_02_intel_1.et"
+       }
+      }
+     }
+    }
+   }
+   coords -35.351 1.51 -97.035
+   angleY -29.527
+  }
   GenericEntity east_obj_A_1 : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
    components {
     NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
@@ -288,8 +266,4 @@ NO_SCR_SpawnTrigger east_A_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
    coords -72.354 5.669 107.308
   }
  }
-}
-GenericEntity intel_1 : "{C65425EF308D4F75}Prefabs/Items/Equipment/M_02/M_02_intel_1.et" {
- coords 7198.802 138.98 2291.553
- angleY -24.395
 }

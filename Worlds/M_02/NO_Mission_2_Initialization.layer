@@ -1,12 +1,3 @@
-GenericWorldFogEntity Fog_Haze2 {
- coords 22.274 0 -29.957
- FakeDistFog 1
- HeightDensity 0.94
- DistanceDensity 0.362
- HeightOffset 0
- Color 0.5 0.5 0.5 0
- ColorBack 0.4 0.4 0.4 0
-}
 SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  components {
   NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
@@ -40,12 +31,12 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
    }
    m_aWinConditions {
     SCR_BriefingVictoryCondition "{597B2CEE8C898900}" {
-     victoryCondition CUSTOM
+     victoryCondition MOVE
      name "tsk_0"
      description "Use the radio to start one of the following operations:"
     }
     SCR_BriefingVictoryCondition "{597D4921D77E3D3D}" {
-     victoryCondition EVACUATE
+     victoryCondition TRANSPORT
      name "tsk_1"
      description "INTEL: Aquire two intel pieces in REGINA and MONTFORT CASTLE"
     }
@@ -111,13 +102,13 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
  }
  coords 11556.793 -29.223 10662.389
  m_aInitialTaskNames {
-  "tsk_hub_1"
+  "tsk_BlackOps_hub"
  }
  AdditionalObjectives {
   SolidObjectives "{5986C40F1C0CBB77}" {
-   m_UnlockKey "tsk_hub_2_true"
+   m_UnlockKey "tsk_main_A_0_true"
    m_TaskNames {
-    "tsk_hub_2"
+    "tsk_main_A_0"
    }
   }
   SolidObjectives "{59755188C4ECA04C}" {
@@ -137,9 +128,35 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
   SolidObjectives "{5982BD70E04DE2F1}" {
    m_UnlockKey "tsk_main_A_3_true"
    m_TaskNames {
-    "tsk_main_A_3"
+    "tsk_main_A_X"
    }
    m_UnlockSpawnpoint "spawnPoint_A_2"
+  }
+  SolidObjectives "{5990A1242385ECD0}" {
+   m_UnlockKey "tsk_main_B_0_true"
+   m_TaskNames {
+    "tsk_main_B_0"
+   }
+  }
+  SolidObjectives "{5990A1242C5647A3}" {
+   m_UnlockKey "tsk_main_B_1_true"
+   m_TaskNames {
+    "tsk_main_B_1"
+   }
+   m_UnlockSpawnpoint "spawnPoint_B_0"
+  }
+  SolidObjectives "{5990A1266C854686}" {
+   m_UnlockKey "tsk_main_C_0_true"
+   m_TaskNames {
+    "tsk_main_C_0"
+   }
+  }
+  SolidObjectives "{5990A126038CD845}" {
+   m_UnlockKey "tsk_main_C_1_true"
+   m_TaskNames {
+    "tsk_main_C_1"
+   }
+   m_UnlockSpawnpoint "spawnPoint_C_0"
   }
  }
  {
@@ -156,7 +173,7 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     m_sTaskListIconName "Task_Move"
     m_bNotifyAssignment 1
    }
-   tsk_hub_1 {
+   tsk_BlackOps_hub {
     components {
      RplComponent "{597B339E9598B23C}" {
      }
@@ -168,7 +185,7 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     m_sTaskListIconName "Task_Custom"
     m_bNotifyAssignment 1
    }
-   tsk_hub_2 {
+   tsk_main_A_0 {
     components {
      RplComponent "{597B339E9598B23C}" {
      }
@@ -204,7 +221,7 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     m_sTaskListIconName "Task_Custom"
     m_bNotifyAssignment 1
    }
-   tsk_main_A_3 {
+   tsk_main_A_X {
     components {
      RplComponent "{597517701F7431BB}" {
      }
@@ -212,8 +229,56 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     coords -2298.804 30.46 -10250.689
     m_sName "Exfil AO"
     m_sDescription "Reach exfiltration point to leave the area of operation."
+    m_sMapIconName "Task_Evacuate"
+    m_sTaskListIconName "Task_Evacuate"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_C_1 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -2226.997 38.525 -5585.357
+    m_sName "Liberate Resistance Village"
+    m_sDescription "Secure and free the Resistance Village by neutralizing all Soviet invaders"
+    m_sMapIconName "Task_Seize"
+    m_sTaskListIconName "Task_Seize"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_C_0 {
+    components {
+     RplComponent "{597B339E9598B23C}" {
+     }
+    }
+    coords -528.034 29.665 -2038.191
+    m_sName "Rally all players at Resistance Boat"
+    m_sDescription "Rally the whole team at the Resistance Boat to start the operation."
     m_sMapIconName "Task_Move"
     m_sTaskListIconName "Task_Move"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_B_0 {
+    components {
+     RplComponent "{597B339E9598B23C}" {
+     }
+    }
+    coords -637.273 48.932 -1878.609
+    m_sName "Rally all players at helipad"
+    m_sDescription "Rally the whole team at the helipad to start the operation."
+    m_sMapIconName "Task_Move"
+    m_sTaskListIconName "Task_Move"
+    m_bNotifyAssignment 1
+   }
+   tsk_main_B_1 {
+    components {
+     RplComponent "{597517701F7431BB}" {
+     }
+    }
+    coords -5523.971 126.328 -5279.756
+    m_sName "Neutralize HVT"
+    m_sDescription "Find and neutralize the HVT in the hidden command post"
+    m_sMapIconName "Task_Seize"
+    m_sTaskListIconName "Task_Seize"
     m_bNotifyAssignment 1
    }
   }

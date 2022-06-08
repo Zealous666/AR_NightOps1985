@@ -4,7 +4,7 @@ SubScene {
 Layer Initialization {
  Index 0
 }
-Layer Phase_00_Start {
+Layer Phase_00_Hub {
  Index 1
 }
 Layer Phase_A_01 {
@@ -13,9 +13,24 @@ Layer Phase_A_01 {
 Layer Phase_A_02 {
  Index 3
 }
-Layer Phase_A_03 {
+Layer Phase_A_X {
  Index 4
 }
 Layer Phase_A_Bonus {
  Index 5
+}
+Layer Phase_A_00 {
+ Index 6
+}
+Layer Phase_C_00 {
+ Index 7
+}
+Layer Phase_C_01 {
+ Index 8
+}
+Layer Phase_B_00 {
+ Index 9
+}
+Layer Phase_B_01 {
+ Index 10
 }

@@ -1,0 +1,43 @@
+NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+ coords 10919.94 19.811 8782.013
+ SphereRadius 5
+ DrawShape 0
+ UpdatePeriod 3
+ m_bIsActive 0
+ m_bEnableTeleport 1
+ m_vMovePosition 0 0 0
+ m_sNOSpawnTriggerNames {
+  "east_B_1_spawnTrg"
+ }
+ m_sFinishTaskNames {
+  "tsk_main_B_0"
+ }
+ m_sUnlockTaskKeys {
+  "tsk_main_B_1_true"
+ }
+ m_sWaypointLocationName "tsk_main_B_1"
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
+   m_sSpawnpointName "spawnPoint_hub"
+   m_sFactionKey "0"
+  }
+ }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomTime 1
+  m_bUseCustomWeather 1
+  m_fCustomTimeOfTheDay 22
+ }
+ {
+  SCR_Position infilLoc_B : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords -4277.922 62.891 -3143.034
+   angleY 90.077
+  }
+ }
+}
+SCR_SpawnPoint spawnPoint_B_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 6599.723 80.082 5617.369
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Insertion"
+ }
+}

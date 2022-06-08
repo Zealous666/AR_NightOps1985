@@ -1,6 +1,6 @@
-//Custom script by Zeal to start the intel operation in Mission 2
+//Custom script by Zeal to start the hitman operation in Mission 2
 
-class NO_SCR_OpIntel_Action : NO_SCR_MissionSelectionAction
+class NO_SCR_OpHitman_Action : NO_SCR_MissionSelectionAction
 {
 	
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
@@ -14,15 +14,15 @@ class NO_SCR_OpIntel_Action : NO_SCR_MissionSelectionAction
 		GetTaskManager().FinishTask(task);
 		
 		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_0").GetOrigin();
+		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_B_0").GetOrigin();
         GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
 		
 		//Unlock next task
 		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
-		coopTM.UnlockObjective("tsk_main_A_0_true");
+		coopTM.UnlockObjective("tsk_main_B_0_true");
 		
 		//Enables teleport trigger
-		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("infil_A_trg"));
+		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("infil_B_trg"));
 			if(trigger)
 			trigger.SetActive(true);
 

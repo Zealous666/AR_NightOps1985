@@ -6,20 +6,11 @@ GameEntity : "{2CB0AA2A87842C18}Prefabs/Props/Civilian/LampKerosene_01/LampKeros
  }
  coords 9315.061 224.603 1160.519
 }
-$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
- spawnPoint_A_2 {
-  coords 9336.259 196.595 1178.85
-  m_sFaction "0"
-  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-   Name "Castle"
-  }
- }
- spawnPoint_A_bonus {
-  coords 8765.479 311.267 1710.916
-  m_sFaction "0"
-  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-   Name "Bivouac"
-  }
+SCR_SpawnPoint spawnPoint_A_2 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 9336.259 196.595 1178.85
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Castle"
  }
 }
 GenericEntity : "{757FCCE8E756175C}Prefabs/Props/Furniture/MeetingTable_01.et" {

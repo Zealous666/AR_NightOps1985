@@ -1,0 +1,69 @@
+SCR_BaseTriggerEntity wpTrg_A_1 {
+ coords 7141.971 151.2 2707.88
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 25
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		"\
+ "		//Move waypoint"\
+ "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_A_1\").GetOrigin();"\
+ "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
+ "		"\
+ "		//Delete thisTrigger"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_2\"));"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_1\"));"\
+ "	"
+}
+NO_SCR_MissionTrigger infil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+ coords 10809.279 1.476 8730.134
+ SphereRadius 5
+ DrawShape 0
+ UpdatePeriod 3
+ m_bIsActive 0
+ m_bEnableTeleport 1
+ m_vMovePosition 0 0 0
+ m_sNOSpawnTriggerNames {
+  "east_A_1_spawnTrg"
+ }
+ m_sFinishTaskNames {
+  "tsk_main_A_0"
+ }
+ m_sUnlockTaskKeys {
+  "tsk_main_A_1_true"
+ }
+ m_sWaypointLocationName "wpTrg_A_1"
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
+   m_sSpawnpointName "spawnPoint_hub"
+   m_sFactionKey "0"
+  }
+ }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomTime 1
+  m_bUseCustomWeather 1
+  m_fCustomTimeOfTheDay 22
+ }
+ {
+  SCR_Position infilLoc_A : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords -4238.696 -0.29 -5584.297
+   angleY 90.077
+  }
+ }
+}
+SCR_SpawnPoint spawnPoint_A_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 6574.101 0.386 3147.073
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Insertion"
+ }
+}

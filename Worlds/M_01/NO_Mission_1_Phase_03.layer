@@ -1,11 +1,22 @@
-CommentEntity comment_06 {
- coords 10903.17 43.94 11723.8
- angleY -90
- m_Comment "Stage 06 - Town"
- m_Size 2
- m_Color 0.594 1 0.176
- m_FaceCamera 1
- m_VisibleOverall 1
+$grp CommentEntity {
+ comment_06 {
+  coords 10903.17 43.94 11723.8
+  angleY -90
+  m_Comment "Stage 06 - Town"
+  m_Size 2
+  m_Color 0.594 1 0.176
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
+ comment_07 {
+  coords 10562.856 18.127 11849.702
+  angleY -90
+  m_Comment "Exfil"
+  m_Size 2
+  m_Color 0.594 1 0.176
+  m_FaceCamera 1
+  m_VisibleOverall 1
+ }
 }
 $grp GenericEntity : "{78A930FB0825AA9F}Prefabs/Compositions/Misc/SubCompositions/Sandbag_Camo_long_high_USSR.et" {
  {

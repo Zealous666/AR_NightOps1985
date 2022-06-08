@@ -47,24 +47,22 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
      }
      Duration 3
     }
-    NO_SCR_MissionSelectionAction "{598EB03CE15675FA}" {
-     ParentContextList {
-      "default"
-     }
-     UIInfo UIInfo "{598EB03CF1A706B5}" {
-      Name "Start Mission B"
-      Description "Mission B"
-     }
-     Duration 3
-     "Sort Priority" 1
-    }
-    NO_SCR_MissionSelectionAction "{598EB03CE2E1EDB1}" {
+    NO_SCR_OpHitman_Action "{598EB03CE2E1EDB1}" {
      ParentContextList {
       "default"
      }
      UIInfo UIInfo "{598EB03CFD2979F9}" {
-      Name "Start Mission C"
-      Description "Mission C"
+      Name "Start Operation: HITMAN"
+     }
+     Duration 3
+     "Sort Priority" 1
+    }
+    NO_SCR_OpSabotage_Action "{598EB03CE15675FA}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{598EB03CF1A706B5}" {
+      Name "Start Operation: SABOTAGE"
      }
      Duration 3
      "Sort Priority" 2
@@ -74,7 +72,7 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
       "default"
      }
      UIInfo UIInfo "{598EED934028D206}" {
-      Name "RESET STATE"
+      Name "RESET PROGRESS"
       Description "Resets the mission states back to default!"
      }
      Duration 7
@@ -92,6 +90,9 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
 }
 GenericEntity : "{457331BE1519B200}Prefabs/Props/Furniture/BunkBed_01.et" {
  coords 10884.747 10.166 8679.397
+}
+GenericEntity : "{4923E218F59644B9}Prefabs/Props/Wrecks/BoatWreck_01.et" {
+ coords 11031.939 0.251 8623.204
 }
 $grp GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitary_US_01.et" {
  {

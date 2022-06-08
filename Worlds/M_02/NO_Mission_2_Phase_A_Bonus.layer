@@ -60,6 +60,13 @@ SCR_BaseTriggerEntity wpTrg_A_bonus {
  "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_A_bonus\"));"\
  "	"
 }
+SCR_SpawnPoint spawnPoint_A_bonus : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 8765.479 311.267 1710.916
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Bivouac"
+ }
+}
 $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
  east_A_bonus_spawnTrg {
   coords 8411.14 226.374 2033.836
