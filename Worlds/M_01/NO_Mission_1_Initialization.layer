@@ -1,12 +1,3 @@
-GenericWorldFogEntity Fog_Haze2 {
- coords 22.274 0 -29.957
- FakeDistFog 1
- HeightDensity 0.94
- DistanceDensity 0.362
- HeightOffset 0
- Color 0.5 0.5 0.5 0
- ColorBack 0.4 0.4 0.4 0
-}
 SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  components {
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
@@ -24,15 +15,15 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
    m_aGameModeHints {
     SCR_UIInfo "{597D4ACAA84A8F75}" {
      Name "Secure Lighthouse"
-     Description "Clear and secure the Lighthouse above the insertion area to unlock another spawn point."
+     Description "Clear and secure soviet radio at the Lighthouse above the insertion area to unlock another spawn point."
     }
     SCR_UIInfo "{597D4ACB34DE8633}" {
      Name "Secure Radio Uplink"
      Description "Clear and secure the soviet radio uplink next to an farmhouse to unlock another spawn point."
     }
     SCR_UIInfo "{597D4ACBC52503DB}" {
-     Name "Capture Soviet Com Truck"
-     Description "Secure and capture a soviet command truck to finish the mission. The truck must not be destroyed or the mission will fail."
+     Name "Capture Encryption Key fom Com Truck"
+     Description "Secure and capture a soviet radio encryption key of a com truck to finish the mission. The truck must not be destroyed or the mission will fail."
     }
    }
    m_aWinConditions {
@@ -44,7 +35,7 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
      description "Secure Radio Uplink"
     }
     SCR_BriefingVictoryCondition "{597D4921DEAC8B51}" {
-     description "Capture Command Truck"
+     description "Loot Encryption Key & exfil AO"
     }
    }
   }
@@ -131,7 +122,7 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     }
     coords -173.087 98.63 530.647
     m_sName "Secure Lighthouse"
-    m_sDescription "SECONDARY: Secure the Lighthouse  to unlock another spawn position"
+    m_sDescription "Secure the soviet radio at the Lighthouse to unlock another spawn position"
     m_sMapIconName "Task_Seize"
     m_sTaskListIconName "Task_Seize"
     m_bNotifyAssignment 1
@@ -199,7 +190,7 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
     }
     coords -400.589 61.215 931.991
     m_sName "Secure Radio Uplink"
-    m_sDescription "SECONDARY: Secure the Radio Uplink to unlock another spawn position"
+    m_sDescription "Secure the Radio Uplink at the farm to unlock another spawn position"
     m_sMapIconName "Task_Seize"
     m_sTaskListIconName "Task_Seize"
     m_bNotifyAssignment 1
@@ -264,9 +255,10 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
      RplComponent "{5975177038D51BCA}" {
      }
     }
-    coords -649.353 53.761 1075.017
-    m_sName "Capture Com Truck"
-    m_sDescription "Capture the Soviet Com Truck to win the mission"
+    coords -646.538 54.813 1075.915
+    angleY 49.082
+    m_sName "Capture Encryption Keys"
+    m_sDescription "Capture the soviet radio encryption keys of their Com Truck and leave the AO to win the mission"
     m_bNotifyAssignment 1
    }
    tsk_main_x {

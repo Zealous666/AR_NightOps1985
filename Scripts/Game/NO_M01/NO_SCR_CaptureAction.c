@@ -1,4 +1,4 @@
-//Custom script by Zeal to win the mission once the action is used
+//Custom script by Zeal to capture a vehicle as a objective via action
 
 class NO_SCR_CaptureAction : ScriptedUserAction
 {
@@ -23,6 +23,9 @@ class NO_SCR_CaptureAction : ScriptedUserAction
 		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("tsk_main_x_trg"));
 			if(trigger)
 			trigger.SetActive(true);
+		
+		//Removes encryption key
+		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);
 	}
 
 }

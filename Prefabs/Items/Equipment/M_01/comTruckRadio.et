@@ -1,0 +1,9 @@
+GenericEntity {
+ ID "5992A593C2B68E8C"
+ components {
+  MeshObject "{5992A593D9C94646}" {
+   Object "{36E9CC93A2EDB4E5}Assets/Items/Equipment/Radios/Radio_R148/Radio_R148_01.xob"
+  }
+ }
+ coords 10907.417 24.178 11738.411
+}

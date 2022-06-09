@@ -1,0 +1,32 @@
+GenericEntity {
+ ID "5992A5912FEB52B8"
+ components {
+  MeshObject "{599295FEF7EEA564}" {
+   Object "{36E9CC93A2EDB4E5}Assets/Items/Equipment/Radios/Radio_R148/Radio_R148_01.xob"
+  }
+  ActionsManagerComponent "{599295FEE0E10DAA}" {
+   ActionContexts {
+    UserActionContext "{599295FEE66A54F3}" {
+     ContextName "comKey"
+     Position PointInfo "{599295FE9A45FB47}" {
+     }
+     Radius 3
+    }
+   }
+   additionalActions {
+    NO_SCR_CaptureAction "{599295FEECD8FF01}" {
+     ParentContextList {
+      "comKey"
+     }
+     UIInfo UIInfo "{599295FE990A6549}" {
+      Name "Loot Encryption Key"
+     }
+     Duration 10
+    }
+   }
+  }
+  RplComponent "{599295FEFC48FC8B}" {
+  }
+ }
+ coords 11585.552 3.125 10883.711
+}

@@ -101,19 +101,5 @@ NO_SCR_SpawnTrigger east_C_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
    coords -5.255 -0.835 10.54
    angleY 37.945
   }
-  GenericEntity east_obj_C_01 : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
-   components {
-    NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
-     m_rnDefaultPrefabs {
-      CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
-       prefab {
-        "{114DE81321786CD9}Prefabs/Compositions/Slotted/SlotFlatSmall/MachineGunNest_S_USSR_01_PKM.et"
-       }
-      }
-     }
-    }
-   }
-   coords 14.792 -1.141 28.614
-  }
  }
 }

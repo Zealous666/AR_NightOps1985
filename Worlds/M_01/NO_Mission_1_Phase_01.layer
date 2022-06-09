@@ -53,6 +53,10 @@ GenericEntity : "{7A32336CED936A26}Prefabs/Compositions/Misc/SubCompositions/Can
  coords 11378.735 69.407 11186.321
  angleY 0
 }
+StaticModelEntity : "{7C63D6E1C63475DF}Prefabs/MP/Campaign/Assets/CampaignHQRadioEast_Table.et" {
+ coords 11379.489 69.499 11185.359
+ angleY 90.775
+}
 NO_SCR_SpawnTrigger east_spawn_1_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
  coords 11497.232 1.851 10890.743
  TriggerShapeType None
@@ -232,7 +236,13 @@ GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
  }
  coords 11391.887 69.406 11190.097
 }
-GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Systems/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
- coords 11483.92 1.856 10915.643
- angleY 80.626
+$grp GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Systems/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
+ {
+  coords 11483.92 1.856 10915.643
+  angleY 80.626
+ }
+ {
+  coords 11381.307 69.407 11194.859
+  angleY -8.164
+ }
 }

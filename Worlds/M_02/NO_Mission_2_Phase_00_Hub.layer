@@ -46,6 +46,7 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
       Name "Start Operation: INTEL"
      }
      Duration 3
+     m_sOnMissionText "IN PROGRESS"
     }
     NO_SCR_OpHitman_Action "{598EB03CE2E1EDB1}" {
      ParentContextList {
@@ -56,6 +57,7 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
      }
      Duration 3
      "Sort Priority" 1
+     m_sOnMissionText "IN PROGRESS"
     }
     NO_SCR_OpSabotage_Action "{598EB03CE15675FA}" {
      ParentContextList {
@@ -66,13 +68,14 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
      }
      Duration 3
      "Sort Priority" 2
+     m_sOnMissionText "IN PROGRESS"
     }
     NO_SCR_MissionSelectionAction "{598EED93BAD3DBD2}" {
      ParentContextList {
       "default"
      }
      UIInfo UIInfo "{598EED934028D206}" {
-      Name "RESET PROGRESS"
+      Name "RESET"
       Description "Resets the mission states back to default!"
      }
      Duration 7

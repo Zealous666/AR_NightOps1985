@@ -5,11 +5,6 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
  UpdatePeriod 1
  m_bIsActive 0
  m_bEnableTeleport 1
- m_vMovePosition 0 0 0
- m_sFinishTaskNames {
-  "tsk_main_A_X"
- }
- m_sWaypointLocationName "RadioGaGa"
  m_aSpawnpointChanges {
   NO_SCR_SpawnpointChangeEntry "{5990A12B59A156D6}" {
    m_sSpawnpointName "spawnPoint_hub"
@@ -32,6 +27,14 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
    m_sFactionKey "0"
   }
  }
+ m_sFinishTaskNames {
+  "tsk_main_A_X"
+ }
+ m_sMissionSelectionManagerName "radio_hub"
+ m_aEndMissionSelections {
+  "Start Operation: INTEL"
+ }
+ m_sWaypointLocationName "radio_hub"
  {
   SCR_Position exfilLoc_A : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
    coords 1576.031 6.933 8308.535

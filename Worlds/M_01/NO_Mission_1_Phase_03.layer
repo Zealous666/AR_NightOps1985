@@ -43,56 +43,75 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
   TriggerActivationType None
   PeriodicQueries 0
   {
-   SCR_BaseTriggerEntity east_killed_comTruck_trg {
-    components {
-     RplComponent "{598268EBE98907C8}" {
-     }
-    }
-    coords 1.516 0.608 1.265
-    userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
-    "    {"\
-    "        Vehicle vehicle = Vehicle.Cast(ent);"\
-    "        if (!vehicle) return false; // Not a vehicle"\
-    "        "\
-    "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
-    "        "\
-    "        if (!idComponent || idComponent.GetIdentifier() != \"comTruck\")"\
-    "            return false;"\
-    "        "\
-    "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
-    "        if (!damageComponent) return false; // No component"\
-    "        "\
-    "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
-    "    }"\
-    ""\
-    "    override void OnActivate(IEntity ent)"\
-    "    {"\
-    "       SCR_PopUpNotification.GetInstance().PopupMsg(\"COM TRUCK LOST\", duration: 5);"\
-    "		"\
-    "		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode()); // Get the game mode for the end script"\
-    "        Faction faction = GetGame().GetFactionManager().GetFactionByKey(\"USSR\"); // Get the winning faction Key"\
-    "        int usIndex = GetGame().GetFactionManager().GetFactionIndex(faction); // Get the winning faction key's index"\
-    "        gameMode.EndGameMode(SCR_GameModeEndData.CreateSimple(SCR_GameModeEndData.ENDREASON_EDITOR_FACTION_VICTORY, -1, usIndex)); // End the mission!"\
-    "    }"
-    TriggerShapeType Sphere
-    SphereRadius 10
-    TriggerActivationType "All changes"
-    PeriodicQueries 1
-   }
-   GenericEntity east_veh_comTruck : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
-    components {
-     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
-      m_rnDefaultPrefabs {
-       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
-        prefab {
-         "{001380F74524C82C}Prefabs/Vehicles/Wheeled/Ural/Ural_ComTruck.et"
+   $grp GenericEntity : "{F7A42562EE8E24E6}Prefabs/NO_DSF/Structures/SpawnStructure.et" {
+    east_veh_comTruckKey2_active {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{0A9ACB5FA8DC1155}Prefabs/Items/Equipment/M_01/comTruckRadioKey.et"
+         }
         }
        }
       }
      }
+     coords 0.8 1.625 -0.943
+     angleX 0.101
+     angleY -132.736
+     angleZ -0.002
     }
-    coords 0.288 -0.044 0.31
-    angleY 49.068
+    east_veh_comTruckKey1 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{3E02A5EDC4D27042}Prefabs/Items/Equipment/M_01/comTruckRadio.et"
+         }
+        }
+       }
+      }
+     }
+     coords 0.742 1.625 -0.998
+     angleX 0.101
+     angleY -132.736
+     angleZ -0.002
+    }
+    east_veh_comTruckKey3 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{3E02A5EDC4D27042}Prefabs/Items/Equipment/M_01/comTruckRadio.et"
+         }
+        }
+       }
+      }
+     }
+     coords 0.858 1.625 -0.889
+     angleX 0.101
+     angleY -132.736
+     angleZ -0.002
+    }
+    east_veh_comTruckKey4 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B968C41636F}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C2496351ED35}" {
+         prefab {
+          "{3E02A5EDC4D27042}Prefabs/Items/Equipment/M_01/comTruckRadio.et"
+         }
+        }
+       }
+      }
+     }
+     coords 0.917 1.625 -0.835
+     angleX 0.101
+     angleY -132.736
+     angleZ -0.002
+    }
    }
   }
  }
@@ -302,6 +321,60 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     }
    }
    $grp GenericEntity : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+    east_veh_comTruck {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+         prefab {
+          "{001380F74524C82C}Prefabs/Vehicles/Wheeled/Ural/Ural_ComTruck.et"
+         }
+        }
+       }
+      }
+     }
+     coords -31.3 0.428 -13.565
+     angleY 49.068
+     {
+      SCR_BaseTriggerEntity east_killed_comTruck_trg {
+       components {
+        RplComponent "{598268EBE98907C8}" {
+        }
+       }
+       coords 0.083 0.652 1.554
+       angleY -49.068
+       userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+       "    {"\
+       "        Vehicle vehicle = Vehicle.Cast(ent);"\
+       "        if (!vehicle) return false; // Not a vehicle"\
+       "        "\
+       "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+       "        "\
+       "        if (!idComponent || idComponent.GetIdentifier() != \"comTruck\")"\
+       "            return false;"\
+       "        "\
+       "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
+       "        if (!damageComponent) return false; // No component"\
+       "        "\
+       "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
+       "    }"\
+       ""\
+       "    override void OnActivate(IEntity ent)"\
+       "    {"\
+       "       SCR_PopUpNotification.GetInstance().PopupMsg(\"COM TRUCK LOST\", duration: 15);"\
+       "		"\
+       "		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode()); // Get the game mode for the end script"\
+       "        Faction faction = GetGame().GetFactionManager().GetFactionByKey(\"USSR\"); // Get the winning faction Key"\
+       "        int usIndex = GetGame().GetFactionManager().GetFactionIndex(faction); // Get the winning faction key's index"\
+       "        gameMode.EndGameMode(SCR_GameModeEndData.CreateSimple(SCR_GameModeEndData.ENDREASON_EDITOR_FACTION_VICTORY, -1, usIndex)); // End the mission!"\
+       "    }"
+       TriggerShapeType Sphere
+       SphereRadius 10
+       TriggerActivationType "All changes"
+       PeriodicQueries 1
+      }
+     }
+    }
     east_veh_5 {
      components {
       NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
