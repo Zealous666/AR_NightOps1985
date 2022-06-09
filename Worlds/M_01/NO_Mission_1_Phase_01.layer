@@ -92,7 +92,7 @@ NO_SCR_SpawnTrigger east_spawn_1_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
    {
     SCR_DefendWaypoint east_grp_3_WP {
      ID "59889B9006450E17"
-     CompletionRadius 75
+     CompletionRadius 100
     }
    }
   }
@@ -201,6 +201,9 @@ NO_SCR_SpawnTrigger east_spawn_1_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
      NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{E82B943358C8536B}Prefabs/Vehicles/Wheeled/BTR70/btr70_disabled.et"
+        }
        }
       }
       m_bSpawnImmediately 1

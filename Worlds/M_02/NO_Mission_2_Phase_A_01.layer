@@ -147,7 +147,8 @@ NO_SCR_SpawnTrigger east_A_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
     {
      SCR_DefendWaypoint east_grp_A_3_WP {
       ID "59889B9006450E17"
-      CompletionRadius 150
+      coords 0 0 0
+      CompletionRadius 200
       m_DefendPresets {
        SCR_DefendWaypointPreset "{58D6884489389713}" {
         m_bUseCoverPosts 1

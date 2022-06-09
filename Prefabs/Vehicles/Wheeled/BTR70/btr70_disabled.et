@@ -1,0 +1,9 @@
+Vehicle : "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et" {
+ ID "BBCBA43A9778AE21"
+ components {
+  NO_SCR_ImmobilizerComponent "{5992D737E011892C}" {
+   m_bStartImmobilized 1
+  }
+ }
+ coords 7464.04 124.764 2095.042
+}

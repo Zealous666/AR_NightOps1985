@@ -75,7 +75,43 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
   PeriodicQueries 0
   m_bDelete 0
   {
-   GenericEntity east_grp_A_bonus : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+   GenericEntity east_grp_A_bonus_2 : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{598957C46DACA106}" {
+        CountOfPlayers 6
+        prefab {
+         "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+        }
+       }
+      }
+     }
+    }
+    coords -856.553 -112.708 35.901
+    {
+     SCR_DefendWaypoint east_grp_A_bonus_WPDef {
+      ID "59889B9006450E17"
+      coords 0 0 0
+      CompletionRadius 200
+      m_DefendPresets {
+       SCR_DefendWaypointPreset "{58D6884489389713}" {
+        m_bUseCoverPosts 1
+       }
+       SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+        m_bUseObservationPosts 1
+        m_bUseGatePosts 1
+       }
+      }
+     }
+    }
+   }
+   GenericEntity east_grp_A_bonus_1 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
     components {
      NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
       m_rnDefaultPrefabs {
@@ -117,6 +153,21 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
       coords 73.806 6.365 -137.296
      }
     }
+   }
+   GenericEntity east_veh_A_bonus : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{E82B943358C8536B}Prefabs/Vehicles/Wheeled/BTR70/btr70_disabled.et"
+        }
+       }
+      }
+     }
+    }
+    coords -839.439 -112.832 36.321
+    angleY -59.965
    }
   }
  }

@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{E82B943358C8536B}Prefabs/Vehicles/Wheeled/BTR70/btr70_disabled.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
