@@ -4,6 +4,8 @@ GenericEntity {
   MeshObject "{5992A593D9C94646}" {
    Object "{36E9CC93A2EDB4E5}Assets/Items/Equipment/Radios/Radio_R148/Radio_R148_01.xob"
   }
+  RplComponent "{5993514042CD589A}" {
+  }
  }
  coords 10907.417 24.178 11738.411
 }
