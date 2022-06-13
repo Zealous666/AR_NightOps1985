@@ -32,13 +32,13 @@ NO_SCR_MissionTrigger infil_C_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  }
  {
   SCR_Position infilLoc_C : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
-   coords -1204.334 -0.462 -3225.528
-   angleY 90.077
+   coords -1204.334 0.007 -3225.528
+   angleY -130.779
   }
  }
 }
 SCR_SpawnPoint spawnPoint_C_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
- coords 9626.031 22.748 5286.876
+ coords 9823.813 0.008 5396.933
  angleY -116.918
  m_sFaction "0"
  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {

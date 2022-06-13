@@ -1,0 +1,7 @@
+SCR_AIGroup : "{1A5F0D93609DA5DA}Prefabs/Groups/OPFOR/Group_USSR_ManeuverGroup.et" {
+ ID "0000000000000001"
+ coords 7463.532 137.847 4725.584
+ m_aUnitPrefabSlots {
+  "{5117311FB822FD1F}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_HVT.et"
+ }
+}

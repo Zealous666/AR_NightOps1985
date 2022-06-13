@@ -1,0 +1,477 @@
+$grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ east_C_2_spawnTrg {
+  coords 7503.718 137.291 4743.801
+  TriggerShapeType None
+  TriggerActivationType None
+  PeriodicQueries 0
+  m_bDelete 0
+  {
+   $grp GenericEntity : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+    east_grp_C_03 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords 18.774 0.02 11.19
+     {
+      SCR_DefendWaypoint east_grp_C_03_WP {
+       ID "59889B9006450E17"
+       coords 0 1.073 -1.251
+       CompletionRadius 200
+      }
+     }
+    }
+    east_grp_C_04 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords -101.912 -1.451 -5.716
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP {
+       ID "59889B9006450E17"
+       coords -1.756 -0.268 10.641
+       CompletionRadius 200
+      }
+     }
+    }
+    east_grp_C_05 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords 20.924 29.96 -386.264
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP2 {
+       ID "59889B9006450E17"
+       coords 3.039 -8.456 5.775
+       CompletionRadius 100
+       m_DefendPresets {
+        SCR_DefendWaypointPreset "{58D6884489389713}" {
+         m_bUseCoverPosts 1
+        }
+        SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+         m_bUseObservationPosts 1
+         m_bUseGatePosts 1
+        }
+       }
+      }
+     }
+    }
+    east_grp_C_06 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{1A5F0D93609DA5DA}Prefabs/Groups/OPFOR/Group_USSR_ManeuverGroup.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords -9.815 28.211 -424.278
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP3 {
+       ID "59889B9006450E17"
+       coords 11.553 0.673 10.776
+       CompletionRadius 75
+       m_DefendPresets {
+        SCR_DefendWaypointPreset "{58D6884489389713}" {
+         m_bUseTurrets 0
+         m_bUseObservationPosts 0
+         m_bUseGatePosts 0
+        }
+        SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+         m_bUseTurrets 0
+         m_bUseCoverPosts 0
+        }
+       }
+      }
+     }
+    }
+    east_grp_C_07 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords -3.35 28.46 -495.263
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP4 {
+       ID "59889B9006450E17"
+       coords 11.553 0.673 10.776
+       CompletionRadius 100
+       m_DefendPresets {
+        SCR_DefendWaypointPreset "{58D6884489389713}" {
+         m_bUseTurrets 0
+         m_bUseObservationPosts 0
+         m_bUseGatePosts 0
+        }
+        SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+         m_bUseTurrets 0
+         m_bUseCoverPosts 0
+        }
+       }
+      }
+     }
+    }
+    east_grp_C_08 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords -86.207 25.703 -443.868
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP5 {
+       ID "59889B9006450E17"
+       coords 11.553 0.673 10.776
+       CompletionRadius 75
+       m_DefendPresets {
+        SCR_DefendWaypointPreset "{58D6884489389713}" {
+         m_bUseTurrets 0
+         m_bUseObservationPosts 0
+         m_bUseGatePosts 0
+        }
+        SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+         m_bUseTurrets 0
+         m_bUseCoverPosts 0
+        }
+       }
+      }
+     }
+    }
+    east_grp_C_09 {
+     components {
+      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+         prefab {
+          "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3CE6E65775}" {
+         CountOfPlayers 4
+         prefab {
+          "{96BAB56E6558788E}Prefabs/Groups/OPFOR/Group_USSR_Team_AT.et"
+         }
+        }
+        CountSpawnsByOnlinePlayer "{599A7D3C9B78751A}" {
+         CountOfPlayers 8
+         prefab {
+          "{43C7A28EEB660FF8}Prefabs/Groups/OPFOR/Group_USSR_Team_GL.et"
+         }
+        }
+       }
+      }
+     }
+     coords 78.447 28.865 -496.345
+     {
+      SCR_DefendWaypoint east_grp_C_04_WP6 {
+       ID "59889B9006450E17"
+       coords 11.553 0.673 10.776
+       CompletionRadius 75
+       m_DefendPresets {
+        SCR_DefendWaypointPreset "{58D6884489389713}" {
+         m_bUseCoverPosts 1
+        }
+        SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+         m_bUseObservationPosts 1
+         m_bUseGatePosts 1
+        }
+       }
+      }
+     }
+    }
+   }
+   $grp GenericEntity : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+    east_veh_C_03 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+         prefab {
+          "{E82B943358C8536B}Prefabs/Vehicles/Wheeled/BTR70/btr70_disabled.et"
+         }
+        }
+       }
+      }
+     }
+     coords 33.631 27.941 -384.048
+     angleY -59.965
+    }
+    east_veh_C_04 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+         prefab {
+          "{E82B943358C8536B}Prefabs/Vehicles/Wheeled/BTR70/btr70_disabled.et"
+         }
+        }
+       }
+      }
+     }
+     coords 89.804 29.864 -508.316
+     angleY -59.965
+    }
+    east_veh_C_05 {
+     components {
+      NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+         prefab {
+          "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et"
+         }
+        }
+       }
+      }
+     }
+     coords -76.985 25.065 -436.618
+     angleY -59.965
+    }
+   }
+  }
+ }
+ east_C_HVT_spawnTrg {
+  coords 7459.297 137.778 4721.476
+  SphereRadius 100
+  m_bDelete 0
+  m_faction "US"
+  {
+   CommentEntity marker_hvt {
+    components {
+     RplComponent "{599AA9F8A565C121}" {
+     }
+    }
+    coords -11.547 1.569 -0.135
+    angleY -156.134
+    m_Comment "HVT"
+    m_Size 2
+    m_VisibleIngame 1
+   }
+   SCR_BaseFactionTriggerEntity flee_HVT_trg {
+    components {
+     Hierarchy "{5998A33595E5DD85}" {
+     }
+     RplComponent "{597517701A5762C6}" {
+     }
+    }
+    coords 0 0 0
+    angleY -29.13
+    TriggerShapeType Sphere
+    SphereRadius 100
+    BoxMins 0 0 0
+    BoxMaxs 7 2 2.5
+    ShapeColor 0.502 0 0 0.392
+    TriggerActivationType "All changes"
+    PeriodicQueries 1
+    UpdatePeriod 2
+    ClassFilter "ChimeraCharacter"
+    OnActivate ""\
+    "		"\
+    "		//Show hint"\
+    "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+    "		hintComponent.ShowCustomHint(\"The High Valuable Target flees from the battlefield. Chase him down!\", \"Chase the HVT\", 30);"\
+    "		"\
+    "		"\
+    "		//Attach marker to HVT for task tracking"\
+    "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+    "		if (rplComponent && !rplComponent.IsProxy())"\
+    "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
+    " "\
+    "    }"\
+    "    "\
+    "    bool QueryFilter(IEntity ent)"\
+    "    {"\
+    "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+    "        "\
+    "        if (!idComponent)"\
+    "            return false;"\
+    "        "\
+    "        return idComponent.GetIdentifier() == \"hvt\";"\
+    "    }"\
+    "    "\
+    "    bool QueryHit(IEntity ent)"\
+    "    {"\
+    "        CommentEntity marker = CommentEntity.Cast(GetWorld().FindEntityByName(\"marker_hvt\"));"\
+    "        "\
+    "        // If we can find the marker and hvt"\
+    "        if (marker)"\
+    "        {"\
+    "           "\
+    "            // Keep moving it"\
+    "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+    "			if (rplComponent && !rplComponent.IsProxy())"\
+    "            	GetGame().GetCallqueue().CallLater(UpdateHVTPosition, 1000, true, marker, ent);"\
+    "        }"\
+    "        "\
+    "        // Ends further queries as we will use the first match found"\
+    "        return false;"\
+    "		"\
+    "    "\
+    "   "\
+    "    }"\
+    "    "\
+    "   	void UpdateHVTPosition(CommentEntity marker, IEntity ent)"\
+    "	{"\
+    "		            "\
+    "        if (!IsAlive(ent))"\
+    "        {"\
+    "            // VEHICLE DEAD SECTION"\
+    "            GetGame().GetCallqueue().Remove(UpdateHVTPosition);"\
+    "        }"\
+    "		"\
+    " 	 if (!marker)"\
+    "		{"\
+    "			GetGame().GetCallqueue().Remove(UpdateHVTPosition); "\
+    "			return;"\
+    "		}"\
+    ""\
+    "		marker.SetOrigin(ent.GetOrigin());"\
+    "	"
+    m_sOwnerFactionKey "US"
+   }
+   GenericEntity east_grp_C_HVT : "{DAFA3AB9E07504D3}Prefabs/NO_DSF/Groups/SpawnAiGoToDefend.et" {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B9412480009}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B1EEE0486}" {
+        prefab {
+         "{6FFB8B57C9BD2A40}Prefabs/Groups/Group_USSR_HVT.et"
+        }
+       }
+      }
+     }
+    }
+    coords -13.707 -0.186 -4.565
+    angleY 0
+    {
+     SCR_AIWaypoint east_grp_C_HVT_WP3 {
+      ID "59889B9007A41078"
+      coords -87.474 6.033 -306.214
+     }
+     SCR_AIWaypoint east_grp_C_HVT_WP2 {
+      ID "59889B9007A4107B"
+      coords -170.096 -5.553 -180.329
+     }
+     SCR_AIWaypoint east_grp_C_HVT_WP1 {
+      ID "59889B9007A42CE1"
+      coords -155.711 -4.562 16.625
+     }
+     SCR_DefendWaypoint east_grp_C_HVT_WP4 {
+      ID "59889B9007A45469"
+      coords 59.007 28.583 -392.829
+      CompletionRadius 1
+     }
+    }
+   }
+  }
+ }
+}

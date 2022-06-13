@@ -1,0 +1,43 @@
+NO_SCR_MissionTrigger exfil_C_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+ coords 6657.189 0.864 4525.223
+ SphereRadius 10
+ DrawShape 0
+ UpdatePeriod 1
+ m_bIsActive 0
+ m_bEnableTeleport 1
+ m_sNODespawnTriggerNames {
+  "east_C_1_spawnTrg" "east_C_2_spawnTrg" "east_C_HVT_spawnTrg" "east_C_bonus_spawnTrg"
+ }
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{5990A12B59A156D6}" {
+   m_sSpawnpointName "spawnPoint_hub"
+   m_sFactionKey "US"
+  }
+  NO_SCR_SpawnpointChangeEntry "{5990A12B498BFCE9}" {
+   m_sSpawnpointName "spawnPoint_C_0"
+   m_sFactionKey "0"
+  }
+  NO_SCR_SpawnpointChangeEntry "{5990A12B4D700775}" {
+   m_sSpawnpointName "spawnPoint_C_1"
+   m_sFactionKey "0"
+  }
+  NO_SCR_SpawnpointChangeEntry "{5990A12B70E7ACA2}" {
+   m_sSpawnpointName "spawnPoint_C_bonus"
+   m_sFactionKey "0"
+  }
+ }
+ m_sFinishTaskNames {
+  "tsk_main_C_X"
+ }
+ m_sMissionSelectionManagerName "radio_hub"
+ m_aEndMissionSelections {
+  "Start Operation: HITMAN"
+ }
+ m_sWaypointLocationName "radio_hub"
+ {
+  SCR_Position exfilLoc_C : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords 4140.614 -0.864 4209.401
+   angleY 90.077
+  }
+ }
+}

@@ -1,0 +1,7 @@
+SCR_SpawnPoint spawnPoint_B_2 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 6449.083 162.867 6479.853
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "LZ"
+ }
+}

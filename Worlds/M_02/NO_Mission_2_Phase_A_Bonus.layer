@@ -47,11 +47,8 @@ SCR_BaseTriggerEntity wpTrg_A_bonus {
  PeriodicQueries 1
  ClassFilter "ChimeraCharacter"
  OnActivate ""\
- "		"\
- "		//Move waypoint"\
- "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_bonus_A\").GetOrigin();"\
- "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
- "		"\
+ ""\
+ ""\
  "		//Bivouac Hint"\
  "        SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
  "        hintComponent.ShowCustomHint(\"There is a bivouac spot nearby. Find the abandoned fireplace and establish a temporary bivouac.\", \"TEMPORARY BIVOUAC\", 10);"\

@@ -1,4 +1,4 @@
-NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
  coords 9255.492 0.742 411.276
  SphereRadius 10
  DrawShape 0
@@ -6,7 +6,7 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
  m_bIsActive 0
  m_bEnableTeleport 1
  m_sNODespawnTriggerNames {
-  "east_A_1_spawnTrg" "east_A_2_spawnTrg" "east_A_X_spawnTrg" "east_A_bonus_spawnTrg" "bonus_A_spawnTrg"
+  "east_A_1_spawnTrg" "east_A_2_spawnTrg" "east_A_03_spawnTrg" "east_A_bonus_spawnTrg" "bonus_A_spawnTrg"
  }
  m_aSpawnpointChanges {
   NO_SCR_SpawnpointChangeEntry "{5990A12B59A156D6}" {
@@ -33,9 +33,6 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
  m_sFinishTaskNames {
   "tsk_main_A_X"
  }
- m_sUnlockTaskKeys {
-  "tsk_main_A_hub_true"
- }
  m_sMissionSelectionManagerName "radio_hub"
  m_aEndMissionSelections {
   "Start Operation: INTEL"
@@ -43,12 +40,12 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
  m_sWaypointLocationName "radio_hub"
  {
   SCR_Position exfilLoc_A : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
-   coords 1576.031 6.933 8308.535
+   coords 1542.565 -0.742 8322.607
    angleY 90.077
   }
  }
 }
-NO_SCR_SpawnTrigger east_A_X_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+NO_SCR_SpawnTrigger east_A_03_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
  coords 9311.094 28.938 624.918
  TriggerShapeType None
  TriggerActivationType None

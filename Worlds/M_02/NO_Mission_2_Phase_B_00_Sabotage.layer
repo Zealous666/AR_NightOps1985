@@ -1,11 +1,12 @@
 NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
  coords 10918.894 19.46 8798.98
  SphereRadius 20
+ DrawShape 0
  UpdatePeriod 1
  m_bIsActive 0
  m_bEnableTeleport 1
  m_sNOSpawnTriggerNames {
-  "east_B_1_spawnTrg"
+  "east_B_1_spawnTrg" "east_B_trucks_spawnTrg"
  }
  m_aSpawnpointChanges {
   NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
@@ -21,13 +22,13 @@ NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
   "tsk_main_B_0"
  }
  m_sUnlockTaskNames {
-  "tsk_main_B_1"
+  "tsk_main_B_1" "tsk_main_B_2"
  }
- m_sWaypointLocationName "tsk_main_B_1"
  m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
   m_bUseCustomTime 1
   m_bUseCustomWeather 1
   m_fCustomTimeOfTheDay 22
+  m_sCustomWeather "Overcast"
  }
  {
   SCR_Position infilLoc_B : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {

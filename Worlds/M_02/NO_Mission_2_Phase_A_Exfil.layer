@@ -1,4 +1,4 @@
-NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
+NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
  coords 9255.492 0.742 411.276
  SphereRadius 10
  DrawShape 0
@@ -32,9 +32,6 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/Missi
  }
  m_sFinishTaskNames {
   "tsk_main_A_X"
- }
- m_sUnlockTaskKeys {
-  "tsk_main_A_hub_true"
  }
  m_sMissionSelectionManagerName "radio_hub"
  m_aEndMissionSelections {

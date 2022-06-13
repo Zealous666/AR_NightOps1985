@@ -1,4 +1,4 @@
-SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  components {
   NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
    m_fCustomTimeOfTheDay 18.35
@@ -15,6 +15,10 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
    }
   }
   SCR_RespawnBriefingComponent "{597B2CEE9F5D61F8}" {
+   m_Info SCR_UIInfo "{597B2CEE8BC08D5A}" {
+    Name "UIInfo"
+    Description "You are tasked to complete three operations on Everon. You have to collect several intel pieces, you have to sabotage supply trucks and you have to eliminate a high valuable target.<br/>Interact with your command radio in the BlackOps hideout and decide, which operation to start first.<br/>Once the operation is completed and you exfiltraded successfully, you can start the next one. The mission is finished once all three operations are fulfilled. <br/><br/>INTEL OPERATION: Aquire intel pieces in REGINA and MONTFORT CASTLE. You might establish a temporary bivouac on your way up to the Castle.<br/><br/>HITMAN: Liberate a Resistance Village and chase a HVT in Levie before he escapes to an nearby base.<br/><br/>SABOTAGE: Find and destroy Supply Trucks in an hidden outpost and exfil asap. Be aware, there are rumors that the LZ has been compromised."
+   }
    m_aGameModeHints {
     SCR_UIInfo "{597D4ACAA84A8F75}" {
      Name "Operation: INTEL"
@@ -27,28 +31,6 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
     SCR_UIInfo "{597D4ACBC52503DB}" {
      Name "Operation: HITMAN"
      Description "Use the radio in the BlackOps hideout and travel to the AO. Then find and neutralize a high valuable target. If he flees, establish a temporary bivouac as a fallback position and chase him down."
-    }
-   }
-   m_aWinConditions {
-    SCR_BriefingVictoryCondition "{597B2CEE8C898900}" {
-     victoryCondition MOVE
-     name "tsk_0"
-     description "Use the radio to start one of the following operations:"
-    }
-    SCR_BriefingVictoryCondition "{597D4921D77E3D3D}" {
-     victoryCondition TRANSPORT
-     name "tsk_1"
-     description "INTEL: Aquire two intel pieces in REGINA and MONTFORT CASTLE"
-    }
-    SCR_BriefingVictoryCondition "{597D4921DEAC8B51}" {
-     victoryCondition REFUEL
-     name "tsk_2"
-     description "SABOTAGE: Destroy two fuel trucks in the soviet base near LEVIE"
-    }
-    SCR_BriefingVictoryCondition "{598B53B10C53A7C9}" {
-     victoryCondition SEIZE
-     name "tsk_3"
-     description "HITMAN: Chase and neutralize a HVT - be aware, he can flee."
     }
    }
   }
@@ -91,195 +73,659 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
   }
  }
 }
-NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Tasks/CoopTaskManager.et" {
+NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManager.et" {
  components {
-  SCR_TextsTaskManagerComponent "{5974A9373E8681C5}" : "{6F59CB11B5383430}Prefabs/MP/Managers/Tasks/TaskManagerComponent.ct" {
-  }
-  SCR_UITaskManagerComponent "{5974A9373B80F799}" {
-  }
-  RplComponent "{5974A937238A9AB9}" {
+  NO_SCR_TaskMarkerComponent "{59953E07BC53E919}" {
+   m_fWaypointHeight 0
   }
  }
- coords 11556.793 -29.223 10662.389
- m_aInitialTaskNames {
-  "tsk_BlackOps_hub"
- }
- AdditionalObjectives {
-  SolidObjectives "{5986C40F1C0CBB77}" {
-   m_UnlockKey "tsk_main_A_0_true"
-   m_TaskNames {
-    "tsk_main_A_0"
-   }
-  }
-  SolidObjectives "{59755188C4ECA04C}" {
-   m_UnlockKey "tsk_main_A_1_true"
-   m_TaskNames {
-    "tsk_main_A_1"
-   }
-   m_UnlockSpawnpoint "spawnPoint_A_0"
-  }
-  SolidObjectives "{597B198A09CB0336}" {
-   m_UnlockKey "tsk_main_A_2_true"
-   m_TaskNames {
-    "tsk_main_A_2" "tsk_bonus_A"
-   }
-   m_UnlockSpawnpoint "spawnPoint_A_1"
-  }
-  SolidObjectives "{5982BD70E04DE2F1}" {
-   m_UnlockKey "tsk_main_A_3_true"
-   m_TaskNames {
-    "tsk_main_A_X"
-   }
-   m_UnlockSpawnpoint "spawnPoint_A_2"
-  }
-  SolidObjectives "{5990A1242385ECD0}" {
-   m_UnlockKey "tsk_main_B_0_true"
-   m_TaskNames {
-    "tsk_main_B_0"
-   }
-  }
-  SolidObjectives "{5990A1242C5647A3}" {
-   m_UnlockKey "tsk_main_B_1_true"
-   m_TaskNames {
-    "tsk_main_B_1"
-   }
-   m_UnlockSpawnpoint "spawnPoint_B_0"
-  }
-  SolidObjectives "{5990A1266C854686}" {
-   m_UnlockKey "tsk_main_C_0_true"
-   m_TaskNames {
-    "tsk_main_C_0"
-   }
-  }
-  SolidObjectives "{5990A126038CD845}" {
-   m_UnlockKey "tsk_main_C_1_true"
-   m_TaskNames {
-    "tsk_main_C_1"
-   }
-   m_UnlockSpawnpoint "spawnPoint_C_0"
-  }
- }
+ coords 10707.897 0 8798.141
  {
-  $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
-   tsk_bonus_A {
+  $grp NO_SCR_EditorTask {
+   tsk_hub {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -2786.646 340.424 -8953.279
-    m_sName "Establish temporary bivouac"
-    m_sDescription "Establish a temporary bivouac as a respawn position before infiltrating the castle"
-    m_sMapIconName "Task_Move"
-    m_sTaskListIconName "Task_Move"
-    m_bNotifyAssignment 1
-   }
-   tsk_BlackOps_hub {
-    components {
-     RplComponent "{597B339E9598B23C}" {
-     }
-    }
-    coords -671.869 40.185 -1975.535
+    coords 177.037 10.692 -111.245
     m_sName "Interact with radio in BlackOps hideout"
     m_sDescription "Interact with the radio in the BlackOps hideout and decide which night operation to start."
-    m_sMapIconName "Task_Custom"
-    m_sTaskListIconName "Task_Custom"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Custom"
+    m_sTaskListIconName "Icon_Task_Custom"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
    }
    tsk_main_A_0 {
     components {
-     RplComponent "{597B339E9598B23C}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -749.303 30.827 -1931.305
+    coords 96.13 1.826 -62.934
     m_sName "Rally all players at peer"
     m_sDescription "Rally the whole team at the peer to start the operation."
-    m_sMapIconName "Task_Move"
-    m_sTaskListIconName "Task_Move"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Move"
+    m_sTaskListIconName "Icon_Task_Move"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
    }
    tsk_main_A_1 {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -4358.029 168.219 -8370.857
+    coords -3508.972 138.98 -6506.563
     m_sName "Collect Intel in Regina"
     m_sDescription "Collect the first intel piece in the Town of REGINA."
-    m_sMapIconName "Task_Custom"
-    m_sTaskListIconName "Task_Custom"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Custom"
+    m_sTaskListIconName "Icon_Task_Custom"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    m_sAdditionalMarkerPosition "wpTrg_A_1"
    }
    tsk_main_A_2 {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -2242.134 254.406 -9500.981
+    coords -1393.282 225.207 -7636.779
     m_sName "Collect Intel in the Castle"
     m_sDescription "Collect another intel piece in the MONTFORT Castle."
-    m_sMapIconName "Task_Custom"
-    m_sTaskListIconName "Task_Custom"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Custom"
+    m_sTaskListIconName "Icon_Task_Custom"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+   }
+   tsk_bonus_A {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -1937.752 311.201 -7089.031
+    m_sName "BONUS: Establish bivouac"
+    m_sDescription "Establish a temporary bivouac as a respawn position before infiltrating the castle"
+    m_sMapIconName "Icon_Task_Move"
+    m_sTaskListIconName "Icon_Task_Move"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
    }
    tsk_main_A_X {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -2298.804 30.46 -10250.689
+    coords -1450.208 1.792 -8387.885
     m_sName "Exfil AO"
     m_sDescription "Reach exfiltration point to leave the area of operation."
-    m_sMapIconName "Task_Evacuate"
-    m_sTaskListIconName "Task_Evacuate"
-    m_bNotifyAssignment 1
-   }
-   tsk_main_C_1 {
-    components {
-     RplComponent "{597517701F7431BB}" {
-     }
-    }
-    coords -2226.997 38.525 -5585.357
-    m_sName "Liberate Resistance Village"
-    m_sDescription "Secure and free the Resistance Village by neutralizing all Soviet invaders"
-    m_sMapIconName "Task_Seize"
-    m_sTaskListIconName "Task_Seize"
-    m_bNotifyAssignment 1
-   }
-   tsk_main_C_0 {
-    components {
-     RplComponent "{597B339E9598B23C}" {
-     }
-    }
-    coords -528.034 29.665 -2038.191
-    m_sName "Rally all players at Resistance Boat"
-    m_sDescription "Rally the whole team at the Resistance Boat to start the operation."
-    m_sMapIconName "Task_Move"
-    m_sTaskListIconName "Task_Move"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Evacuate"
+    m_sTaskListIconName "Icon_Task_Evacuate"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
    }
    tsk_main_B_0 {
     components {
-     RplComponent "{597B339E9598B23C}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -637.273 48.932 -1878.609
+    coords 210.237 22.015 -4.041
     m_sName "Rally all players at helipad"
     m_sDescription "Rally the whole team at the helipad to start the operation."
-    m_sMapIconName "Task_Move"
-    m_sTaskListIconName "Task_Move"
-    m_bNotifyAssignment 1
+    m_sMapIconName "Icon_Task_Move"
+    m_sTaskListIconName "Icon_Task_Move"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
    }
-   tsk_main_B_1 {
+   tsk_main_C_0 {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -5523.971 126.328 -5279.756
+    coords 318.603 3.264 -176.181
+    m_sName "Rally all players at Resistance Boat"
+    m_sDescription "Rally the whole team at the Resistance Boat to start the operation."
+    m_sMapIconName "Icon_Task_Move"
+    m_sTaskListIconName "Icon_Task_Move"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+   }
+   tsk_main_C_1 {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -1370.095 9.419 -3737.709
+    m_sName "Liberate Resistance Village"
+    m_sDescription "Find the HVT by securing his last known position nearby and neutralize all Soviet invaders"
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    {
+     SCR_FactionControlTriggerEntity tsk_main_C_1_trg {
+      components {
+       Hierarchy "{5996A6ACCB4F6AC7}" {
+       }
+       RplComponent "{597B339E86723483}" {
+       }
+      }
+      coords -34.29 4.65 -11.147
+      userScript "		IEntity Owner;"\
+      "		override void OnInit(IEntity owner)"\
+      "		{"\
+      "        Owner = owner;"\
+      "        super.OnInit(owner);"\
+      "		}"
+      TriggerShapeType Sphere
+      SphereRadius 100
+      TriggerActivationType "First change"
+      PeriodicQueries 1
+      ClassFilter "ChimeraCharacter"
+      OnActivate ""\
+      "		"\
+      "		//Activate spawnpoint"\
+      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_C_1\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+      "		"\
+      "		//Finish Task 1"\
+      "		IEntity taskEntity01 = GetParent();"\
+      "        NO_SCR_EditorTask task01 = NO_SCR_EditorTask.Cast(taskEntity01);"\
+      "		task01.ChangeStateOfTask(TriggerType.Finish);"\
+      "		"\
+      "		//Unlock Task 2"\
+      "		IEntity taskEntity2 = GetWorld().FindEntityByName(\"tsk_main_C_2\");"\
+      "        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);"\
+      "		task2.ChangeStateOfTask(TriggerType.Create);"\
+      "		task2.ChangeStateOfTask(TriggerType.Assign);"\
+      ""\
+      "		//Unlock Task Bonus"\
+      "		IEntity taskEntityB = GetWorld().FindEntityByName(\"tsk_bonus_C\");"\
+      "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
+      "		taskB.ChangeStateOfTask(TriggerType.Create);"\
+      "		"\
+      "		//Spawn next wave"\
+      "		private RplComponent m_pRplComponent;"\
+      "			if(!m_pRplComponent)"\
+      " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
+      "			if(m_pRplComponent.IsMaster())"\
+      " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_C_2_spawnTrg\")).Spawn();"\
+      "	 	 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_C_bonus_spawnTrg\")).Spawn();"\
+      "		"\
+      "		"\
+      "		"\
+      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+      "		"\
+      "	}"\
+      ""\
+      "	protected void DelayedDeSpawn()"\
+      "	{"\
+      "		"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_main_C_1_trg\"));"\
+      "	"
+      m_sOwnerFactionKey "US"
+      m_fFriendlyRatioLimit 1
+     }
+    }
+   }
+   tsk_main_C_2 {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -3232.946 156.971 -4060.502
     m_sName "Neutralize HVT"
-    m_sDescription "Find and neutralize the HVT in the hidden command post"
-    m_sMapIconName "Task_Seize"
-    m_sTaskListIconName "Task_Seize"
-    m_bNotifyAssignment 1
+    m_sDescription "Find and neutralize the High Valuable Target"
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    m_sAdditionalMarkerPosition "marker_hvt"
+    {
+     SCR_BaseTriggerEntity killed_HVT_trg {
+      components {
+       RplComponent "{598268EBE98907C8}" {
+       }
+      }
+      coords 54.019 -1.559 -228.27
+      angleY -49.068
+      userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+      "    {"\
+      "           NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+      "    "\
+      "    if (!idComponent || idComponent.GetIdentifier() != \"hvt\")"\
+      "        return false;"\
+      ""\
+      "	//Print(\"IsDead: \" + !IsAlive(ent), LogLevel.ERROR); //DEBUG"\
+      "		"\
+      "    // return IsDead"\
+      "    return !IsAlive(ent);"\
+      "	"\
+      "    }"\
+      "	"\
+      ""\
+      ""\
+      "    override void OnActivate(IEntity ent)"\
+      "    {"\
+      "       SCR_PopUpNotification.GetInstance().PopupMsg(\"HVT NEUTRALIZED\", duration: 15);"\
+      "		"\
+      "		//HVT killed task"\
+      "		IEntity taskEntity02 = GetGame().GetWorld().FindEntityByName(\"tsk_main_C_2\");"\
+      "        NO_SCR_EditorTask task02 = NO_SCR_EditorTask.Cast(taskEntity02);"\
+      "		task02.ChangeStateOfTask(TriggerType.Finish);"\
+      "		"\
+      "		//Exfil task"\
+      "		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName(\"tsk_main_C_X\");"\
+      "        NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);"\
+      "		taskX.ChangeStateOfTask(TriggerType.Create);"\
+      "		taskX.ChangeStateOfTask(TriggerType.Assign);"\
+      "		"\
+      "		//Enables exfil trigger"\
+      "		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName(\"exfil_C_trg\"));"\
+      "			if(trigger)"\
+      "			trigger.SetActive(true);"\
+      "		"\
+      "		//Delete marker follow trigger"\
+      "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"flee_HVT_trg\"));"\
+      "		"\
+      "    }"
+      TriggerShapeType Sphere
+      SphereRadius 1000
+      TriggerActivationType "All changes"
+      PeriodicQueries 1
+     }
+    }
+   }
+   tsk_bonus_C {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -2731.777 174.604 -4281.298
+    m_sName "Secure Safehouse"
+    m_sDescription "Secure the Resistance Safehouse to unlock a bonus spawnpoint."
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    {
+     SCR_FactionControlTriggerEntity tsk_bonus_C_trg {
+      components {
+       Hierarchy "{5996A6ACCB4F6AC7}" {
+       }
+       RplComponent "{597B339E86723483}" {
+       }
+      }
+      coords -3.813 3.053 -9.006
+      userScript "		IEntity Owner;"\
+      "		override void OnInit(IEntity owner)"\
+      "		{"\
+      "        Owner = owner;"\
+      "        super.OnInit(owner);"\
+      "		}"
+      TriggerShapeType Sphere
+      SphereRadius 25
+      TriggerActivationType "First change"
+      PeriodicQueries 1
+      ClassFilter "ChimeraCharacter"
+      OnActivate ""\
+      "		"\
+      "		//Finish bonus task"\
+      "		IEntity taskEntityB = GetParent();"\
+      "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
+      "		taskB.ChangeStateOfTask(TriggerType.Finish);"\
+      "		"\
+      "		//Show hint"\
+      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+      "		hintComponent.ShowCustomHint(\"An additional spawnpoint has been unlocked in the Resistance Safehouse\", \"Spawnpoint Unlocked\", 30);"\
+      "		"\
+      "		//Activate spawnpoint"\
+      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_C_bonus\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+      "	"\
+      "		"\
+      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+      "		"\
+      "	}"\
+      ""\
+      "	protected void DelayedDeSpawn()"\
+      "	{"\
+      "		"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_bonus_C_trg\"));"\
+      "	"
+      m_sOwnerFactionKey "US"
+      m_fFriendlyRatioLimit 1
+     }
+    }
+   }
+   tsk_main_C_X {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -4050.74 5.032 -4275.554
+    m_sName "Exfil AO"
+    m_sDescription "Reach exfiltration point to leave the area of operation."
+    m_sMapIconName "Icon_Task_Evacuate"
+    m_sTaskListIconName "Icon_Task_Evacuate"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+   }
+   tsk_main_B_3 {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -4244.233 161.958 -2319.466
+    m_sName "Exfil AO"
+    m_sDescription "Reach exfiltration point to leave the area of operation."
+    m_sMapIconName "Icon_Task_Evacuate"
+    m_sTaskListIconName "Icon_Task_Evacuate"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    {
+     NO_SCR_MissionTrigger tsk_main_B_3_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+      coords -2.747 4.673 2.261
+      SphereRadius 15
+      DrawShape 0
+      UpdatePeriod 1
+      m_bIsActive 0
+      m_sNOSpawnTriggerNames {
+       "east_B_exfilWaves_trg"
+      }
+      m_aSpawnpointChanges {
+       NO_SCR_SpawnpointChangeEntry "{599B220C50F2D095}" {
+        m_sSpawnpointName "spawnPoint_B_X"
+        m_sFactionKey "US"
+       }
+      }
+      m_sFinishTaskNames {
+       "tsk_main_B_3"
+      }
+      m_sUnlockTaskNames {
+       "tsk_main_B_4"
+      }
+      m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{599B220D98D04061}" {
+       m_bUseCustomWeather 1
+       m_sCustomWeather "Rainy"
+      }
+     }
+    }
+   }
+   tsk_main_B_4 {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -4244.233 161.958 -2319.466
+    m_sName "Hold the LZ"
+    m_sDescription "Hold the landing zone and survive till pickup arrives"
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+   }
+   tsk_main_B_X {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -3934.198 91.763 -3195.458
+    m_sName "Exfil AO via backup LZ"
+    m_sDescription "Reach exfiltration point to leave the area of operation."
+    m_sMapIconName "Icon_Task_Evacuate"
+    m_sTaskListIconName "Icon_Task_Evacuate"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+   }
+  }
+  NO_SCR_EditorTask tsk_main_B_Multi : "{231FF93369E30084}Prefabs/NO_DTF/MultiTask.et" {
+   components {
+    NO_SCR_MultiTaskTriggerComponent "{599690AC32293EDD}" {
+     m_allowFailedTasks 0
+    }
+   }
+   coords -4667.552 95.743 -3410.755
+   m_sName "All Supply Trucks destroyed"
+   m_faction "US"
+   m_bAssignToFactionOnStart 0
+   m_sCreateTaskNamesSuccess {
+    "tsk_main_B_3"
+   }
+   {
+    $grp NO_SCR_EditorTask {
+     tsk_main_B_1 {
+      components {
+       Hierarchy "{5996A6AE3DA106FD}" {
+       }
+       SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+       }
+       RplComponent "{5996A6AE3DA106F6}" {
+       }
+      }
+      coords 11.693 1.284 -5.371
+      m_sName "Sabotage Supply Truck 1"
+      m_sDescription "Sabotage two Supply Trucks in the hidden base"
+      m_sMapIconName "Icon_Task_Move"
+      m_sTaskListIconName "Icon_Task_Move"
+      m_iTaskCompletionType ALWAYS_MANUAL
+      m_faction "US"
+      m_bAssignToFactionOnStart 0
+      {
+       SCR_BaseTriggerEntity east_supplyTruck_1_trg {
+        components {
+         RplComponent "{598268EBE98907C8}" {
+         }
+        }
+        coords 9.695 -2.363 34.177
+        angleY -49.068
+        userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+        "    {"\
+        "        Vehicle vehicle = Vehicle.Cast(ent);"\
+        "        if (!vehicle) return false; // Not a vehicle"\
+        "        "\
+        "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+        "        "\
+        "        if (!idComponent || idComponent.GetIdentifier() != \"supplyTruck_1\")"\
+        "            return false;"\
+        "        "\
+        "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
+        "        if (!damageComponent) return false; // No component"\
+        "        "\
+        "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
+        "    }"\
+        ""\
+        "	"\
+        "	"\
+        "    override void OnActivate(IEntity ent)"\
+        "    {"\
+        "		"\
+        "		//Finish Task 1"\
+        "		IEntity taskEntity = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_1\");"\
+        "        NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);"\
+        "		task.ChangeStateOfTask(TriggerType.Finish);"\
+        "		"\
+        "		IEntity triggerEntity = GetGame().GetWorld().FindEntityByName(\"east_supplyTrucks_trg\");"\
+        "		east_supplyTrucks_trg_Class triggerClass = east_supplyTrucks_trg_Class.Cast(triggerEntity);"\
+        "		triggerClass.globalZahl ++;"\
+        "		"\
+        "    }"
+        TriggerShapeType Sphere
+        SphereRadius 10
+        TriggerActivationType "All changes"
+        PeriodicQueries 1
+       }
+      }
+     }
+     tsk_main_B_2 {
+      components {
+       Hierarchy "{5996A6AE3DA106FD}" {
+       }
+       SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+       }
+       RplComponent "{5996A6AE3DA106F6}" {
+       }
+      }
+      coords 15.58 1.517 -11.558
+      m_sName "Sabotage Supply Truck 2"
+      m_sDescription "Sabotage two Supply Trucks in the hidden base"
+      m_sMapIconName "Icon_Task_Move"
+      m_sTaskListIconName "Icon_Task_Move"
+      m_iTaskCompletionType ALWAYS_MANUAL
+      m_faction "US"
+      m_bAssignToFactionOnStart 0
+      {
+       SCR_BaseTriggerEntity east_supplyTruck_2_trg {
+        components {
+         RplComponent "{598268EBE98907C8}" {
+         }
+        }
+        coords -31.914 -2.608 -1.43
+        angleY 33.104
+        userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+        "    {"\
+        "        Vehicle vehicle = Vehicle.Cast(ent);"\
+        "        if (!vehicle) return false; // Not a vehicle"\
+        "        "\
+        "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+        "        "\
+        "        if (!idComponent || idComponent.GetIdentifier() != \"supplyTruck_2\")"\
+        "            return false;"\
+        "        "\
+        "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
+        "        if (!damageComponent) return false; // No component"\
+        "        "\
+        "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
+        "    }"\
+        ""\
+        "    override void OnActivate(IEntity ent)"\
+        "    {"\
+        "		"\
+        "		//Finish Task 2"\
+        "		IEntity taskEntity = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_2\");"\
+        "        NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);"\
+        "		task.ChangeStateOfTask(TriggerType.Finish);"\
+        "		"\
+        "		IEntity triggerEntity = GetGame().GetWorld().FindEntityByName(\"east_supplyTrucks_trg\");"\
+        "		east_supplyTrucks_trg_Class triggerClass = east_supplyTrucks_trg_Class.Cast(triggerEntity);"\
+        "		triggerClass.globalZahl ++;"\
+        "		"\
+        "    }"
+        TriggerShapeType Sphere
+        SphereRadius 10
+        TriggerActivationType "All changes"
+        PeriodicQueries 1
+       }
+      }
+     }
+    }
+    SCR_BaseTriggerEntity east_supplyTrucks_trg {
+     components {
+      RplComponent "{598268EBE98907C8}" {
+      }
+     }
+     coords 399.269 66.383 1096.433
+     angleY 33.104
+     userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
+     "    {"\
+     "    "\
+     "		if (globalZahl == 2)"\
+     "		return true;"\
+     "		"\
+     "		return false;"\
+     "		"\
+     "    }"\
+     ""\
+     "	"\
+     "	int globalZahl = 0;"\
+     "	"\
+     "    override void OnActivate(IEntity ent)"\
+     "    {"\
+     "		"\
+     "			"\
+     "	//Enables exfil trigger"\
+     "		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_B_3_trg\"));"\
+     "			if(trigger)"\
+     "			trigger.SetActive(true);"\
+     "		"\
+     "		vector triggerToLocation = GetWorld().FindEntityByName(\"tsk_main_B_3_trg\").GetOrigin();"\
+     "       GetWorld().FindEntityByName(\"countdown_trg\").SetOrigin(triggerToLocation);"\
+     "		"\
+     "    }"
+     TriggerShapeType Sphere
+     SphereRadius 10
+     TriggerActivationType "All changes"
+     PeriodicQueries 1
+    }
    }
   }
  }

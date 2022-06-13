@@ -1,4 +1,4 @@
-SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  components {
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
    m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" {
@@ -44,6 +44,7 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
   }
  }
  coords 11576.713 0 10649.332
+ PlayerControllerPrefab "{225E51284CC95CFA}Prefabs/Characters/Core/DefaultPlayerControllerMP.et"
  {
   SCR_AIWorld {
    ID "598B45657FF365AF"
@@ -78,61 +79,36 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
   }
  }
 }
-NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Tasks/CoopTaskManager.et" {
- components {
-  SCR_TextsTaskManagerComponent "{5974A9373E8681C5}" : "{6F59CB11B5383430}Prefabs/MP/Managers/Tasks/TaskManagerComponent.ct" {
-  }
-  SCR_UITaskManagerComponent "{5974A9373B80F799}" {
-  }
-  RplComponent "{5974A937238A9AB9}" {
-  }
- }
- coords 11556.793 -29.223 10662.389
- m_aInitialTaskNames {
-  "tsk_main_1"
- }
- AdditionalObjectives {
-  SolidObjectives "{59755188C4ECA04C}" {
-   m_UnlockKey "tsk_main_1_true"
-   m_TaskNames {
-    "tsk_main_2" "tsk_bonus"
-   }
-   m_UnlockSpawnpoint "spawnPoint_1"
-  }
-  SolidObjectives "{597B198A09CB0336}" {
-   m_UnlockKey "tsk_main_2_true"
-   m_TaskNames {
-    "tsk_main_3"
-   }
-   m_UnlockSpawnpoint "spawnPoint_2"
-  }
-  SolidObjectives "{598F2E3A0CC313BF}" {
-   m_UnlockKey "tsk_main_3_true"
-   m_TaskNames {
-    "tsk_main_x"
-   }
-  }
- }
+NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManager.et" {
+ coords 11403.999 0 10568.785
  {
-  $grp SCR_EditorTask : "{3AD0A1257870E6C7}Prefabs/Tasks/CustomTask.et" {
-   tsk_main_1 {
+  $grp NO_SCR_EditorTask {
+   m01_tsk_1 {
     components {
-     RplComponent "{597B339E9598B23C}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -173.087 98.63 530.647
+    coords -12.933 69.463 626.626
     m_sName "Secure Lighthouse"
-    m_sDescription "Secure the soviet radio at the Lighthouse to unlock another spawn position"
-    m_sMapIconName "Task_Seize"
-    m_sTaskListIconName "Task_Seize"
-    m_bNotifyAssignment 1
+    m_sDescription "Secure the soviet coms uplink at the Lighthouse to unlock another spawn position"
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_sAdditionalMarkerPosition "waypoint_trg_1"
     {
-     SCR_FactionControlTriggerEntity tsk_main_1_trg {
+     SCR_FactionControlTriggerEntity m01_tsk_1_trg {
       components {
+       Hierarchy "{5996A6ACCB4F6AC7}" {
+       }
        RplComponent "{597B339E86723483}" {
        }
       }
-      coords 0 0 0
+      coords -7.361 -0.056 -2.376
       userScript "		IEntity Owner;"\
       "		override void OnInit(IEntity owner)"\
       "		{"\
@@ -145,17 +121,31 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
       PeriodicQueries 1
       ClassFilter "ChimeraCharacter"
       OnActivate ""\
+      "		"\
+      "		//Activate spawnpoint"\
+      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_1\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
       ""\
+      "		//Show hint"\
       "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
       "		hintComponent.ShowCustomHint(\"Spawnpoint at LIGHTHOUSE available\", \"SPAWNPOINT UNLOCKED\", 10);"\
       "		"\
-      "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_1\"));"\
-      "		task.Finish();"\
-      "		GetTaskManager().FinishTask(task);"\
-      ""\
-      "		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());"\
-      "		coopTM.UnlockObjective(\"tsk_main_1_true\");"\
+      "		//Finish Task 1"\
+      "		IEntity taskEntity01 = GetParent();"\
+      "        NO_SCR_EditorTask task01 = NO_SCR_EditorTask.Cast(taskEntity01);"\
+      "		task01.ChangeStateOfTask(TriggerType.Finish);"\
       "		"\
+      "		//Unlock Task 2"\
+      "		IEntity taskEntity2 = GetWorld().FindEntityByName(\"m01_tsk_2\");"\
+      "        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);"\
+      "		task2.ChangeStateOfTask(TriggerType.Create);"\
+      "		task2.ChangeStateOfTask(TriggerType.Assign);"\
+      ""\
+      "		//Unlock Task Bonus"\
+      "		IEntity taskEntityB = GetWorld().FindEntityByName(\"m01_tsk_bonus\");"\
+      "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
+      "		taskB.ChangeStateOfTask(TriggerType.Create);"\
+      "		"\
+      "		//Spawn next wave"\
       "		private RplComponent m_pRplComponent;"\
       "			if(!m_pRplComponent)"\
       " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
@@ -163,44 +153,157 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
       " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_2_trg\")).Spawn();"\
       "	"\
       "		"\
-      "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_2\").GetOrigin();"\
-      "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
-      "		"\
       "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
-      "		"\
       "		"\
       "	}"\
       ""\
       "	protected void DelayedDeSpawn()"\
       "	{"\
-      "    		SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW MAIN TASK: Secure Radio Uplink\", duration: 5);"\
-      "			SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW BONUS TASK: Claim empty APC\", duration: 5);"\
       "		"\
-      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_main_1_trg\"));"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
       "	"
       m_sOwnerFactionKey "US"
       m_fFriendlyRatioLimit 1
      }
     }
    }
-   tsk_main_2 {
+   m01_tsk_bonus {
     components {
-     RplComponent "{597517701F7431BB}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -400.589 61.215 931.991
-    m_sName "Secure Radio Uplink"
-    m_sDescription "Secure the Radio Uplink at the farm to unlock another spawn position"
-    m_sMapIconName "Task_Seize"
-    m_sTaskListIconName "Task_Seize"
-    m_bNotifyAssignment 1
+    coords -30.132 19.415 1263.524
+    m_sName "Bonus: claim APC"
+    m_sDescription "Claim the empty APC to deploy a mobile spawnpoint."
+    m_sMapIconName "Icon_Task_Move"
+    m_sTaskListIconName "Icon_Task_Move"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
     {
-     SCR_FactionControlTriggerEntity tsk_main_2_trg {
+     SCR_BaseFactionTriggerEntity tsk_bonus_trg {
       components {
-       RplComponent "{597517700187FC76}" {
+       Hierarchy "{5998A33595E5DD85}" {
+       }
+       RplComponent "{597517701A5762C6}" {
        }
       }
-      coords 3.275 0 3.898
+      coords -3.382 -2.04 -3.397
+      angleY -29.13
+      TriggerShapeType "Oriented Bounding Box"
+      SphereRadius 2
+      BoxMins 0 0 0
+      BoxMaxs 7 2 2.5
+      ShapeColor 0.502 0 0 0.392
+      TriggerActivationType "All changes"
+      PeriodicQueries 1
+      UpdatePeriod 2
+      ClassFilter "ChimeraCharacter"
+      OnActivate ""\
+      "		//Finish bonus task"\
+      "		IEntity taskEntityB = GetParent();"\
+      "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
+      "		taskB.ChangeStateOfTask(TriggerType.Finish);"\
+      "		"\
+      "		//Show hint"\
+      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+      "		hintComponent.ShowCustomHint(\"This is a unique APC which attaches a mobile spawnpoint to it as long as the vehicle stays alive.\", \"Moving Spawnpoint\", 30);"\
+      "		"\
+      "		//Activate spawnpoint"\
+      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+      "		"\
+      "		//Enable spawnpoint follow the APC mechanic"\
+      "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+      "		if (rplComponent && !rplComponent.IsProxy())"\
+      "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
+      " "\
+      "    }"\
+      "    "\
+      "    bool QueryFilter(IEntity ent)"\
+      "    {"\
+      "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+      "        "\
+      "        if (!idComponent)"\
+      "            return false;"\
+      "        "\
+      "        return idComponent.GetIdentifier() == \"apc\";"\
+      "    }"\
+      "    "\
+      "    bool QueryHit(IEntity ent)"\
+      "    {"\
+      "        SCR_SpawnPoint spawnPoint = SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\"));"\
+      "        "\
+      "        // If we can find the spawnpoint and target vehicle (ent)"\
+      "        if (spawnPoint)"\
+      "        {"\
+      "            // Unlock it"\
+      "            spawnPoint.SetFactionKey(\"US\");"\
+      "            "\
+      "            // Keep moving it"\
+      "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+      "			if (rplComponent && !rplComponent.IsProxy())"\
+      "            	GetGame().GetCallqueue().CallLater(UpdateAPCSpawnPosition, 1000, true, spawnPoint, ent);"\
+      "        }"\
+      "        "\
+      "        // Ends further queries as we will use the first match found"\
+      "        return false;"\
+      "    }"\
+      "    "\
+      "    void UpdateAPCSpawnPosition(SCR_SpawnPoint spawnPoint, IEntity target)"\
+      "    {"\
+      "        SCR_DamageManagerComponent damageManager = SCR_DamageManagerComponent.Cast(target.FindComponent(SCR_DamageManagerComponent));"\
+      "        "\
+      "        if (!damageManager)"\
+      "            return;"\
+      "        "\
+      "        if (damageManager.IsDestroyed())"\
+      "        {"\
+      "            // VEHICLE DEAD SECTION"\
+      "            GetGame().GetCallqueue().Remove(UpdateAPCSpawnPosition);"\
+      "            spawnPoint.SetFactionKey(\"0\");"\
+      "        }"\
+      "        else"\
+      "        {"\
+      "            // VEHICLE ALIVE SECTION"\
+      "            spawnPoint.SetOrigin(target.GetOrigin());"\
+      "        }"\
+      "    "
+      m_sOwnerFactionKey "US"
+     }
+    }
+   }
+   m01_tsk_2 {
+    components {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
+     }
+    }
+    coords -250.695 33.789 1023.761
+    m_sName "Secure Radio Post"
+    m_sDescription "Secure the soviet coms uplink at the Radio Post to unlock another spawn position"
+    m_sMapIconName "Icon_Task_Seize"
+    m_sTaskListIconName "Icon_Task_Seize"
+    m_eAssignMessage NONE
+    m_eUnassignMessage NONE
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
+    {
+     SCR_FactionControlTriggerEntity m01_tsk_2_trg {
+      components {
+       Hierarchy "{5996A6ACCB4F6AC7}" {
+       }
+       RplComponent "{597B339E86723483}" {
+       }
+      }
+      coords -7.361 -0.056 -2.376
       userScript "		IEntity Owner;"\
       "		override void OnInit(IEntity owner)"\
       "		{"\
@@ -213,172 +316,92 @@ NO_SCR_CoopTaskManager TaskManager : "{389A260C809DA28A}Prefabs/MP/Managers/Task
       PeriodicQueries 1
       ClassFilter "ChimeraCharacter"
       OnActivate ""\
+      "		"\
+      "		//Activate spawnpoint"\
+      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_2\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
       ""\
+      "		//Show hint"\
       "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
-      "		hintComponent.ShowCustomHint(\"Spawnpoint at RADIO UPLINK available\", \"SPAWNPOINT UNLOCKED\", 10);"\
-      "	"\
-      "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_2\"));"\
-      "		task.Finish();"\
-      "		GetTaskManager().FinishTask(task);"\
+      "		hintComponent.ShowCustomHint(\"Spawnpoint at RADIO POST available\", \"SPAWNPOINT UNLOCKED\", 10);"\
+      "		"\
+      "		//Finish Task 2"\
+      "		IEntity taskEntity02 = GetParent();"\
+      "        NO_SCR_EditorTask task02 = NO_SCR_EditorTask.Cast(taskEntity02);"\
+      "		task02.ChangeStateOfTask(TriggerType.Finish);"\
       ""\
-      "		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());"\
-      "		coopTM.UnlockObjective(\"tsk_main_2_true\");"\
+      "		//Unlock Task 3"\
+      "		IEntity taskEntity3 = GetWorld().FindEntityByName(\"m01_tsk_3\");"\
+      "        NO_SCR_EditorTask task3 = NO_SCR_EditorTask.Cast(taskEntity3);"\
+      "		task3.ChangeStateOfTask(TriggerType.Create);"\
+      "		task3.ChangeStateOfTask(TriggerType.Assign);"\
       "		"\
-      "		"\
+      "		//Spawn next wave"\
       "		private RplComponent m_pRplComponent;"\
       "			if(!m_pRplComponent)"\
       " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
       "			if(m_pRplComponent.IsMaster())"\
       " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_comTruck_trg\")).Spawn();"\
-      "		"\
-      "		vector travelToLocation = GetWorld().FindEntityByName(\"tsk_main_3\").GetOrigin();"\
-      "        GetWorld().FindEntityByName(\"WP\").SetOrigin(travelToLocation);"\
       "	"\
-      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
       "		"\
+      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
       "		"\
       "	}"\
       ""\
       "	protected void DelayedDeSpawn()"\
       "	{"\
-      "    		SCR_PopUpNotification.GetInstance().PopupMsg(\"NEW MAIN TASK: Capture Com Truck\", duration: 5);"\
       "		"\
-      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_main_2_trg\"));"\
+      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
       "	"
       m_sOwnerFactionKey "US"
       m_fFriendlyRatioLimit 1
      }
     }
    }
-   tsk_main_3 {
+   m01_tsk_3 {
     components {
-     RplComponent "{5975177038D51BCA}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -646.538 54.813 1075.915
-    angleY 49.082
-    m_sName "Capture Encryption Keys"
-    m_sDescription "Capture the soviet radio encryption keys of their Com Truck and leave the AO to win the mission"
-    m_bNotifyAssignment 1
+    coords -493.784 24.835 1169.585
+    m_sName "Loot Encryption Key"
+    m_sDescription "Capture and lootthe Encryption Key of the Soviet C Truck"
+    m_sMapIconName "Icon_Task_Custom"
+    m_sTaskListIconName "Icon_Task_Custom"
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
    }
-   tsk_main_x {
+   m01_tsk_x {
     components {
-     RplComponent "{5975177038D51BCA}" {
+     Hierarchy "{5996A6AE3DA106FD}" {
+     }
+     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+     }
+     RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords -979.511 30.748 1181.473
+    coords -835.665 0.795 1273.024
     m_sName "Exfil AO"
-    m_sDescription "Bring everyone to the port and exfiltrate the area of operation"
+    m_sDescription "Reach the harbor and exfiltrate the area of operation"
     m_sMapIconName "Icon_Task_Evacuate"
     m_sTaskListIconName "Icon_Task_Evacuate"
-    m_bNotifyAssignment 1
+    m_iTaskCompletionType ALWAYS_MANUAL
+    m_faction "US"
+    m_bAssignToFactionOnStart 0
     {
-     NO_SCR_MissionTrigger tsk_main_x_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/MissionTrigger.et" {
-      coords -0.139 -0.714 -0.717
+     NO_SCR_MissionTrigger tsk_main_x_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+      coords 0 0 0
       DrawShape 0
-      UpdatePeriod 1
       m_bIsActive 0
       m_sFinishTaskNames {
-       "tsk_main_x"
+       "m01_tsk_x"
       }
       m_bEnableGameOver 1
      }
-    }
-   }
-  }
-  SCR_TriggerTask tsk_bonus : "{7259F0B101761BD5}Prefabs/Tasks/MoveTask.et" {
-   components {
-    RplComponent "{597517706FF88EB6}" {
-    }
-   }
-   coords -184.271 46.577 1169.337
-   m_sName "Bonus: Claim APC (Mobile Spawnpoint)"
-   m_sDescription "SECONDARY: Claim the empty APC to deploy a mobile spawnpoint."
-   m_eAssignMessage NONE
-   m_eUnassignMessage NONE
-   {
-    SCR_BaseFactionTriggerEntity tsk_bonus_trg {
-     ID "55D072570E7E8ABF"
-     components {
-      RplComponent "{597517701A5762C6}" {
-      }
-     }
-     coords -2.036 0.021 -2.813
-     angleY -29.13
-     TriggerShapeType "Oriented Bounding Box"
-     SphereRadius 2
-     BoxMins 0 0 0
-     BoxMaxs 7 2 2.5
-     ShapeColor 0.502 0 0 0.392
-     TriggerActivationType "First change"
-     UpdatePeriod 3
-     OnActivate ""\
-     ""\
-     "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
-     "		hintComponent.ShowCustomHint(\"This is a unique APC which attaches a mobile spawnpoint to it as long as the vehicle stays alive.\", \"Moving Spawnpoint\", 30);"\
-     "		"\
-     "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
-     "		"\
-     "		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_bonus\"));"\
-     "		task.Finish();"\
-     "		GetTaskManager().FinishTask(task);"\
-     "		"\
-     "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
-     "		if (rplComponent && !rplComponent.IsProxy())"\
-     "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
-     " "\
-     "    }"\
-     "    "\
-     "    bool QueryFilter(IEntity ent)"\
-     "    {"\
-     "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
-     "        "\
-     "        if (!idComponent)"\
-     "            return false;"\
-     "        "\
-     "        return idComponent.GetIdentifier() == \"apc\";"\
-     "    }"\
-     "    "\
-     "    bool QueryHit(IEntity ent)"\
-     "    {"\
-     "        SCR_SpawnPoint spawnPoint = SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_apc\"));"\
-     "        "\
-     "        // If we can find the spawnpoint and target vehicle (ent)"\
-     "        if (spawnPoint)"\
-     "        {"\
-     "            // Unlock it"\
-     "            spawnPoint.SetFactionKey(\"US\");"\
-     "            "\
-     "            // Keep moving it"\
-     "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
-     "			if (rplComponent && !rplComponent.IsProxy())"\
-     "            	GetGame().GetCallqueue().CallLater(UpdateAPCSpawnPosition, 1000, true, spawnPoint, ent);"\
-     "        }"\
-     "        "\
-     "        // Ends further queries as we will use the first match found"\
-     "        return false;"\
-     "    }"\
-     "    "\
-     "    void UpdateAPCSpawnPosition(SCR_SpawnPoint spawnPoint, IEntity target)"\
-     "    {"\
-     "        SCR_DamageManagerComponent damageManager = SCR_DamageManagerComponent.Cast(target.FindComponent(SCR_DamageManagerComponent));"\
-     "        "\
-     "        if (!damageManager)"\
-     "            return;"\
-     "        "\
-     "        if (damageManager.IsDestroyed())"\
-     "        {"\
-     "            // VEHICLE DEAD SECTION"\
-     "            GetGame().GetCallqueue().Remove(UpdateAPCSpawnPosition);"\
-     "            spawnPoint.SetFactionKey(\"0\");"\
-     "        }"\
-     "        else"\
-     "        {"\
-     "            // VEHICLE ALIVE SECTION"\
-     "            spawnPoint.SetOrigin(target.GetOrigin());"\
-     "        }"\
-     "    "
-     m_sOwnerFactionKey "US"
     }
    }
   }

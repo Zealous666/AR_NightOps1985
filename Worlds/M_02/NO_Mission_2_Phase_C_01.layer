@@ -2,7 +2,7 @@ SCR_SpawnPoint spawnPoint_C_1 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoin
  coords 9329.752 3.659 5075.367
  m_sFaction "0"
  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
-  Name "Regina"
+  Name "Perelle"
  }
 }
 NO_SCR_SpawnTrigger east_C_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
@@ -86,20 +86,37 @@ NO_SCR_SpawnTrigger east_C_1_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
     }
    }
   }
-  GenericEntity east_veh_C_01 : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
-   components {
-    NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
-     m_rnDefaultPrefabs {
-      CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
-       prefab {
-        "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et"
+  $grp GenericEntity : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+   east_veh_C_01 {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et"
+        }
        }
       }
      }
     }
+    coords -5.255 -0.835 10.54
+    angleY 37.945
    }
-   coords -5.255 -0.835 10.54
-   angleY 37.945
+   east_veh_C_02 {
+    components {
+     NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+        prefab {
+         "{16C1F16C9B053801}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_transport.et"
+        }
+       }
+      }
+     }
+    }
+    coords 8.765 9.014 -13.12
+    angleY 37.945
+   }
   }
  }
 }

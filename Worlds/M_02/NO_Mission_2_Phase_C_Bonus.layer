@@ -1,0 +1,122 @@
+SCR_BaseTriggerEntity wpTrg_C_bonus {
+ coords 7979.573 174.505 4499.371
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 150
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ ""\
+ ""\
+ "		//Bivouac Hint"\
+ "        SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "        hintComponent.ShowCustomHint(\"There is a Resistance Safehouse nearby. Enter it to unlock a bonus spawnpoint\", \"RESISTANCE SAFEHOUSE\", 10);"\
+ "		"\
+ "		//Delete thisTrigger"\
+ "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"wpTrg_C_bonus\"));"\
+ "	"
+}
+SCR_SpawnPoint spawnPoint_C_bonus : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 7973.29 174.662 4514.082
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "Safehouse"
+ }
+}
+NO_SCR_SpawnTrigger east_C_bonus_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 7981.006 183.96 4485.105
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ m_bDelete 0
+ {
+  GenericEntity east_grp_C_bonus_1 : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{598957C46DACA106}" {
+       CountOfPlayers 6
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -6.978 -9.439 29.301
+   {
+    SCR_DefendWaypoint east_grp_C_bonus_1_WP {
+     ID "59889B9006450E17"
+     coords 0 0 0
+     CompletionRadius 200
+     m_DefendPresets {
+      SCR_DefendWaypointPreset "{58D6884489389713}" {
+       m_bUseCoverPosts 1
+      }
+      SCR_DefendWaypointPreset "{58D688448899BCA0}" {
+       m_bUseObservationPosts 1
+       m_bUseGatePosts 1
+      }
+     }
+    }
+   }
+  }
+  GenericEntity east_grp_C_bonus_2 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
+   components {
+    NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{598957C4F885B072}" {
+       CountOfPlayers 4
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+      CountSpawnsByOnlinePlayer "{598957C4F953270E}" {
+       CountOfPlayers 8
+       prefab {
+        "{CB58D90EA14430AD}Prefabs/Groups/OPFOR/Group_USSR_SentryTeam.et"
+       }
+      }
+     }
+    }
+   }
+   coords -11.386 -10.501 14.756
+   {
+    AIWaypointCycle east_grp_C_bonus_2_WPC {
+     ID "59889B900EBD4CB5"
+     coords 0 0 0
+    }
+    SCR_AIWaypoint east_grp_C_bonus_2_WP1 {
+     ID "59889B900EBD4CB4"
+     coords -21.661 -0.913 14.398
+    }
+    SCR_AIWaypoint east_grp_C_bonus_2_WP2 {
+     ID "59889B900EBDF8B9"
+     coords 21.567 1.426 5.212
+    }
+    SCR_AIWaypoint east_grp_C_bonus_2_WP3 {
+     ID "59889B900EBDF8BA"
+     coords 4.028 -0.035 -4.552
+    }
+   }
+  }
+ }
+}

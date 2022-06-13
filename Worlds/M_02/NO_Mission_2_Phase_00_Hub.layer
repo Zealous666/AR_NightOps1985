@@ -19,6 +19,7 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
    Object "{1C690C170310109F}Assets/Props/Military/Radios/RadioStation_ANGRC160_01.xob"
   }
   NO_SCR_MissionSelectionManagerComponent "{598EB036FD9E2328}" {
+   m_bEnableGameOver 1
   }
   RigidBody "{5872F0EB7DFB5A9D}" {
    ResponseIndex "SmallDestructible"

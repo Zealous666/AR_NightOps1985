@@ -1,0 +1,15 @@
+MetaFileClass {
+ Name "{2A17B63061BA6FDB}Prefabs/Compositions/CanvasCover_Cluttered_USSR_02_RPL.et.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

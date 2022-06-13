@@ -7,30 +7,42 @@ Layer Initialization {
 Layer Phase_00_Hub {
  Index 1
 }
-Layer Phase_A_01 {
+Layer Phase_A_01_Intel1 {
  Index 2
 }
-Layer Phase_A_02 {
+Layer Phase_A_02_Intel2 {
  Index 3
 }
-Layer Phase_A_X {
+Layer Phase_A_03_Exfil {
  Index 4
 }
 Layer Phase_A_Bonus {
  Index 5
 }
-Layer Phase_A_00 {
+Layer Phase_A_00_Infil {
  Index 6
 }
-Layer Phase_C_00 {
+Layer Phase_C_00_Hitman {
  Index 7
 }
 Layer Phase_C_01 {
  Index 8
 }
-Layer Phase_B_00 {
+Layer Phase_B_00_Sabotage {
  Index 9
 }
 Layer Phase_B_01 {
  Index 10
+}
+Layer Phase_C_03_Exfil {
+ Index 14
+}
+Layer Phase_C_02 {
+ Index 12
+}
+Layer Phase_C_Bonus {
+ Index 13
+}
+Layer Phase_B_X {
+ Index 11
 }

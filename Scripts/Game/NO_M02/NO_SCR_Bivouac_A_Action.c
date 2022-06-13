@@ -4,14 +4,10 @@ class NO_SCR_Bivouac_A_Action : ScriptedUserAction
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {
         
-      //Finish bonus task
-		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_bonus_A"));
-		task.Finish();
-		GetTaskManager().FinishTask(task);
-	
-		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_2").GetOrigin();
-        GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
+     	//Finish initital task
+		IEntity taskEntityB = GetGame().GetWorld().FindEntityByName("tsk_bonus_A");
+        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);
+		taskB.ChangeStateOfTask(TriggerType.Finish);
         
         //Spawnpoint Hint
         SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();

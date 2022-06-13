@@ -7,21 +7,27 @@ class NO_SCR_Intel_1_Action : ScriptedUserAction
 		{
 		
 		//Finish initital task
-		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_main_A_1"));
-		task.Finish();
-		GetTaskManager().FinishTask(task);
+		IEntity taskEntity1 = GetGame().GetWorld().FindEntityByName("tsk_main_A_1");
+        NO_SCR_EditorTask task1 = NO_SCR_EditorTask.Cast(taskEntity1);
+		task1.ChangeStateOfTask(TriggerType.Finish);
+			
+		//Unlock bonus task
+		IEntity taskEntityB = GetGame().GetWorld().FindEntityByName("tsk_bonus_A");
+        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);
+		taskB.ChangeStateOfTask(TriggerType.Create);
 		
 		//Unlock next task
-		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
-		coopTM.UnlockObjective("tsk_main_A_2_true");
+		IEntity taskEntity2 = GetGame().GetWorld().FindEntityByName("tsk_main_A_2");
+        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);
+		task2.ChangeStateOfTask(TriggerType.Create);
+		task2.ChangeStateOfTask(TriggerType.Assign);
 		
 		//Spawns new assets & units
         NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_2_spawnTrg")).Spawn();
 		NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_bonus_spawnTrg")).Spawn();
 		
-		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_2").GetOrigin();
-        GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
+		//Unlocks spawnpoint
+		SCR_SpawnPoint.Cast(GetGame().GetWorld().FindEntityByName("spawnPoint_A_1")).SetFactionKey("US"); 
 		
 		//Removes intel piece
 		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);

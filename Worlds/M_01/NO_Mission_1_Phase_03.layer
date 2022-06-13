@@ -363,6 +363,11 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
        "    {"\
        "       SCR_PopUpNotification.GetInstance().PopupMsg(\"COM TRUCK LOST\", duration: 15);"\
        "		"\
+       "		//Fail Task 3"\
+       "		IEntity taskEntity03 = GetGame().GetWorld().FindEntityByName(\"m01_tsk_3\");"\
+       "        NO_SCR_EditorTask task03 = NO_SCR_EditorTask.Cast(taskEntity03);"\
+       "		task03.ChangeStateOfTask(TriggerType.Fail);"\
+       "		"\
        "		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode()); // Get the game mode for the end script"\
        "        Faction faction = GetGame().GetFactionManager().GetFactionByKey(\"USSR\"); // Get the winning faction Key"\
        "        int usIndex = GetGame().GetFactionManager().GetFactionIndex(faction); // Get the winning faction key's index"\

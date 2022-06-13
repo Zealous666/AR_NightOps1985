@@ -7,20 +7,21 @@ class NO_SCR_Intel_2_Action : ScriptedUserAction
 		{
 		
 		//Finish initital task
-		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_main_A_2"));
-		task.Finish();
-		GetTaskManager().FinishTask(task);
+		IEntity taskEntity2 = GetGame().GetWorld().FindEntityByName("tsk_main_A_2");
+        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);
+		task2.ChangeStateOfTask(TriggerType.Finish);
 		
 		//Unlock next task
-		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
-		coopTM.UnlockObjective("tsk_main_A_3_true");
+		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName("tsk_main_A_X");
+        NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);
+		taskX.ChangeStateOfTask(TriggerType.Create);
+		taskX.ChangeStateOfTask(TriggerType.Assign);
 		
 		//Spawns new assets & units
-        NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_X_spawnTrg")).Spawn();
+        NO_SCR_SpawnTrigger.Cast(GetGame().GetWorld().FindEntityByName("east_A_03_spawnTrg")).Spawn();
 		
-		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_A_X").GetOrigin();
-        GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
+		//Unlocks spawnpoint
+		SCR_SpawnPoint.Cast(GetGame().GetWorld().FindEntityByName("spawnPoint_A_2")).SetFactionKey("US"); 
 		
 		//Removes intel piece
 		SCR_EntityHelper.DeleteEntityAndChildren(pOwnerEntity);

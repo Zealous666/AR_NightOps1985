@@ -7,18 +7,16 @@ class NO_SCR_CaptureAction : ScriptedUserAction
 		{
 		
 		//Finish current task
-		SCR_BaseTask task = SCR_BaseTask.Cast(GetGame().GetWorld().FindEntityByName("tsk_main_3"));
-		task.Finish();
-		GetTaskManager().FinishTask(task);
+		IEntity taskEntity3 = GetGame().GetWorld().FindEntityByName("m01_tsk_3");
+        NO_SCR_EditorTask task3 = NO_SCR_EditorTask.Cast(taskEntity3);
+		task3.ChangeStateOfTask(TriggerType.Finish);
 		
 		//Unlock exfil task
-		NO_SCR_CoopTaskManager coopTM = NO_SCR_CoopTaskManager.Cast(GetTaskManager());
-		coopTM.UnlockObjective("tsk_main_3_true");
-		
-		//Move waypoint
-		vector travelToLocation = GetGame().GetWorld().FindEntityByName("tsk_main_x").GetOrigin();
-        GetGame().GetWorld().FindEntityByName("WP").SetOrigin(travelToLocation);
-		
+		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName("m01_tsk_x");
+        NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);
+		taskX.ChangeStateOfTask(TriggerType.Create);
+		taskX.ChangeStateOfTask(TriggerType.Assign);
+			
 		//Enables exfil scenario-end trigger
 		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName("tsk_main_x_trg"));
 			if(trigger)

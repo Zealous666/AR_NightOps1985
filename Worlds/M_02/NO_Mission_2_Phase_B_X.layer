@@ -1,0 +1,219 @@
+SCR_BaseTriggerEntity countdown_trg {
+ components {
+  RplComponent "{599B47573A761015}" {
+  }
+ }
+ userScript "    // Set up the filter"\
+ "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
+ "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
+ "        if (!cc) return false; // If the entity is not a person, filter it out"\
+ "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
+ "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
+ "        return true; // Otherwise, include it!"\
+ "    }"
+ TriggerShapeType Sphere
+ SphereRadius 15
+ TriggerActivationType "First change"
+ PeriodicQueries 1
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ ""\
+ ""\
+ "		//Hint 180s"\
+ "        SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "        hintComponent.ShowCustomHint(\"...till pickup arrives at LZ.\", \"180 Seconds remaining\", 10);"\
+ "		"\
+ "		GetGame().GetCallqueue().CallLater(DelayedHint1, 60000, false);"\
+ "		"\
+ "	}"\
+ ""\
+ "	//Hint 120s"\
+ "	protected void DelayedHint1()"\
+ "	{"\
+ "		"\
+ "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "        hintComponent.ShowCustomHint(\"...till pickup arrives at LZ.\", \"120 Seconds remaining\", 10);"\
+ "		"\
+ "		GetGame().GetCallqueue().CallLater(DelayedHint2, 60000, false);"\
+ "	}"\
+ "	"\
+ "	//Hint 60s"\
+ "	protected void DelayedHint2()"\
+ "	{"\
+ "		"\
+ "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "        hintComponent.ShowCustomHint(\"...till pickup arrives at LZ.\", \"60 Seconds remaining\", 10);"\
+ "		"\
+ "		GetGame().GetCallqueue().CallLater(DelayedHint3, 60000, false);"\
+ "	}"\
+ "	"\
+ "	//Countdown complete"\
+ "	protected void DelayedHint3()"\
+ "	{"\
+ "		"\
+ "			NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName(\"exfil_B_trg\"));"\
+ "			if(trigger)"\
+ "			trigger.SetActive(true);"\
+ "		"\
+ "			//Finish Task Hold LZ"\
+ "			IEntity taskEntity = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_4\");"\
+ "       	 	NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);"\
+ "			task.ChangeStateOfTask(TriggerType.Finish);"\
+ "		"\
+ "			//Create Task Exfil"\
+ "			IEntity taskEntityX = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_X\");"\
+ "       	 	NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);"\
+ "			taskX.ChangeStateOfTask(TriggerType.Create);"\
+ "			taskX.ChangeStateOfTask(TriggerType.Assign);"\
+ "	"
+}
+NO_SCR_MissionTrigger exfil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+ coords 6773.873 93.279 5601.421
+ SphereRadius 10
+ DrawShape 0
+ UpdatePeriod 1
+ m_bIsActive 0
+ m_bEnableTeleport 1
+ m_sNODespawnTriggerNames {
+  "east_B_1_spawnTrg" "east_B_trucks_spawnTrg" "east_B_exfilWaves_trg"
+ }
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{599B4756D0B1C07F}" {
+   m_sSpawnpointName "spawnPoint_B_X"
+   m_sFactionKey "0"
+  }
+  NO_SCR_SpawnpointChangeEntry "{599B4756D4A0C79B}" {
+   m_sSpawnpointName "spawnPoint_B_0"
+   m_sFactionKey "0"
+  }
+  NO_SCR_SpawnpointChangeEntry "{599B4756DE6A5C0C}" {
+   m_sSpawnpointName "spawnPoint_hub"
+   m_sFactionKey "US"
+  }
+ }
+ m_sFinishTaskNames {
+  "tsk_main_B_X"
+ }
+ m_sMissionSelectionManagerName "radio_hub"
+ m_aEndMissionSelections {
+  "Start Operation: SABOTAGE"
+ }
+ m_sWaypointLocationName "radio_hub"
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{599B475696409CAB}" {
+  m_bUseCustomWeather 1
+ }
+ {
+  SCR_Position exfilLoc_B : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords 4025.17 -93.039 3138.94
+   angleY 90.077
+  }
+ }
+}
+SCR_SpawnPoint spawnPoint_B_X : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 6449.083 162.867 6479.853
+ m_sFaction "0"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "LZ"
+ }
+}
+NO_SCR_SpawnTrigger east_B_exfilWaves_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 6462.633 161.937 6480.863
+ TriggerShapeType None
+ TriggerActivationType None
+ PeriodicQueries 0
+ m_bDelete 0
+ {
+  $grp GenericEntity : "{760612B75AA5BCFA}Prefabs/NO_DSF/Groups/SpawnAiGroupMove.et" {
+   east_grp_B_07 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{599B4750AB091226}" {
+        CountOfPlayers 6
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+      }
+     }
+    }
+    coords -205.976 2.397 -10.754
+    {
+     SCR_AIWaypoint east_grp_B_07_WP2 {
+      ID "59889B900CE8FA54"
+      coords 207.095 -2.303 6.935
+     }
+     SCR_AIWaypoint east_grp_B_07_WP1 {
+      ID "59889B900CE8FA55"
+      coords 27.304 -4.527 -66.745
+     }
+    }
+   }
+   east_grp_B_08 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{599B47575568EDE3}" {
+        CountOfPlayers 6
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+      }
+     }
+    }
+    coords -48.579 12.729 254.122
+    {
+     SCR_AIWaypoint east_grp_B_08_WP2 {
+      ID "59889B900CE8FA54"
+      coords 34.697 -13.177 -254.286
+     }
+     SCR_AIWaypoint east_grp_B_08_WP1 {
+      ID "59889B900CE8FA55"
+      coords 97.592 -12.604 -244.305
+     }
+    }
+   }
+   east_grp_B_09 {
+    components {
+     NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_rnDefaultPrefabs {
+       CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+       CountSpawnsByOnlinePlayer "{599B47575FD61347}" {
+        CountOfPlayers 6
+        prefab {
+         "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+        }
+       }
+      }
+     }
+    }
+    coords 389.573 -38.477 100.113
+    {
+     SCR_AIWaypoint east_grp_B_09_WP2 {
+      ID "59889B900CE8FA54"
+      coords -401.678 39.407 -97.052
+     }
+     SCR_AIWaypoint east_grp_B_09_WP1 {
+      ID "59889B900CE8FA55"
+      coords -145.578 24.749 -72.535
+     }
+    }
+   }
+  }
+ }
+}
