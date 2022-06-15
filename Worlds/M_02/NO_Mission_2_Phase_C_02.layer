@@ -347,6 +347,8 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
   {
    CommentEntity marker_hvt {
     components {
+     NwkMovementComponent "{599F17A09D783BAC}" {
+     }
      RplComponent "{599AA9F8A565C121}" {
      }
     }
@@ -444,7 +446,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B1EEE0486}" {
         prefab {
-         "{6FFB8B57C9BD2A40}Prefabs/Groups/Group_USSR_HVT.et"
+         "{6FFB8B57C9BD2A40}Prefabs/Group_USSR_HVT.et"
         }
        }
       }
