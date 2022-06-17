@@ -11,6 +11,9 @@ SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
     }
    }
   }
+  SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
+   m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
+  }
   SCR_RespawnBriefingComponent "{597B2CEE9F5D61F8}" {
    m_aGameModeHints {
     SCR_UIInfo "{597D4ACAA84A8F75}" {
@@ -80,6 +83,10 @@ SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  }
 }
 NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManager.et" {
+ components {
+  SCR_UITaskManagerComponent "{598C8B13399DE13F}" {
+  }
+ }
  coords 11403.999 0 10568.785
  {
   $grp NO_SCR_EditorTask {

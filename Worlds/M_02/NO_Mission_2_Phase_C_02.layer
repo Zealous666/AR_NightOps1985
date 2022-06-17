@@ -452,7 +452,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
       }
      }
     }
-    coords -13.707 -0.186 -4.565
+    coords -36.235 -1.502 -0.842
     angleY 0
     {
      SCR_AIWaypoint east_grp_C_HVT_WP3 {
