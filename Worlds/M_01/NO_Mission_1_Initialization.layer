@@ -90,90 +90,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
  coords 11403.999 0 10568.785
  {
   $grp NO_SCR_EditorTask {
-   m01_tsk_1 {
-    components {
-     Hierarchy "{5996A6AE3DA106FD}" {
-     }
-     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
-     }
-     RplComponent "{5996A6AE3DA106F6}" {
-     }
-    }
-    coords -12.933 69.463 626.626
-    m_sName "Secure Lighthouse"
-    m_sDescription "Secure the soviet coms uplink at the Lighthouse to unlock another spawn position"
-    m_sMapIconName "Icon_Task_Seize"
-    m_sTaskListIconName "Icon_Task_Seize"
-    m_iTaskCompletionType ALWAYS_MANUAL
-    m_faction "US"
-    m_sAdditionalMarkerPosition "waypoint_trg_1"
-    {
-     SCR_FactionControlTriggerEntity m01_tsk_1_trg {
-      components {
-       Hierarchy "{5996A6ACCB4F6AC7}" {
-       }
-       RplComponent "{597B339E86723483}" {
-       }
-      }
-      coords -7.361 -0.056 -2.376
-      userScript "		IEntity Owner;"\
-      "		override void OnInit(IEntity owner)"\
-      "		{"\
-      "        Owner = owner;"\
-      "        super.OnInit(owner);"\
-      "		}"
-      TriggerShapeType Sphere
-      SphereRadius 50
-      TriggerActivationType "First change"
-      PeriodicQueries 1
-      ClassFilter "ChimeraCharacter"
-      OnActivate ""\
-      "		"\
-      "		//Activate spawnpoint"\
-      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_1\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
-      ""\
-      "		//Show hint"\
-      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
-      "		hintComponent.ShowCustomHint(\"Spawnpoint at LIGHTHOUSE available\", \"SPAWNPOINT UNLOCKED\", 10);"\
-      "		"\
-      "		//Finish Task 1"\
-      "		IEntity taskEntity01 = GetParent();"\
-      "        NO_SCR_EditorTask task01 = NO_SCR_EditorTask.Cast(taskEntity01);"\
-      "		task01.ChangeStateOfTask(TriggerType.Finish);"\
-      "		"\
-      "		//Unlock Task 2"\
-      "		IEntity taskEntity2 = GetWorld().FindEntityByName(\"m01_tsk_2\");"\
-      "        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);"\
-      "		task2.ChangeStateOfTask(TriggerType.Create);"\
-      "		task2.ChangeStateOfTask(TriggerType.Assign);"\
-      ""\
-      "		//Unlock Task Bonus"\
-      "		IEntity taskEntityB = GetWorld().FindEntityByName(\"m01_tsk_bonus\");"\
-      "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
-      "		taskB.ChangeStateOfTask(TriggerType.Create);"\
-      "		"\
-      "		//Spawn next wave"\
-      "		private RplComponent m_pRplComponent;"\
-      "			if(!m_pRplComponent)"\
-      " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
-      "			if(m_pRplComponent.IsMaster())"\
-      " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_2_trg\")).Spawn();"\
-      "	"\
-      "		"\
-      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
-      "		"\
-      "	}"\
-      ""\
-      "	protected void DelayedDeSpawn()"\
-      "	{"\
-      "		"\
-      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
-      "	"
-      m_sOwnerFactionKey "US"
-      m_fFriendlyRatioLimit 1
-     }
-    }
-   }
    m01_tsk_bonus {
     components {
      Hierarchy "{5996A6AE3DA106FD}" {
@@ -283,105 +199,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
      }
     }
    }
-   m01_tsk_2 {
-    components {
-     Hierarchy "{5996A6AE3DA106FD}" {
-     }
-     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
-     }
-     RplComponent "{5996A6AE3DA106F6}" {
-     }
-    }
-    coords -250.695 33.789 1023.761
-    m_sName "Secure Radio Post"
-    m_sDescription "Secure the soviet coms uplink at the Radio Post to unlock another spawn position"
-    m_sMapIconName "Icon_Task_Seize"
-    m_sTaskListIconName "Icon_Task_Seize"
-    m_eAssignMessage NONE
-    m_eUnassignMessage NONE
-    m_iTaskCompletionType ALWAYS_MANUAL
-    m_faction "US"
-    m_bAssignToFactionOnStart 0
-    {
-     SCR_FactionControlTriggerEntity m01_tsk_2_trg {
-      components {
-       Hierarchy "{5996A6ACCB4F6AC7}" {
-       }
-       RplComponent "{597B339E86723483}" {
-       }
-      }
-      coords -7.361 -0.056 -2.376
-      userScript "		IEntity Owner;"\
-      "		override void OnInit(IEntity owner)"\
-      "		{"\
-      "        Owner = owner;"\
-      "        super.OnInit(owner);"\
-      "		}"
-      TriggerShapeType Sphere
-      SphereRadius 50
-      TriggerActivationType "First change"
-      PeriodicQueries 1
-      ClassFilter "ChimeraCharacter"
-      OnActivate ""\
-      "		"\
-      "		//Activate spawnpoint"\
-      "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_2\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
-      ""\
-      "		//Show hint"\
-      "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
-      "		hintComponent.ShowCustomHint(\"Spawnpoint at RADIO POST available\", \"SPAWNPOINT UNLOCKED\", 10);"\
-      "		"\
-      "		//Finish Task 2"\
-      "		IEntity taskEntity02 = GetParent();"\
-      "        NO_SCR_EditorTask task02 = NO_SCR_EditorTask.Cast(taskEntity02);"\
-      "		task02.ChangeStateOfTask(TriggerType.Finish);"\
-      ""\
-      "		//Unlock Task 3"\
-      "		IEntity taskEntity3 = GetWorld().FindEntityByName(\"m01_tsk_3\");"\
-      "        NO_SCR_EditorTask task3 = NO_SCR_EditorTask.Cast(taskEntity3);"\
-      "		task3.ChangeStateOfTask(TriggerType.Create);"\
-      "		task3.ChangeStateOfTask(TriggerType.Assign);"\
-      "		"\
-      "		//Spawn next wave"\
-      "		private RplComponent m_pRplComponent;"\
-      "			if(!m_pRplComponent)"\
-      " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
-      "			if(m_pRplComponent.IsMaster())"\
-      " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_comTruck_trg\")).Spawn();"\
-      "	"\
-      "		"\
-      "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
-      "		"\
-      "	}"\
-      ""\
-      "	protected void DelayedDeSpawn()"\
-      "	{"\
-      "		"\
-      "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
-      "	"
-      m_sOwnerFactionKey "US"
-      m_fFriendlyRatioLimit 1
-     }
-    }
-   }
-   m01_tsk_3 {
-    components {
-     Hierarchy "{5996A6AE3DA106FD}" {
-     }
-     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
-     }
-     RplComponent "{5996A6AE3DA106F6}" {
-     }
-    }
-    coords -493.784 24.835 1169.585
-    m_sName "Loot Encryption Key"
-    m_sDescription "Capture and lootthe Encryption Key of the Soviet C Truck"
-    m_sMapIconName "Icon_Task_Custom"
-    m_sTaskListIconName "Icon_Task_Custom"
-    m_iTaskCompletionType ALWAYS_MANUAL
-    m_faction "US"
-    m_bAssignToFactionOnStart 0
-   }
    m01_tsk_x {
     components {
      Hierarchy "{5996A6AE3DA106FD}" {
@@ -404,11 +221,230 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       coords 0 0 0
       DrawShape 0
       m_bIsActive 0
-      m_sFinishTaskNames {
-       "m01_tsk_x"
+      m_aActivateOnTaskState {
+       NO_SCR_TaskStateActivatorEntry "{59A69E56C5C1292B}" {
+        m_sTaskEntityName "m01_tsk_multi"
+       }
+      }
+      m_fDelay 1
+      m_aTaskStateChanges {
+       NO_SCR_TaskStateChangeEntry "{59A69E56E79DCCA9}" {
+        m_sTaskEntityName "m01_tsk_x"
+       }
       }
       m_bEnableGameOver 1
      }
+    }
+   }
+  }
+  NO_SCR_EditorTask m01_tsk_multi : "{231FF93369E30084}Prefabs/NO_DTF/MultiTask.et" {
+   components {
+    NO_SCR_MultiTaskTriggerComponent "{599690AC32293EDD}" {
+     m_allowFailedTasks 0
+    }
+   }
+   coords -766.133 6.061 1249.197
+   m_sName "All primary tasks"
+   m_faction "US"
+   m_bAssignToFactionOnStart 0
+   {
+    $grp NO_SCR_EditorTask {
+     m01_tsk_1 {
+      components {
+       Hierarchy "{5996A6AE3DA106FD}" {
+       }
+       SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+       }
+       RplComponent "{5996A6AE3DA106F6}" {
+       }
+      }
+      coords 753.2 63.402 -622.571
+      m_sName "Secure Lighthouse"
+      m_sDescription "Secure the soviet coms uplink at the Lighthouse to unlock another spawn position"
+      m_sMapIconName "Icon_Task_Seize"
+      m_sTaskListIconName "Icon_Task_Seize"
+      m_iTaskCompletionType ALWAYS_MANUAL
+      m_faction "US"
+      m_sAdditionalMarkerPosition "waypoint_trg_1"
+      {
+       SCR_FactionControlTriggerEntity m01_tsk_1_trg {
+        components {
+         Hierarchy "{5996A6ACCB4F6AC7}" {
+         }
+         RplComponent "{597B339E86723483}" {
+         }
+        }
+        coords -7.361 -0.056 -2.376
+        userScript "		IEntity Owner;"\
+        "		override void OnInit(IEntity owner)"\
+        "		{"\
+        "        Owner = owner;"\
+        "        super.OnInit(owner);"\
+        "		}"
+        TriggerShapeType Sphere
+        SphereRadius 50
+        TriggerActivationType "First change"
+        PeriodicQueries 1
+        ClassFilter "ChimeraCharacter"
+        OnActivate ""\
+        "		"\
+        "		//Activate spawnpoint"\
+        "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_1\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+        ""\
+        "		//Show hint"\
+        "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+        "		hintComponent.ShowCustomHint(\"Spawnpoint at LIGHTHOUSE available\", \"SPAWNPOINT UNLOCKED\", 10);"\
+        "		"\
+        "		//Finish Task 1"\
+        "		IEntity taskEntity01 = GetParent();"\
+        "        NO_SCR_EditorTask task01 = NO_SCR_EditorTask.Cast(taskEntity01);"\
+        "		task01.ChangeStateOfTask(TriggerType.Finish);"\
+        "		"\
+        "		//Unlock Task 2"\
+        "		IEntity taskEntity2 = GetWorld().FindEntityByName(\"m01_tsk_2\");"\
+        "        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);"\
+        "		task2.ChangeStateOfTask(TriggerType.Assign);"\
+        ""\
+        "		//Unlock Task Bonus"\
+        "		IEntity taskEntityB = GetWorld().FindEntityByName(\"m01_tsk_bonus\");"\
+        "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
+        "		taskB.ChangeStateOfTask(TriggerType.Create);"\
+        "		"\
+        "		//Move Task 2 trigger to SCR_Position"\
+        "		vector triggerToLocation = GetWorld().FindEntityByName(\"spawnPoint_2\").GetOrigin();"\
+        "       GetWorld().FindEntityByName(\"m01_tsk_2_trg\").SetOrigin(triggerToLocation);"\
+        "		"\
+        "		//Spawn next wave"\
+        "		private RplComponent m_pRplComponent;"\
+        "			if(!m_pRplComponent)"\
+        " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
+        "			if(m_pRplComponent.IsMaster())"\
+        " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_2_trg\")).Spawn();"\
+        "	"\
+        "		"\
+        "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+        "		"\
+        "	}"\
+        ""\
+        "	protected void DelayedDeSpawn()"\
+        "	{"\
+        "		"\
+        "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
+        "	"
+        m_sOwnerFactionKey "US"
+        m_fFriendlyRatioLimit 1
+       }
+      }
+     }
+     m01_tsk_2 {
+      components {
+       Hierarchy "{5996A6AE3DA106FD}" {
+       }
+       SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+       }
+       RplComponent "{5996A6AE3DA106F6}" {
+       }
+      }
+      coords 515.438 27.728 -225.437
+      m_sName "Secure Radio Post"
+      m_sDescription "Secure the soviet coms uplink at the Radio Post to unlock another spawn position"
+      m_sMapIconName "Icon_Task_Seize"
+      m_sTaskListIconName "Icon_Task_Seize"
+      m_eAssignMessage NONE
+      m_eUnassignMessage NONE
+      m_iTaskCompletionType ALWAYS_MANUAL
+      m_faction "US"
+      m_bAssignToFactionOnStart 0
+      {
+       SCR_FactionControlTriggerEntity m01_tsk_2_trg {
+        components {
+         Hierarchy "{5996A6ACCB4F6AC7}" {
+         }
+         NwkMovementComponent "{59A6AD82A6F52A21}" {
+         }
+         RplComponent "{597B339E86723483}" {
+         }
+        }
+        coords -11153.305 -33.789 -11592.546
+        userScript "		IEntity Owner;"\
+        "		override void OnInit(IEntity owner)"\
+        "		{"\
+        "        Owner = owner;"\
+        "        super.OnInit(owner);"\
+        "		}"
+        TriggerShapeType Sphere
+        SphereRadius 50
+        TriggerActivationType "First change"
+        PeriodicQueries 1
+        ClassFilter "ChimeraCharacter"
+        OnActivate ""\
+        "		"\
+        "		//Activate spawnpoint"\
+        "		SCR_SpawnPoint.Cast(GetWorld().FindEntityByName(\"spawnPoint_2\")).SetFactionKey(\"US\"); //Changes the preplaced (attached to a vehicle) spawnpoint's factionkey from \"0\" (as inactive) to \"US\"."\
+        ""\
+        "		//Show hint"\
+        "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+        "		hintComponent.ShowCustomHint(\"Spawnpoint at RADIO POST available\", \"SPAWNPOINT UNLOCKED\", 10);"\
+        "		"\
+        "		//Finish Task 2"\
+        "		IEntity taskEntity02 = GetParent();"\
+        "        NO_SCR_EditorTask task02 = NO_SCR_EditorTask.Cast(taskEntity02);"\
+        "		task02.ChangeStateOfTask(TriggerType.Finish);"\
+        ""\
+        "		//Unlock Task 3"\
+        "		IEntity taskEntity3 = GetWorld().FindEntityByName(\"m01_tsk_3\");"\
+        "        NO_SCR_EditorTask task3 = NO_SCR_EditorTask.Cast(taskEntity3);"\
+        "		task3.ChangeStateOfTask(TriggerType.Assign);"\
+        "		"\
+        "		//Spawn next wave"\
+        "		private RplComponent m_pRplComponent;"\
+        "			if(!m_pRplComponent)"\
+        " 		 m_pRplComponent = RplComponent.Cast(Owner.FindComponent(RplComponent));"\
+        "			if(m_pRplComponent.IsMaster())"\
+        " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_spawn_comTruck_trg\")).Spawn();"\
+        "	"\
+        "		"\
+        "		GetGame().GetCallqueue().CallLater(DelayedDeSpawn, 5000, false);"\
+        "		"\
+        "	}"\
+        ""\
+        "	protected void DelayedDeSpawn()"\
+        "	{"\
+        "		"\
+        "			SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"m01_tsk_1_trg\"));"\
+        "	"
+        m_sOwnerFactionKey "US"
+        m_fFriendlyRatioLimit 1
+       }
+      }
+     }
+     m01_tsk_3 {
+      components {
+       Hierarchy "{5996A6AE3DA106FD}" {
+       }
+       SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+       }
+       RplComponent "{5996A6AE3DA106F6}" {
+       }
+      }
+      coords 272.349 18.774 -79.612
+      m_sName "Loot Encryption Key"
+      m_sDescription "Capture and lootthe Encryption Key of the Soviet C Truck"
+      m_sMapIconName "Icon_Task_Custom"
+      m_sTaskListIconName "Icon_Task_Custom"
+      m_iTaskCompletionType ALWAYS_MANUAL
+      m_faction "US"
+      m_bAssignToFactionOnStart 0
+     }
+    }
+    NO_SCR_TaskEventHandler m01_tsk_multi_eH : "{6215DAC2B0860A62}Prefabs/NO_DTF/TaskEventHandler.et" {
+     coords -10637.643 -6.061 -11818.307
+     OnFinishTask ""\
+     "		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName(\"m01_tsk_x\");"\
+     "        NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);"\
+     "		//taskX.ChangeStateOfTask(TriggerType.Create);"\
+     "		taskX.ChangeStateOfTask(TriggerType.Assign);"\
+     "	"
     }
    }
   }

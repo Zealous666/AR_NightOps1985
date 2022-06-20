@@ -7,6 +7,27 @@ Vehicle : "{4C81D7ED8F8C0D87}Prefabs/Vehicles/Wheeled/Ural4320/Ural4320_tanker.e
   NO_SCR_ImmobilizerComponent "{599AB4DF8B6DA2B4}" {
    m_bStartImmobilized 1
   }
+  ActionsManagerComponent "{C97BE5489221AE18}" {
+   ActionContexts {
+    UserActionContext "{59A8A68B74BC6C2D}" {
+     ContextName "sabotage"
+     Position PointInfo "{59A8A68B61E7102E}" {
+     }
+     Radius 3
+    }
+   }
+   additionalActions {
+    NO_SCR_Sabotage_Action "{59A8A68B6BDA4F46}" {
+     ParentContextList {
+      "sabotage"
+     }
+     UIInfo UIInfo "{59A8A68B14C6A268}" {
+      Name "Plant Satchel Charge"
+     }
+     Duration 1
+    }
+   }
+  }
  }
  coords 5916.039 83.562 5556.091
 }

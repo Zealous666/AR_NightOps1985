@@ -16,7 +16,6 @@ class NO_SCR_OpIntel_Action : NO_SCR_MissionSelectionAction
 		//Unlock next task
 		IEntity taskEntity = GetGame().GetWorld().FindEntityByName("tsk_main_A_0");
         NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);
-		task.ChangeStateOfTask(TriggerType.Create);
 		task.ChangeStateOfTask(TriggerType.Assign);
 		
 		//Finish initital task

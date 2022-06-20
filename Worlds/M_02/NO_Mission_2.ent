@@ -19,16 +19,16 @@ Layer Phase_A_03_Exfil {
 Layer Phase_A_Bonus {
  Index 5
 }
-Layer Phase_A_00_Infil {
+Layer Phase_A_00_INTEL {
  Index 6
 }
-Layer Phase_C_00_Hitman {
+Layer Phase_C_00_HITMAN {
  Index 7
 }
 Layer Phase_C_01 {
  Index 8
 }
-Layer Phase_B_00_Sabotage {
+Layer Phase_B_00_SABOTAGE {
  Index 9
 }
 Layer Phase_B_01 {
@@ -43,6 +43,6 @@ Layer Phase_C_02 {
 Layer Phase_C_Bonus {
  Index 13
 }
-Layer Phase_B_X {
+Layer Phase_B_02_Exfil {
  Index 11
 }

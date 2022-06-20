@@ -14,7 +14,6 @@ class NO_SCR_Intel_2_Action : ScriptedUserAction
 		//Unlock next task
 		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName("tsk_main_A_X");
         NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);
-		taskX.ChangeStateOfTask(TriggerType.Create);
 		taskX.ChangeStateOfTask(TriggerType.Assign);
 		
 		//Spawns new assets & units

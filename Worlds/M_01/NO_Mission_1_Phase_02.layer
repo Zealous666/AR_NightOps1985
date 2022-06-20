@@ -55,11 +55,13 @@ NO_SCR_SpawnTrigger east_spawn_2_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
  TriggerShapeType None
  TriggerActivationType None
  PeriodicQueries 0
+ m_bShouldTriggerOnlyOnPlayerContact 1
  {
   $grp GenericEntity : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
    east_grp_4 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
         prefab {
@@ -103,6 +105,8 @@ NO_SCR_SpawnTrigger east_spawn_2_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
    east_grp_7 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_bSpawnImmediately 1
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
         prefab {
@@ -137,6 +141,7 @@ NO_SCR_SpawnTrigger east_spawn_2_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
    east_grp_5 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
         prefab {
@@ -167,6 +172,7 @@ NO_SCR_SpawnTrigger east_spawn_2_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpa
    east_grp_6 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
         prefab {

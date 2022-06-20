@@ -121,11 +121,13 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
   ClassFilter "ChimeraCharacter"
   m_bDelete 0
   m_faction "US"
+  m_bShouldTriggerOnlyOnPlayerContact 1
   {
    $grp GenericEntity : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
     east_grp_8 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -167,6 +169,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_9 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -208,6 +211,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_10 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -245,6 +249,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_11 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -283,6 +288,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
    GenericEntity east_grp_12 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
     components {
      NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
         prefab {
@@ -331,6 +337,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
          }
         }
        }
+       m_bSpawnImmediately 1
       }
      }
      coords -31.3 0.428 -13.565

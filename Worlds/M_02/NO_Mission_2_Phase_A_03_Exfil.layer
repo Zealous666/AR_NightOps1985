@@ -1,12 +1,18 @@
 NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
  coords 9255.492 0.742 411.276
- SphereRadius 10
+ SphereRadius 20
  DrawShape 0
  UpdatePeriod 1
  m_bIsActive 0
- m_bEnableTeleport 1
+ m_fDelay 3
  m_sNODespawnTriggerNames {
   "east_A_1_spawnTrg" "east_A_2_spawnTrg" "east_A_03_spawnTrg" "east_A_bonus_spawnTrg" "bonus_A_spawnTrg"
+ }
+ m_aTaskStateChanges {
+  NO_SCR_TaskStateChangeEntry "{59A92B3091A85118}" {
+   m_sTaskEntityName "tsk_bonus_A"
+   m_eTaskState Fail
+  }
  }
  m_aSpawnpointChanges {
   NO_SCR_SpawnpointChangeEntry "{5990A12B59A156D6}" {
@@ -30,14 +36,23 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
    m_sFactionKey "0"
   }
  }
- m_sFinishTaskNames {
-  "tsk_main_A_X"
- }
  m_sMissionSelectionManagerName "radio_hub"
  m_aEndMissionSelections {
   "Start Operation: INTEL"
  }
  m_sWaypointLocationName "radio_hub"
+ m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{59A8B0E6B43A9040}" {
+  m_iSkipTimeByHours 1
+ }
+ m_bEnableTeleport 1
+ m_pCustomHint SCR_HintUIInfo "{59A6DC7ACD8C2A5E}" {
+  Name "New Operation"
+  Description "Use the Radio in the BlackOps hideout to start a new mission"
+  m_fDuration 30
+ }
+ m_sFinishTaskNames {
+  "tsk_main_A_X"
+ }
  {
   SCR_Position exfilLoc_A : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
    coords 1542.565 -0.742 8322.607
@@ -56,6 +71,7 @@ NO_SCR_SpawnTrigger east_A_03_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseS
    east_grp_A_10 {
     components {
      NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
         prefab {
@@ -100,6 +116,7 @@ NO_SCR_SpawnTrigger east_A_03_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseS
    east_grp_A_9 {
     components {
      NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
         prefab {

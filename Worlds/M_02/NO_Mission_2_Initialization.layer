@@ -112,8 +112,8 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
      RplComponent "{5996A6AE3DA106F6}" {
      }
     }
-    coords 96.13 1.826 -62.934
-    m_sName "Rally all players at peer"
+    coords 96.365 1.826 -67.134
+    m_sName "Rally all players at pear"
     m_sDescription "Rally the whole team at the peer to start the operation."
     m_sMapIconName "Icon_Task_Move"
     m_sTaskListIconName "Icon_Task_Move"
@@ -193,6 +193,14 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
     m_iTaskCompletionType ALWAYS_MANUAL
     m_faction "US"
     m_bAssignToFactionOnStart 0
+    {
+     NO_SCR_TaskEventHandler tsk_A_eH : "{6215DAC2B0860A62}Prefabs/NO_DTF/TaskEventHandler.et" {
+      coords -11.206 -1.713 -18.273
+      OnFinishTask ""\
+      "		SCR_EntityHelper.DeleteEntityAndChildren(GetGame().GetWorld().FindEntityByName(\"tsk_bonus_A\"));"\
+      "	"
+     }
+    }
    }
    tsk_main_B_0 {
     components {
@@ -280,13 +288,16 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       "		//Unlock Task 2"\
       "		IEntity taskEntity2 = GetWorld().FindEntityByName(\"tsk_main_C_2\");"\
       "        NO_SCR_EditorTask task2 = NO_SCR_EditorTask.Cast(taskEntity2);"\
-      "		task2.ChangeStateOfTask(TriggerType.Create);"\
       "		task2.ChangeStateOfTask(TriggerType.Assign);"\
       ""\
       "		//Unlock Task Bonus"\
       "		IEntity taskEntityB = GetWorld().FindEntityByName(\"tsk_bonus_C\");"\
       "        NO_SCR_EditorTask taskB = NO_SCR_EditorTask.Cast(taskEntityB);"\
       "		taskB.ChangeStateOfTask(TriggerType.Create);"\
+      "		"\
+      "		//Moves HVT trigger to HVT spawn"\
+      "		vector triggerToLocation = GetWorld().FindEntityByName(\"marker_hvt\").GetOrigin();"\
+      "       GetWorld().FindEntityByName(\"flee_HVT_trg\").SetOrigin(triggerToLocation);"\
       "		"\
       "		//Spawn next wave"\
       "		private RplComponent m_pRplComponent;"\
@@ -366,7 +377,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       "		//Exfil task"\
       "		IEntity taskEntityX = GetGame().GetWorld().FindEntityByName(\"tsk_main_C_X\");"\
       "        NO_SCR_EditorTask taskX = NO_SCR_EditorTask.Cast(taskEntityX);"\
-      "		taskX.ChangeStateOfTask(TriggerType.Create);"\
       "		taskX.ChangeStateOfTask(TriggerType.Assign);"\
       "		"\
       "		//Enables exfil trigger"\
@@ -379,7 +389,7 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       "		"\
       "    }"
       TriggerShapeType Sphere
-      SphereRadius 1000
+      SphereRadius 5000
       TriggerActivationType "All changes"
       PeriodicQueries 1
      }
@@ -502,15 +512,15 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
         m_sFactionKey "US"
        }
       }
+      m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{599B220D98D04061}" {
+       m_bUseCustomWeather 1
+       m_sCustomWeather Rainy
+      }
       m_sFinishTaskNames {
        "tsk_main_B_3"
       }
       m_sUnlockTaskNames {
        "tsk_main_B_4"
-      }
-      m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{599B220D98D04061}" {
-       m_bUseCustomWeather 1
-       m_sCustomWeather "Rainy"
       }
      }
     }
@@ -565,6 +575,7 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
    m_sCreateTaskNamesSuccess {
     "tsk_main_B_3"
    }
+   m_bAssignFirstTask 1
    {
     $grp NO_SCR_EditorTask {
      tsk_main_B_1 {
@@ -576,7 +587,7 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
        RplComponent "{5996A6AE3DA106F6}" {
        }
       }
-      coords 11.693 1.284 -5.371
+      coords 22.895 1.284 26.629
       m_sName "Sabotage Supply Truck 1"
       m_sDescription "Sabotage two Supply Trucks in the hidden base"
       m_sMapIconName "Icon_Task_Move"
@@ -590,7 +601,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
          RplComponent "{598268EBE98907C8}" {
          }
         }
-        coords 9.695 -2.363 34.177
         angleY -49.068
         userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
         "    {"\
@@ -639,7 +649,7 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
        RplComponent "{5996A6AE3DA106F6}" {
        }
       }
-      coords 15.58 1.517 -11.558
+      coords -14.949 1.517 -11.558
       m_sName "Sabotage Supply Truck 2"
       m_sDescription "Sabotage two Supply Trucks in the hidden base"
       m_sMapIconName "Icon_Task_Move"
@@ -653,7 +663,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
          RplComponent "{598268EBE98907C8}" {
          }
         }
-        coords -31.914 -2.608 -1.43
         angleY 33.104
         userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
         "    {"\

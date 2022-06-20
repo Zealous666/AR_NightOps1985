@@ -26,11 +26,11 @@ SCR_BaseTriggerEntity wpTrg_A_1 {
 }
 NO_SCR_MissionTrigger infil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
  coords 10809.279 1.476 8730.134
- SphereRadius 5
+ SphereRadius 10
  DrawShape 0
  UpdatePeriod 1
  m_bIsActive 0
- m_bEnableTeleport 1
+ m_fDelay 2
  m_sNOSpawnTriggerNames {
   "east_A_1_spawnTrg"
  }
@@ -44,16 +44,22 @@ NO_SCR_MissionTrigger infil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
    m_sFactionKey "US"
   }
  }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomTime 1
+  m_bUseCustomWeather 1
+  m_fCustomTimeOfTheDay 22
+ }
+ m_bEnableTeleport 1
+ m_pCustomHint SCR_HintUIInfo "{59A6AD830F3CC4DF}" {
+  Name "Travel"
+  Description "Travelling to infil area"
+  m_fDuration 5
+ }
  m_sFinishTaskNames {
   "tsk_main_A_0"
  }
  m_sUnlockTaskNames {
   "tsk_main_A_1"
- }
- m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
-  m_bUseCustomTime 1
-  m_bUseCustomWeather 1
-  m_fCustomTimeOfTheDay 22
  }
  {
   SCR_Position infilLoc_A : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {

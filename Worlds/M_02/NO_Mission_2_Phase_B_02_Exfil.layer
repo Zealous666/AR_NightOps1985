@@ -104,8 +104,8 @@ NO_SCR_MissionTrigger exfil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
   "Start Operation: SABOTAGE"
  }
  m_sWaypointLocationName "radio_hub"
- m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{599B475696409CAB}" {
-  m_bUseCustomWeather 1
+ m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{599B475696409CAB}" {
+  m_iSkipTimeByHours 1
  }
  m_bEnableTeleport 1
  m_pCustomHint SCR_HintUIInfo "{59A6DC7A96A2CB72}" {

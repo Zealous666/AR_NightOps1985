@@ -28,6 +28,7 @@ NO_SCR_SpawnTrigger east_A_2_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
    east_grp_A_6 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
         prefab {
@@ -69,6 +70,7 @@ NO_SCR_SpawnTrigger east_A_2_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
    east_grp_A_5 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
         prefab {
@@ -107,6 +109,7 @@ NO_SCR_SpawnTrigger east_A_2_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
    east_grp_A_7 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+      m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
         prefab {
@@ -149,6 +152,7 @@ NO_SCR_SpawnTrigger east_A_2_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSp
   GenericEntity east_grp_A_8 : "{750D93B44E42F57B}Prefabs/NO_DSF/Groups/SpawnAiGroupPatrol.et" {
    components {
     NO_SCR_AISpawnerComponent "{59889B9410166C47}" {
+     m_bShouldStack 1
      m_rnDefaultPrefabs {
       CountSpawnsByOnlinePlayer "{5988C24AE78E5595}" {
        prefab {

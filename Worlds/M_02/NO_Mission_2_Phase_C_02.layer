@@ -1,3 +1,101 @@
+SCR_BaseFactionTriggerEntity flee_HVT_trg {
+ components {
+  Hierarchy "{5998A33595E5DD85}" {
+  }
+  RplComponent "{597517701A5762C6}" {
+  }
+ }
+ coords 0 0 0.001
+ angleY -29.13
+ TriggerShapeType Sphere
+ SphereRadius 100
+ BoxMins 0 0 0
+ BoxMaxs 7 2 2.5
+ ShapeColor 0.502 0 0 0.392
+ TriggerActivationType "All changes"
+ PeriodicQueries 1
+ UpdatePeriod 2
+ ClassFilter "ChimeraCharacter"
+ OnActivate ""\
+ "		//Spawns HVT"\
+ "		private RplComponent m_pRplComponent;"\
+ "			if(!m_pRplComponent)"\
+ " 		 m_pRplComponent = RplComponent.Cast(ent.FindComponent(RplComponent));"\
+ "			if(m_pRplComponent.IsMaster())"\
+ " 		 NO_SCR_SpawnTrigger.Cast(GetWorld().FindEntityByName(\"east_C_HVT_spawnTrg\")).Spawn();"\
+ "		"\
+ "		//Moves trigger back to origin position"\
+ "		vector triggerToLocation = GetWorld().FindEntityByName(\"NO_CoopSetup\").GetOrigin();"\
+ "       GetWorld().FindEntityByName(\"flee_HVT_trg\").SetOrigin(triggerToLocation);"\
+ "		"\
+ "		//Show hint"\
+ "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
+ "		hintComponent.ShowCustomHint(\"The High Valuable Target flees from the battlefield. Chase him down!\", \"Chase the HVT\", 30);"\
+ "		"\
+ " "\
+ "    	GetGame().GetCallqueue().CallLater(DelayedHint1, 10000, false);"\
+ "		"\
+ "	}"\
+ ""\
+ "	//Attach marker to HVT for task tracking"\
+ "	protected void DelayedHint1()"\
+ "	{"\
+ "		"\
+ "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+ "		if (rplComponent && !rplComponent.IsProxy())"\
+ "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
+ "	}"\
+ "    "\
+ "    bool QueryFilter(IEntity ent)"\
+ "    {"\
+ "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
+ "        "\
+ "        if (!idComponent)"\
+ "            return false;"\
+ "        "\
+ "        return idComponent.GetIdentifier() == \"hvt\";"\
+ "    }"\
+ "    "\
+ "    bool QueryHit(IEntity ent)"\
+ "    {"\
+ "        CommentEntity marker = CommentEntity.Cast(GetWorld().FindEntityByName(\"marker_hvt\"));"\
+ "        "\
+ "        // If we can find the marker and hvt"\
+ "        if (marker)"\
+ "        {"\
+ "           "\
+ "            // Keep moving it"\
+ "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
+ "			if (rplComponent && !rplComponent.IsProxy())"\
+ "            	GetGame().GetCallqueue().CallLater(UpdateHVTPosition, 1000, true, marker, ent);"\
+ "        }"\
+ "        "\
+ "        // Ends further queries as we will use the first match found"\
+ "        return false;"\
+ "		"\
+ "    "\
+ "   "\
+ "    }"\
+ "    "\
+ "   	void UpdateHVTPosition(CommentEntity marker, IEntity ent)"\
+ "	{"\
+ "		            "\
+ "        if (!IsAlive(ent))"\
+ "        {"\
+ "            // VEHICLE DEAD SECTION"\
+ "            GetGame().GetCallqueue().Remove(UpdateHVTPosition);"\
+ "        }"\
+ "		"\
+ " 	 if (!marker)"\
+ "		{"\
+ "			GetGame().GetCallqueue().Remove(UpdateHVTPosition); "\
+ "			return;"\
+ "		}"\
+ ""\
+ "		marker.SetOrigin(ent.GetOrigin());"\
+ "	"
+ m_sOwnerFactionKey "US"
+}
 $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
  east_C_2_spawnTrg {
   coords 7503.718 137.291 4743.801
@@ -10,6 +108,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_03 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -43,6 +142,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_04 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -76,6 +176,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_05 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -118,6 +219,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_06 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -162,6 +264,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_07 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -206,6 +309,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_08 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -250,6 +354,7 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     east_grp_C_09 {
      components {
       NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
+       m_bShouldStack 1
        m_rnDefaultPrefabs {
         CountSpawnsByOnlinePlayer "{5988C24ADAFEB581}" {
          prefab {
@@ -341,7 +446,10 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
  }
  east_C_HVT_spawnTrg {
   coords 7459.297 137.778 4721.476
-  SphereRadius 100
+  TriggerShapeType None
+  SphereRadius 0
+  TriggerActivationType None
+  PeriodicQueries 0
   m_bDelete 0
   m_faction "US"
   {
@@ -357,88 +465,6 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     m_Comment "HVT"
     m_Size 2
     m_VisibleIngame 1
-   }
-   SCR_BaseFactionTriggerEntity flee_HVT_trg {
-    components {
-     Hierarchy "{5998A33595E5DD85}" {
-     }
-     RplComponent "{597517701A5762C6}" {
-     }
-    }
-    coords 0 0 0
-    angleY -29.13
-    TriggerShapeType Sphere
-    SphereRadius 100
-    BoxMins 0 0 0
-    BoxMaxs 7 2 2.5
-    ShapeColor 0.502 0 0 0.392
-    TriggerActivationType "All changes"
-    PeriodicQueries 1
-    UpdatePeriod 2
-    ClassFilter "ChimeraCharacter"
-    OnActivate ""\
-    "		"\
-    "		//Show hint"\
-    "		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();"\
-    "		hintComponent.ShowCustomHint(\"The High Valuable Target flees from the battlefield. Chase him down!\", \"Chase the HVT\", 30);"\
-    "		"\
-    "		"\
-    "		//Attach marker to HVT for task tracking"\
-    "		RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
-    "		if (rplComponent && !rplComponent.IsProxy())"\
-    "  		GetWorld().QueryEntitiesBySphere(GetOrigin(), 10000, QueryHit, QueryFilter, EQueryEntitiesFlags.ALL);"\
-    " "\
-    "    }"\
-    "    "\
-    "    bool QueryFilter(IEntity ent)"\
-    "    {"\
-    "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
-    "        "\
-    "        if (!idComponent)"\
-    "            return false;"\
-    "        "\
-    "        return idComponent.GetIdentifier() == \"hvt\";"\
-    "    }"\
-    "    "\
-    "    bool QueryHit(IEntity ent)"\
-    "    {"\
-    "        CommentEntity marker = CommentEntity.Cast(GetWorld().FindEntityByName(\"marker_hvt\"));"\
-    "        "\
-    "        // If we can find the marker and hvt"\
-    "        if (marker)"\
-    "        {"\
-    "           "\
-    "            // Keep moving it"\
-    "			RplComponent rplComponent = RplComponent.Cast(FindComponent(RplComponent));"\
-    "			if (rplComponent && !rplComponent.IsProxy())"\
-    "            	GetGame().GetCallqueue().CallLater(UpdateHVTPosition, 1000, true, marker, ent);"\
-    "        }"\
-    "        "\
-    "        // Ends further queries as we will use the first match found"\
-    "        return false;"\
-    "		"\
-    "    "\
-    "   "\
-    "    }"\
-    "    "\
-    "   	void UpdateHVTPosition(CommentEntity marker, IEntity ent)"\
-    "	{"\
-    "		            "\
-    "        if (!IsAlive(ent))"\
-    "        {"\
-    "            // VEHICLE DEAD SECTION"\
-    "            GetGame().GetCallqueue().Remove(UpdateHVTPosition);"\
-    "        }"\
-    "		"\
-    " 	 if (!marker)"\
-    "		{"\
-    "			GetGame().GetCallqueue().Remove(UpdateHVTPosition); "\
-    "			return;"\
-    "		}"\
-    ""\
-    "		marker.SetOrigin(ent.GetOrigin());"\
-    "	"
-    m_sOwnerFactionKey "US"
    }
    GenericEntity east_grp_C_HVT : "{DAFA3AB9E07504D3}Prefabs/NO_DSF/Groups/SpawnAiGoToDefend.et" {
     components {
@@ -457,19 +483,19 @@ $grp NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et
     {
      SCR_AIWaypoint east_grp_C_HVT_WP3 {
       ID "59889B9007A41078"
-      coords -87.474 6.033 -306.214
+      coords -72.597 6.033 -306.214
      }
      SCR_AIWaypoint east_grp_C_HVT_WP2 {
       ID "59889B9007A4107B"
-      coords -170.096 -5.553 -180.329
+      coords -150.994 -5.553 -180.329
      }
      SCR_AIWaypoint east_grp_C_HVT_WP1 {
       ID "59889B9007A42CE1"
-      coords -155.711 -4.562 16.625
+      coords -133.037 -4.562 16.625
      }
      SCR_DefendWaypoint east_grp_C_HVT_WP4 {
       ID "59889B9007A45469"
-      coords 59.007 28.583 -392.829
+      coords 84.086 35.26 -387.884
       CompletionRadius 1
      }
     }
