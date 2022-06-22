@@ -1,6 +1,19 @@
 SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
  components {
   NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
+   m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{59AB0E10BB9D91FB}" {
+    m_bUseCustomDate 1
+    m_bUseCustomTime 1
+    m_bUseCustomWeather 1
+    m_bUseCustomLatitudeLongitude 1
+    m_iCustomYear 1985
+    m_iCustomMonth 9
+    m_iCustomDay 30
+    m_fCustomTimeOfTheDay 18.35
+    m_sCustomWeather Cloudy
+    m_fCustomLatitude 47
+    m_fCustomLongitude -27
+   }
    m_fCustomTimeOfTheDay 18.35
   }
   SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
@@ -596,47 +609,13 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       m_faction "US"
       m_bAssignToFactionOnStart 0
       {
-       SCR_BaseTriggerEntity east_supplyTruck_1_trg {
+       GenericEntity east_supplyTruck_1_trg : "{DC9B59BFF1B7A41D}Prefabs/NO_DTF/Triggers/DestroyAiOrVehicleTrigger.et" {
         components {
-         RplComponent "{598268EBE98907C8}" {
+         NO_SCR_TaskNamedObjectTriggerComponent "{59A0F6DCA0C8FAE0}" {
+          m_sTriggerNamedObject "typeSabotage_Truck_1"
          }
         }
-        angleY -49.068
-        userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
-        "    {"\
-        "        Vehicle vehicle = Vehicle.Cast(ent);"\
-        "        if (!vehicle) return false; // Not a vehicle"\
-        "        "\
-        "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
-        "        "\
-        "        if (!idComponent || idComponent.GetIdentifier() != \"supplyTruck_1\")"\
-        "            return false;"\
-        "        "\
-        "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
-        "        if (!damageComponent) return false; // No component"\
-        "        "\
-        "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
-        "    }"\
-        ""\
-        "	"\
-        "	"\
-        "    override void OnActivate(IEntity ent)"\
-        "    {"\
-        "		"\
-        "		//Finish Task 1"\
-        "		IEntity taskEntity = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_1\");"\
-        "        NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);"\
-        "		task.ChangeStateOfTask(TriggerType.Finish);"\
-        "		"\
-        "		IEntity triggerEntity = GetGame().GetWorld().FindEntityByName(\"east_supplyTrucks_trg\");"\
-        "		east_supplyTrucks_trg_Class triggerClass = east_supplyTrucks_trg_Class.Cast(triggerEntity);"\
-        "		triggerClass.globalZahl ++;"\
-        "		"\
-        "    }"
-        TriggerShapeType Sphere
-        SphereRadius 10
-        TriggerActivationType "All changes"
-        PeriodicQueries 1
+        coords -3.511 -2.544 3.712
        }
       }
      }
@@ -658,86 +637,27 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
       m_faction "US"
       m_bAssignToFactionOnStart 0
       {
-       SCR_BaseTriggerEntity east_supplyTruck_2_trg {
+       GenericEntity east_supplyTruck_2_trg : "{DC9B59BFF1B7A41D}Prefabs/NO_DTF/Triggers/DestroyAiOrVehicleTrigger.et" {
         components {
-         RplComponent "{598268EBE98907C8}" {
+         NO_SCR_TaskNamedObjectTriggerComponent "{59A0F6DCA0C8FAE0}" {
+          m_sTriggerNamedObject "typeSabotage_Truck_2"
          }
         }
-        angleY 33.104
-        userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
-        "    {"\
-        "        Vehicle vehicle = Vehicle.Cast(ent);"\
-        "        if (!vehicle) return false; // Not a vehicle"\
-        "        "\
-        "        NO_SCR_IdentifierComponent idComponent = NO_SCR_IdentifierComponent.Cast(ent.FindComponent(NO_SCR_IdentifierComponent));"\
-        "        "\
-        "        if (!idComponent || idComponent.GetIdentifier() != \"supplyTruck_2\")"\
-        "            return false;"\
-        "        "\
-        "        SCR_VehicleDamageManagerComponent damageComponent = SCR_VehicleDamageManagerComponent.Cast(ent.FindComponent(SCR_VehicleDamageManagerComponent));"\
-        "        if (!damageComponent) return false; // No component"\
-        "        "\
-        "        return damageComponent.IsDestroyed(); // Activate only if deystroyed"\
-        "    }"\
-        ""\
-        "    override void OnActivate(IEntity ent)"\
-        "    {"\
-        "		"\
-        "		//Finish Task 2"\
-        "		IEntity taskEntity = GetGame().GetWorld().FindEntityByName(\"tsk_main_B_2\");"\
-        "        NO_SCR_EditorTask task = NO_SCR_EditorTask.Cast(taskEntity);"\
-        "		task.ChangeStateOfTask(TriggerType.Finish);"\
-        "		"\
-        "		IEntity triggerEntity = GetGame().GetWorld().FindEntityByName(\"east_supplyTrucks_trg\");"\
-        "		east_supplyTrucks_trg_Class triggerClass = east_supplyTrucks_trg_Class.Cast(triggerEntity);"\
-        "		triggerClass.globalZahl ++;"\
-        "		"\
-        "    }"
-        TriggerShapeType Sphere
-        SphereRadius 10
-        TriggerActivationType "All changes"
-        PeriodicQueries 1
+        coords 5.463 -1.394 0.201
        }
       }
      }
     }
-    SCR_BaseTriggerEntity east_supplyTrucks_trg {
-     components {
-      RplComponent "{598268EBE98907C8}" {
-      }
-     }
-     coords 399.269 66.383 1096.433
-     angleY 33.104
-     userScript "	override bool ScriptedEntityFilterForQuery(IEntity ent)"\
-     "    {"\
-     "    "\
-     "		if (globalZahl == 2)"\
-     "		return true;"\
-     "		"\
-     "		return false;"\
-     "		"\
-     "    }"\
-     ""\
-     "	"\
-     "	int globalZahl = 0;"\
-     "	"\
-     "    override void OnActivate(IEntity ent)"\
-     "    {"\
-     "		"\
-     "			"\
-     "	//Enables exfil trigger"\
+    NO_SCR_TaskEventHandler east_supplyTrucks_eH : "{6215DAC2B0860A62}Prefabs/NO_DTF/TaskEventHandler.et" {
+     coords -15.121 -0.456 -6.537
+     OnFinishTask ""\
      "		NO_SCR_PlayerTriggerEntity trigger = NO_SCR_PlayerTriggerEntity.Cast(GetGame().GetWorld().FindEntityByName(\"tsk_main_B_3_trg\"));"\
      "			if(trigger)"\
      "			trigger.SetActive(true);"\
      "		"\
      "		vector triggerToLocation = GetWorld().FindEntityByName(\"tsk_main_B_3_trg\").GetOrigin();"\
      "       GetWorld().FindEntityByName(\"countdown_trg\").SetOrigin(triggerToLocation);"\
-     "		"\
-     "    }"
-     TriggerShapeType Sphere
-     SphereRadius 10
-     TriggerActivationType "All changes"
-     PeriodicQueries 1
+     "	"
     }
    }
   }

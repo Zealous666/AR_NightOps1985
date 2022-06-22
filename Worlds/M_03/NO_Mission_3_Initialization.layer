@@ -1,4 +1,19 @@
 SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
+ components {
+  NO_SCR_ForceTimeAndWeatherComponent "{598463A47C89F035}" {
+   m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{59AB0E1546F5124E}" {
+    m_bUseCustomDate 1
+    m_bUseCustomTime 1
+    m_bUseCustomWeather 1
+    m_bUseCustomLatitudeLongitude 1
+    m_iCustomYear 1985
+    m_iCustomMonth 9
+    m_iCustomDay 30
+    m_fCustomLatitude 47
+    m_fCustomLongitude -27
+   }
+  }
+ }
  coords 5289.364 0 3741.183
  {
   SCR_AIWorld {
@@ -8,52 +23,6 @@ SCR_BaseGameMode NO_CoopSetup1 : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" 
      NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
       NavmeshFile "{AD5F99CD7C59D5E0}worlds/GameMaster/Navmeshes/GM_Eden.nmn"
      }
-    }
-   }
-  }
- }
-}
-SCR_BaseTriggerEntity WPtest_trg {
- coords 5057.48 15.134 3976.169
- userScript "    // Set up the filter"\
- "    override bool ScriptedEntityFilterForQuery(IEntity ent) {"\
- "        SCR_ChimeraCharacter cc = SCR_ChimeraCharacter.Cast(ent);"\
- "        if (!cc) return false; // If the entity is not a person, filter it out"\
- "        if (cc.GetFactionKey() != \"US\") return false; // If the entity does not have the Faction key of USSR, filter it out"\
- "        if (!IsAlive(cc)) return false; // If the entity is dead, filter it out"\
- "        return true; // Otherwise, include it!"\
- "    }"
- TriggerShapeType Sphere
- SphereRadius 10
- DrawShape 1
- TriggerActivationType "First change"
- PeriodicQueries 1
- ClassFilter "ChimeraCharacter"
- OnActivate ""\
- "		vector triggerToLocation = GetWorld().FindEntityByName(\"WPtest_pos\").GetOrigin();"\
- "       GetWorld().FindEntityByName(\"WPtest_wp\").SetOrigin(triggerToLocation);"\
- "	"
-}
-SCR_Position WPtest_pos {
- coords 4967.634 15.5 3988.004
-}
-NO_SCR_SpawnTrigger : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
- coords 5096.428 14.654 3970.302
- TriggerShapeType None
- TriggerActivationType None
- PeriodicQueries 0
- m_bDelete 0
- {
-  GenericEntity : "{1F6605BF2EBE43B8}Prefabs/NO_DSF/Groups/SpawnAiDefend.et" {
-   components {
-    NO_SCR_AISpawnerComponent "{59889B97C35F8467}" {
-     m_bSpawnImmediately 1
-    }
-   }
-   coords -1.47 -0.158 -2.425
-   {
-    SCR_DefendWaypoint WPtest_wp {
-     ID "59889B9006450E17"
     }
    }
   }

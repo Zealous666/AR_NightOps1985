@@ -1,15 +1,27 @@
-Vehicle M923_comTruck1 : "{033C909B183F4149}Prefabs/Vehicles/Wheeled/M923/M923_comTruck.et" {
- components {
-  SCR_VehicleDamageManagerComponent "{141326E9FD94FE40}" {
-   m_fVehicleDestroyDamage 21809.699
-  }
- }
- coords 5098.103 14.251 3998.936
- angleY 175.22
-}
 SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
  coords 5118.662 14.376 4013.996
  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
   Name "Morton"
+ }
+}
+NO_SCR_SpawnTrigger spawnCommandVehicle_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+ coords 5109.296 14.482 4001.941
+ {
+  GenericEntity spawnCommandVehicle : "{D8F00B5CFC8514F1}Prefabs/NO_DSF/Vehicles/SpawnVehicle.et" {
+   components {
+    NO_SCR_EnvSpawnerComponent "{59889B90E04F5D80}" {
+     m_rnDefaultPrefabs {
+      CountSpawnsByOnlinePlayer "{5988C249449C6C74}" {
+       prefab {
+        "{7B56073239381DF6}Prefabs/Vehicles/Wheeled/M923/CommandVehicle.et"
+       }
+      }
+     }
+     m_bSpawnImmediately 1
+    }
+   }
+   coords -13.615 0.445 -1.322
+   angleY 173.713
+  }
  }
 }

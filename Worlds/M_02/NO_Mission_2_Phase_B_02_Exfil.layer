@@ -141,6 +141,7 @@ NO_SCR_SpawnTrigger east_B_exfilWaves_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/Ba
    east_grp_B_07 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_bRespawn 1
       m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
@@ -172,6 +173,7 @@ NO_SCR_SpawnTrigger east_B_exfilWaves_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/Ba
    east_grp_B_08 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_bRespawn 1
       m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {
@@ -203,6 +205,7 @@ NO_SCR_SpawnTrigger east_B_exfilWaves_trg : "{8E854CB7405795E8}Prefabs/NO_DSF/Ba
    east_grp_B_09 {
     components {
      NO_SCR_AISpawnerComponent "{59889B97EB1965B4}" {
+      m_bRespawn 1
       m_bShouldStack 1
       m_rnDefaultPrefabs {
        CountSpawnsByOnlinePlayer "{5988C24B16A735BB}" {

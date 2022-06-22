@@ -242,13 +242,3 @@ GameEntity : "{D9842C11742C00CF}Prefabs/Props/Civilian/Fireplace_01.et" {
  }
  coords 11391.887 69.406 11190.097
 }
-$grp GenericEntity : "{EDE6EC8B05227E3E}Prefabs/Systems/Arsenal/ArsenalBoxes/USSR/ArsenalBox_USSR.et" {
- {
-  coords 11483.92 1.856 10915.643
-  angleY 80.626
- }
- {
-  coords 11381.307 69.407 11194.859
-  angleY -8.164
- }
-}
