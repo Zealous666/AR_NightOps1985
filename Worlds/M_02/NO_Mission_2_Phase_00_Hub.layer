@@ -49,23 +49,23 @@ GenericEntity radio_hub : "{34736979381CA219}Prefabs/Props/Military/Radios/Radio
      Duration 3
      m_sOnMissionText "IN PROGRESS"
     }
-    NO_SCR_OpHitman_Action "{598EB03CE2E1EDB1}" {
-     ParentContextList {
-      "default"
-     }
-     UIInfo UIInfo "{598EB03CFD2979F9}" {
-      Name "Start Operation: HITMAN"
-     }
-     Duration 3
-     "Sort Priority" 1
-     m_sOnMissionText "IN PROGRESS"
-    }
     NO_SCR_OpSabotage_Action "{598EB03CE15675FA}" {
      ParentContextList {
       "default"
      }
      UIInfo UIInfo "{598EB03CF1A706B5}" {
       Name "Start Operation: SABOTAGE"
+     }
+     Duration 3
+     "Sort Priority" 1
+     m_sOnMissionText "IN PROGRESS"
+    }
+    NO_SCR_OpHitman_Action "{598EB03CE2E1EDB1}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{598EB03CFD2979F9}" {
+      Name "Start Operation: HITMAN"
      }
      Duration 3
      "Sort Priority" 2

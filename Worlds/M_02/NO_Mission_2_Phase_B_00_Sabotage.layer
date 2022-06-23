@@ -31,6 +31,7 @@ NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
   }
  }
  m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomTime 1
   m_bUseCustomWeather 1
   m_pOrTimeSkip NO_SCR_SimpleTimeSkipEntry "{59AF0E2B06D99E49}" {
    m_iSkipTimeByHours 2
