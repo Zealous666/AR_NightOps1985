@@ -1,67 +1,52 @@
-$grp NO_SCR_MissionTrigger : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
- infil_B_trg {
-  coords 10918.894 19.46 8798.98
-  SphereRadius 20
-  DrawShape 0
-  UpdatePeriod 1
-  m_bIsActive 0
-  m_sNOSpawnTriggerNames {
-   "east_B_1_spawnTrg" "east_B_trucks_spawnTrg"
+NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+ coords 10918.894 19.46 8798.98
+ SphereRadius 20
+ DrawShape 0
+ UpdatePeriod 1
+ m_bIsActive 0
+ m_sNOSpawnTriggerNames {
+  "east_B_1_spawnTrg" "east_B_trucks_spawnTrg"
+ }
+ m_aTaskStateChanges {
+  NO_SCR_TaskStateChangeEntry "{59A92B363273B6C0}" {
+   m_sTaskEntityName "tsk_main_B_0"
   }
-  m_aTaskStateChanges {
-   NO_SCR_TaskStateChangeEntry "{59A92B363273B6C0}" {
-    m_sTaskEntityName "tsk_main_B_0"
-   }
-   NO_SCR_TaskStateChangeEntry "{59A92B3633F321BB}" {
-    m_sTaskEntityName "tsk_main_B_1"
-    m_eTaskState Assign
-   }
-   NO_SCR_TaskStateChangeEntry "{59A92B3633B69971}" {
-    m_sTaskEntityName "tsk_main_B_2"
-    m_eTaskState Create
-   }
+  NO_SCR_TaskStateChangeEntry "{59A92B3633F321BB}" {
+   m_sTaskEntityName "tsk_main_B_1"
+   m_eTaskState Assign
   }
-  m_aSpawnpointChanges {
-   NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
-    m_sSpawnpointName "spawnPoint_hub"
-    m_sFactionKey "0"
-   }
-   NO_SCR_SpawnpointChangeEntry "{5998ECCB9F7772A4}" {
-    m_sSpawnpointName "spawnPoint_B_0"
-    m_sFactionKey "US"
-   }
-  }
-  m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{5989330A3B8D21AE}" {
-   m_iSkipTimeByHours 2
-  }
-  m_bEnableTeleport 1
-  m_pCustomHint SCR_HintUIInfo "{59A6DC7B195B0B8D}" {
-   Name "Travel"
-   Description "Travelling to infil area"
-   m_fDuration 10
-  }
-  {
-   SCR_Position infilLoc_B : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
-    coords -4277.922 62.891 -3143.034
-    angleY 90.077
-   }
+  NO_SCR_TaskStateChangeEntry "{59A92B3633B69971}" {
+   m_sTaskEntityName "tsk_main_B_2"
+   m_eTaskState Create
   }
  }
- infil_B_weather_trg {
-  coords 6581.917 95.741 5601.854
-  SphereRadius 100
-  DrawShape 0
-  m_PlayerTriggerQuota SINGLE
-  m_bIsActive 0
-  m_aActivateOnTaskState {
-   NO_SCR_TaskStateActivatorEntry "{59A8B0E4D92987C2}" {
-    m_sTaskEntityName "tsk_main_B_1"
-    m_eTaskState Create
-   }
+ m_aSpawnpointChanges {
+  NO_SCR_SpawnpointChangeEntry "{5989330BEFE03D54}" {
+   m_sSpawnpointName "spawnPoint_hub"
+   m_sFactionKey "0"
   }
-  m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{59A8B0E5EBA66488}" {
-   m_bUseCustomWeather 1
-   m_sCustomWeather Overcast
+  NO_SCR_SpawnpointChangeEntry "{5998ECCB9F7772A4}" {
+   m_sSpawnpointName "spawnPoint_B_0"
+   m_sFactionKey "US"
+  }
+ }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{5989330A3B8D21AE}" {
+  m_bUseCustomWeather 1
+  m_pOrTimeSkip NO_SCR_SimpleTimeSkipEntry "{59AF0E2B06D99E49}" {
+   m_iSkipTimeByHours 2
+  }
+  m_sCustomWeather Overcast
+ }
+ m_bEnableTeleport 1
+ m_pCustomHint SCR_HintUIInfo "{59A6DC7B195B0B8D}" {
+  Name "Travel"
+  Description "Travelling to infil area"
+  m_fDuration 10
+ }
+ {
+  SCR_Position infilLoc_B : "{68C0C31F6FAD7C2E}Prefabs/MP/NO_MissionTriggerPortPos.et" {
+   coords -4277.922 62.891 -3143.034
+   angleY 90.077
   }
  }
 }
