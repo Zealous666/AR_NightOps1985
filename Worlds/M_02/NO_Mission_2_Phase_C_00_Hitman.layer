@@ -7,6 +7,9 @@ NO_SCR_MissionTrigger infil_C_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  m_sNOSpawnTriggerNames {
   "east_C_1_spawnTrg"
  }
+ m_sNODespawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
  m_aTaskStateChanges {
   NO_SCR_TaskStateChangeEntry "{59A92B36D46EAC02}" {
    m_sTaskEntityName "tsk_main_C_0"

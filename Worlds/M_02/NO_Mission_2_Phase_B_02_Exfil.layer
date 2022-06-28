@@ -82,6 +82,9 @@ NO_SCR_MissionTrigger exfil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  UpdatePeriod 1
  m_bIsActive 0
  m_fDelay 3
+ m_sNOSpawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
  m_sNODespawnTriggerNames {
   "east_B_1_spawnTrg" "east_B_trucks_spawnTrg" "east_B_exfilWaves_trg"
  }
@@ -103,7 +106,6 @@ NO_SCR_MissionTrigger exfil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  m_aEndMissionSelections {
   "Start Operation: SABOTAGE"
  }
- m_sWaypointLocationName "radio_hub"
  m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{599B475696409CAB}" {
   m_iSkipTimeByHours 1
  }

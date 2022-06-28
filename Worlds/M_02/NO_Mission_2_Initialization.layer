@@ -6,6 +6,8 @@ SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
     m_bUseCustomTime 1
     m_bUseCustomWeather 1
     m_bUseCustomLatitudeLongitude 1
+    m_bTimeAdvancement 0
+    m_bWeatherAdvancement 0
     m_iCustomYear 1985
     m_iCustomMonth 9
     m_iCustomDay 30
@@ -99,23 +101,6 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
  coords 10707.897 0 8798.141
  {
   $grp NO_SCR_EditorTask {
-   tsk_hub {
-    components {
-     Hierarchy "{5996A6AE3DA106FD}" {
-     }
-     SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
-     }
-     RplComponent "{5996A6AE3DA106F6}" {
-     }
-    }
-    coords 177.037 10.692 -111.245
-    m_sName "Interact with radio in BlackOps hideout"
-    m_sDescription "Interact with the radio in the BlackOps hideout and decide which night operation to start."
-    m_sMapIconName "Icon_Task_Custom"
-    m_sTaskListIconName "Icon_Task_Custom"
-    m_iTaskCompletionType ALWAYS_MANUAL
-    m_faction "US"
-   }
    tsk_main_A_0 {
     components {
      Hierarchy "{5996A6AE3DA106FD}" {
@@ -658,6 +643,30 @@ NO_SCR_TaskManager NO_TaskManager : "{2DF590FC1A531940}Prefabs/NO_DTF/TaskManage
      "		vector triggerToLocation = GetWorld().FindEntityByName(\"tsk_main_B_3_trg\").GetOrigin();"\
      "       GetWorld().FindEntityByName(\"countdown_trg\").SetOrigin(triggerToLocation);"\
      "	"
+    }
+   }
+  }
+  NO_SCR_SpawnTrigger tsk_hub_spawnTrg : "{8E854CB7405795E8}Prefabs/NO_DSF/BaseSpawnTrigger.et" {
+   coords 177.185 10.786 -111.273
+   TriggerShapeType None
+   TriggerActivationType None
+   PeriodicQueries 0
+   m_bDelete 0
+   m_faction "US"
+   {
+    GenericEntity tsk_hub_spawner : "{E978859D5910DAB4}Prefabs/NO_DSF/Trigger/SpawnAnything.et" {
+     components {
+      NO_SCR_EnvSpawnerComponent "{598730FA1CED2F4D}" {
+       m_rnDefaultPrefabs {
+        CountSpawnsByOnlinePlayer "{59B6AA112B889D16}" {
+         prefab {
+          "{3E1505D4F38288C5}Prefabs/m2_tsk_hub.et"
+         }
+        }
+       }
+      }
+     }
+     coords 0.013 -0.092 0.025
     }
    }
   }

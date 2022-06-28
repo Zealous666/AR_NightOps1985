@@ -6,6 +6,8 @@ SCR_BaseGameMode NO_CoopSetup : "{AAD8DA66980A1D77}Prefabs/MP/NO_CoopSetup.et" {
     m_bUseCustomTime 1
     m_bUseCustomWeather 1
     m_bUseCustomLatitudeLongitude 1
+    m_bTimeAdvancement 0
+    m_bWeatherAdvancement 0
     m_iCustomYear 1986
     m_iCustomMonth 9
     m_iCustomDay 30

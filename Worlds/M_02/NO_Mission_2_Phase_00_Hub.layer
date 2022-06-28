@@ -178,6 +178,17 @@ $grp GameEntity : "{50E6A3845C9F20FD}Prefabs/Props/Military/Camps/LanternMilitar
   }
  }
 }
+NO_SCR_MissionTrigger initial_missionTrigger : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+ coords 10840.25 8.092 8728.144
+ SphereRadius 25
+ DrawShape 0
+ m_PlayerTriggerQuota SINGLE
+ m_sNOSpawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{59B6AA10456159D2}" {
+ }
+}
 SCR_SpawnPoint spawnPoint_hub : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
  coords 10841.143 8.261 8733.547
  angleY -95.251

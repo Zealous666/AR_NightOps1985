@@ -5,8 +5,17 @@ NO_SCR_MissionTrigger exfil_C_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  UpdatePeriod 1
  m_bIsActive 0
  m_fDelay 3
+ m_sNOSpawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
  m_sNODespawnTriggerNames {
   "east_C_1_spawnTrg" "east_C_2_spawnTrg" "east_C_HVT_spawnTrg" "east_C_bonus_spawnTrg"
+ }
+ m_aTaskStateChanges {
+  NO_SCR_TaskStateChangeEntry "{59B6AA141131D6E6}" {
+   m_sTaskEntityName "tsk_bonus_C"
+   m_eTaskState Fail
+  }
  }
  m_aSpawnpointChanges {
   NO_SCR_SpawnpointChangeEntry "{5990A12B59A156D6}" {
@@ -30,7 +39,6 @@ NO_SCR_MissionTrigger exfil_C_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  m_aEndMissionSelections {
   "Start Operation: HITMAN"
  }
- m_sWaypointLocationName "radio_hub"
  m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{59A8B0E1515C0974}" {
   m_iSkipTimeByHours 1
  }

@@ -7,6 +7,9 @@ NO_SCR_MissionTrigger infil_B_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  m_sNOSpawnTriggerNames {
   "east_B_1_spawnTrg" "east_B_trucks_spawnTrg"
  }
+ m_sNODespawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
  m_aTaskStateChanges {
   NO_SCR_TaskStateChangeEntry "{59A92B363273B6C0}" {
    m_sTaskEntityName "tsk_main_B_0"

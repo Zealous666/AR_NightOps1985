@@ -5,6 +5,9 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  UpdatePeriod 1
  m_bIsActive 0
  m_fDelay 3
+ m_sNOSpawnTriggerNames {
+  "tsk_hub_spawnTrg"
+ }
  m_sNODespawnTriggerNames {
   "east_A_1_spawnTrg" "east_A_2_spawnTrg" "east_A_03_spawnTrg" "east_A_bonus_spawnTrg" "bonus_A_spawnTrg"
  }
@@ -40,7 +43,6 @@ NO_SCR_MissionTrigger exfil_A_trg : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_Mi
  m_aEndMissionSelections {
   "Start Operation: INTEL"
  }
- m_sWaypointLocationName "radio_hub"
  m_pChangeTimeAndWeather NO_SCR_SimpleTimeSkipEntry "{59A8B0E6B43A9040}" {
   m_iSkipTimeByHours 1
  }

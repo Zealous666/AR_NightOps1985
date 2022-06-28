@@ -64,6 +64,14 @@ GenericEntity insertionBoat : "{4923E218F59644B9}Prefabs/Props/Wrecks/BoatWreck_
  angleY -11.04
  scale 1.767
 }
+NO_SCR_MissionTrigger initial_missionTrigger : "{52FA44EBEB3115FC}Prefabs/MP/Triggers/NO_MissionTrigger.et" {
+ coords 11585.116 3.317 10883.176
+ SphereRadius 25
+ DrawShape 0
+ m_PlayerTriggerQuota SINGLE
+ m_pChangeTimeAndWeather NO_SCR_ForceTimeAndWeatherEntry "{59B6AA10456159D2}" {
+ }
+}
 SCR_SpawnPoint spawnPoint_0 : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
  coords 11586.85 3.033 10880.752
  m_fSpawnRadius 3

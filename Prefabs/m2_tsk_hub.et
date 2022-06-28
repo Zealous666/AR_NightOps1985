@@ -1,0 +1,21 @@
+NO_SCR_EditorTask {
+ ID "59B6AA1169F485E6"
+ components {
+  Hierarchy "{5996A6AE3DA106FD}" {
+  }
+  NO_SCR_DTFRenamerComponent "{59B6AA117169F2F7}" {
+   m_sNewName "tsk_hub"
+  }
+  SCR_MapDescriptorComponent "{5996B6B7624B4960}" {
+  }
+  RplComponent "{5996A6AE3DA106F6}" {
+  }
+ }
+ coords 177.037 10.692 -111.245
+ m_sName "Interact with radio in BlackOps hideout"
+ m_sDescription "Interact with the radio in the BlackOps hideout and decide which night operation to start."
+ m_sMapIconName "Icon_Task_Custom"
+ m_sTaskListIconName "Icon_Task_Custom"
+ m_iTaskCompletionType ALWAYS_MANUAL
+ m_faction "US"
+}
